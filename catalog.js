@@ -80,10 +80,9 @@ window.ASP = (() => {
   // Linha completa (lançamentos + clássicos), filtrada por família, nunca por sintoma
   const LINE = [
     ...SKUS.map(s => ({ sku: s.id, tags: ['novo', s.fam] })),
-    { id: 'aspirina-500', name: 'Aspirina 500 mg', ativo: 'Ácido acetilsalicílico 500 mg', desc: 'O clássico, em comprimidos de 500 mg desde 1900.', tags: ['classico'], color: '#0E7C3A' },
-    { id: 'aspirina-c', name: 'Aspirina C', ativo: 'AAS 400 mg + vitamina C 240 mg', desc: 'Comprimido efervescente com vitamina C.', tags: ['classico'], color: '#E89B12' },
-    { id: 'cafiaspirina', name: 'CafiAspirina', ativo: 'AAS 650 mg + cafeína 65 mg', desc: 'Ácido acetilsalicílico com cafeína, em comprimidos.', tags: ['classico'], color: '#B8202E' },
-    { id: 'prevent', name: 'Aspirina Prevent', ativo: 'AAS 100 mg e 300 mg', desc: 'Linha de baixa dosagem. Uso sob orientação médica.', tags: ['classico'], color: '#9A1B3A' }
+    { id: 'aspirina-500', name: 'Aspirina 500 mg', ativo: 'Ácido acetilsalicílico 500 mg', desc: 'O clássico, em comprimidos de 500 mg desde 1900. Caixa com 20 comprimidos.', tags: ['classico'], color: '#0E8F72', img: 'assets/produtos/aspirina-500.webp', w: 558, h: 319 },
+    { id: 'aspirina-c', name: 'Aspirina C', ativo: 'AAS 400 mg + ácido ascórbico 240 mg', desc: 'Comprimido efervescente sabor limão. Caixa com 10 comprimidos.', tags: ['classico'], color: '#E8C21A', img: 'assets/produtos/aspirina-c.webp', w: 900, h: 673 },
+    { id: 'cafiaspirina', name: 'CafiAspirina', ativo: 'Ácido acetilsalicílico + cafeína', desc: 'Ácido acetilsalicílico com cafeína, em comprimidos. Caixa com 20 comprimidos.', tags: ['classico'], color: '#D7262F', img: 'assets/produtos/cafiaspirina.webp', w: 419, h: 254 }
   ];
 
   const FAQ = [

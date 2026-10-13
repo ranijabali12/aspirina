@@ -781,6 +781,7 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .palette__item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; align-items: center; gap: var(--s-2); padding: var(--s-1) 12px; border-radius: 12px; cursor: pointer; transition: background var(--t-fast) var(--ease); }
 .palette__item.is-sel { background: var(--bg-2); }
 .palette__item .flat { width: 56px; }
+.palette__img { width: 56px; height: 32px; object-fit: contain; }
 .palette__ic { width: 56px; height: 32px; display: grid; place-items: center; border-radius: 8px; background: var(--bg); font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
 .palette__item b { display: block; font-weight: 600; font-size: var(--t-14); }
 .palette__item span { font-size: var(--t-12); color: var(--muted); }
@@ -891,3 +892,39 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .gl-on .viewer__obj, .gl-on .viewer__shadow { display: none; }
 .orbit > canvas.gl { opacity: 0; transition: opacity var(--t-slow) var(--ease); }
 .orbit.is-ready > canvas.gl { opacity: 1; }
+
+/* ---------- Fotos dos clássicos ---------- */
+.card__photo { width: auto; max-width: 88%; max-height: 172px; object-fit: contain; filter: drop-shadow(0 18px 18px rgba(0, 30, 25, .28)); transform: rotate(-2deg); transition: transform var(--t-slow) var(--ease); }
+.card:hover .card__photo { transform: translateY(-8px) rotate(0); }
+.classics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-2); }
+.classic-item {
+  position: relative; overflow: hidden;
+  display: grid; gap: 4px; justify-items: start; text-align: left;
+  padding: var(--s-3);
+  border-radius: var(--r-3);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: box-shadow var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+}
+.classic-item:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px var(--line), var(--shadow); }
+.classic-item__stage {
+  width: 100%; height: 220px; margin-bottom: var(--s-2);
+  display: grid; place-items: center;
+  border-radius: var(--r-2);
+  background: radial-gradient(60% 60% at 50% 62%, color-mix(in srgb, var(--c) 18%, transparent), transparent 72%), var(--bg);
+}
+.classic-item__stage img { width: auto; max-width: 86%; max-height: 180px; object-fit: contain; filter: drop-shadow(0 20px 18px rgba(0, 30, 25, .3)); animation: drift 6s ease-in-out infinite; animation-delay: calc(var(--i) * -2s); }
+@keyframes drift { 0%, 100% { translate: 0 0; rotate: -1.5deg; } 50% { translate: 0 -10px; rotate: 1deg; } }
+.classic-item:hover .classic-item__stage img { animation-play-state: paused; }
+.classic-item__name { font-family: var(--f-display); font-weight: 800; font-style: italic; font-size: var(--t-24); text-transform: uppercase; line-height: 1; }
+.classic-item__ativo { font-family: var(--f-mono); font-size: var(--t-12); color: var(--muted); }
+.lite .classic-item__stage img { animation: none; }
+@media (max-width: 960px) { .classics { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+  /* No celular, os clássicos viram um carrossel deslizante */
+  .classics { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) var(--s-1); scroll-padding-inline: var(--gutter); }
+  .classics::-webkit-scrollbar { display: none; }
+  .classic-item { flex: 0 0 82%; scroll-snap-align: start; }
+  .classic-item__stage { height: 170px; }
+}
+.section__head--row > .btn { justify-self: start; }
