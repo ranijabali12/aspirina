@@ -90,6 +90,7 @@ window.ASP = (() => {
     ['Qual a diferença para a Aspirina tradicional?', 'O princípio ativo. A Aspirina tradicional tem ácido acetilsalicílico (AAS). AspDip tem dipirona e AspMol tem paracetamol, com a mesma assinatura Bayer.'],
     ['Qual a diferença entre AspMol 500 mg e 750 mg?', 'A quantidade de paracetamol em cada comprimido. Os dois vêm em caixas com 20 comprimidos.'],
     ['Qual o sabor do AspDip gotas?', 'Abacaxi. A solução vem em frasco gotejador de 20 mL, e 20 gotas equivalem a 1 mL.'],
+    ['O que tem em cada clássico?', 'Aspirina 500 mg tem ácido acetilsalicílico 500 mg, em caixa com 20 comprimidos. Aspirina C tem ácido acetilsalicílico 400 mg e ácido ascórbico (vitamina C) 240 mg, em 10 comprimidos efervescentes sabor limão. CafiAspirina tem ácido acetilsalicílico 650 mg e cafeína 65 mg, em comprimidos.'],
     ['Preciso de receita?', 'São medicamentos isentos de prescrição. Mesmo assim, leia a bula e fale com um farmacêutico ou médico antes de usar.'],
     ['Onde encontro a bula?', 'Dentro de cada embalagem e no Bulário Eletrônico da Anvisa, no site consultas.anvisa.gov.br.'],
     ['O que é a #ASPergunta?', 'É a campanha de 2026 com Dani Calabresa que apresenta AspDip e AspMol. A assinatura é “Dos mesmos criadores da Aspirina. É Bayer, é bom.”']
@@ -650,14 +651,14 @@ window.ASP = (() => {
   }
 
   const CLASSICS = [
-    { id: 'aspirina-500', name: 'Aspirina 500 mg', word: 'ASPIRINA', ativo: 'Ácido acetilsalicílico 500 mg', qtyLabel: '20 comprimidos', main: '#0E8C72',
+    { id: 'aspirina-500', name: 'Aspirina 500 mg', word: 'ASPIRINA', ativo: 'Ácido acetilsalicílico 500 mg', qtyLabel: '20 comprimidos', main: '#0E8C72', principio: 'Ácido acetilsalicílico (AAS)', dose: '500 mg', form: 'Comprimidos', extra: 'Comprimido branco e redondo, com a cruz Bayer gravada', since: 'Em comprimido desde 1900', formula: 'C₉H₈O₄',
       desc: 'O clássico, em comprimidos de 500 mg desde 1900.', box: { w: 300, h: 135, d: 68 }, vb: 450, front: aspirinaFrontSVG,
       sides: { right: [['#0E8C72', 0, 1]], left: [['#11937A', 0, .08], ['#FFFFFF', .08, .7], ['#11937A', .7, 1]] }, top: ['#0F8F76', '#0B7D67'], bottom: '#0B7D67' },
-    { id: 'aspirina-c', name: 'Aspirina C', word: 'ASPIRINA C', ativo: 'AAS 400 mg + ácido ascórbico 240 mg', qtyLabel: '10 comprimidos efervescentes', main: '#0E8C72',
+    { id: 'aspirina-c', name: 'Aspirina C', word: 'ASPIRINA C', ativo: 'AAS 400 mg + ácido ascórbico 240 mg', qtyLabel: '10 comprimidos efervescentes', main: '#0E8C72', principio: 'Ácido acetilsalicílico + ácido ascórbico (vitamina C)', dose: '400 mg + 240 mg', form: 'Comprimidos efervescentes', extra: 'Sabor limão. Dissolve em água', formula: 'C₉H₈O₄ + C₆H₈O₆',
       desc: 'Comprimido efervescente sabor limão.', box: { w: 270, h: 180, d: 78 }, vb: 667, front: aspirinaCFrontSVG,
       sides: { right: [['#0C8069', 0, 1]], left: [['#13957B', 0, .05], ['#FFFFFF', .05, .55], ['#F0CF1E', .55, .75], ['#13957B', .75, 1]] }, top: ['#0F8F76', '#0A7C66'], bottom: '#0A7C66' },
-    { id: 'cafiaspirina', name: 'CafiAspirina', word: 'CAFIASPIRINA', ativo: 'Ácido acetilsalicílico + cafeína', qtyLabel: '20 comprimidos', main: '#DC2130',
-      desc: 'Ácido acetilsalicílico com cafeína, em comprimidos.', box: { w: 320, h: 128, d: 62 }, vb: 400, front: cafiFrontSVG,
+    { id: 'cafiaspirina', name: 'CafiAspirina', word: 'CAFIASPIRINA', ativo: 'AAS 650 mg + cafeína 65 mg', qtyLabel: '20 comprimidos', main: '#DC2130', principio: 'Ácido acetilsalicílico + cafeína', dose: '650 mg + 65 mg', form: 'Comprimidos', extra: 'Uso adulto. Também em envelope com 4 comprimidos', formula: 'C₉H₈O₄ + C₈H₁₀N₄O₂',
+      desc: 'Ácido acetilsalicílico com cafeína, em comprimidos de 650 mg + 65 mg.', box: { w: 320, h: 128, d: 62 }, vb: 400, front: cafiFrontSVG,
       sides: { right: [['#FFFFFF', 0, .42], ['#8B9396', .42, .45], ['#DC2130', .45, 1]], left: [['#FFFFFF', 0, .4], ['#8B9396', .4, .43], ['#E2232F', .43, 1]] }, top: ['#F4F5F5', '#DADDDE'], bottom: '#C81C28' }
   ];
   CLASSICS.forEach(c => { c.classic = true; c.back = () => classicBackSVG(c); });

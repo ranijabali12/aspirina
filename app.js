@@ -110,6 +110,7 @@
     if (!el) return;
     e.preventDefault();
     if (el.dataset.sku) selectSku(el.dataset.sku);
+    if (el.dataset.cls) selectClassic(el.dataset.cls);
     go(el.dataset.go, { scrollTo: el.dataset.scroll || null, hash: el.dataset.sku || null });
   });
   $('.tabs').addEventListener('keydown', e => {
@@ -285,6 +286,7 @@
       GL = api;
       document.documentElement.classList.add('gl-on');
       GL.viewer.setProduct(sku, true);
+      if (GL.viewer2) GL.viewer2.setProduct(cls, true);
     } else {
       buildCssOrbit();
       if (sku) { viewerObj.innerHTML = product3D(sku); }
@@ -455,7 +457,7 @@
       <button class="sku" role="option" data-id="${s.id}" style="--i:${i}" aria-selected="false">
         ${flat(s)}<div><b>${s.drops ? 'Gotas ' + s.dose : s.dose}</b><span>${s.qtyLabel}</span></div>
       </button>`).join('');
-    $$('.sku').forEach(b => b.addEventListener('click', () => { selectSku(b.dataset.id); history.replaceState(null, '', '#' + b.dataset.id); }));
+    $$('#skuList .sku').forEach(b => b.addEventListener('click', () => { selectSku(b.dataset.id); history.replaceState(null, '', '#' + b.dataset.id); }));
     if (!keepSku) selectSku(list[0].id);
   }
 
@@ -465,7 +467,7 @@
     if (s.fam !== fam) setFamily(s.fam, true);
     const changed = s !== sku || (!GL && !viewerObj.firstElementChild);
     sku = s;
-    $$('.sku').forEach(b => { const on = b.dataset.id === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
+    $$('#skuList .sku').forEach(b => { const on = b.dataset.id === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     renderSheet(s);
     if (!changed) return;
     if (GL) {
@@ -607,11 +609,66 @@
 
   /* ---------- Clássicos no início ---------- */
   $('#classics').innerHTML = CLASSICS.map((p, i) => `
-    <button class="classic-item reveal" data-go="produtos" data-cursor="ver" style="--c:${p.main};--i:${i}" data-ci="${i}">
+    <button class="classic-item reveal" data-go="produtos" data-cls="${p.id}" data-scroll="classica" data-cursor="ver" style="--c:${p.main};--i:${i}" data-ci="${i}">
       <span class="classic-item__stage" data-cls="${p.id}">${classicFlat(p)}</span>
       <span class="classic-item__name">${p.name}</span>
       <span class="classic-item__ativo">${p.ativo}</span>
     </button>`).join('');
+
+  /* ---------- Linha clássica: lista, ficha e visualizador ---------- */
+  let cls = CLASSICS[0];
+  $('#skuList2').innerHTML = CLASSICS.map((c, i) => `
+    <button class="sku" role="option" data-cid="${c.id}" style="--i:${i}" aria-selected="false">
+      ${classicFlat(c)}<div><b>${c.name}</b><span>${c.qtyLabel}</span></div>
+    </button>`).join('');
+  $$('#skuList2 .sku').forEach(b => b.addEventListener('click', () => selectClassic(b.dataset.cid)));
+  function selectClassic(id, instant) {
+    const c = clsById(id);
+    if (!c) return;
+    const changed = c !== cls;
+    cls = c;
+    $$('#skuList2 .sku').forEach(b => { const on = b.dataset.cid === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
+    $('#classica').style.setProperty('--fam', c.main);
+    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', 'Leia a bula antes de usar']];
+    $('#sheet2').innerHTML = `
+      <div class="sheet__head">
+        <span class="eyebrow">Ficha do produto</span>
+        <h3 class="sheet__name">${c.name}</h3>
+        <span class="sheet__formula">${c.formula}</span>
+      </div>
+      <dl>${rows.map(([k, v], i) => `<div class="sheet__row" style="--i:${i}"><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
+    if (GL && GL.viewer2 && (changed || instant)) { GL.viewer2.setProduct(c, instant || reduced); if (changed && !instant && !reduced) cy += 360; }
+  }
+  // giro do visualizador clássico
+  const viewer2 = $('#viewer2');
+  let cx = -10, cy = -24, rcx = cx, rcy = cy, cDrag = false, clx = 0, cly = 0, cIdle = 0, cLock = 0, cRAF = null;
+  viewer2.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; cDrag = true; clx = e.clientX; cly = e.clientY; viewer2.setPointerCapture(e.pointerId); });
+  viewer2.addEventListener('pointermove', e => {
+    if (!cDrag) return;
+    cy += (e.clientX - clx) * .5; cx = clamp(cx - (e.clientY - cly) * .3, -45, 45);
+    clx = e.clientX; cly = e.clientY; cIdle = 0; cLock = 0;
+  });
+  ['pointerup', 'pointercancel'].forEach(t => viewer2.addEventListener(t, () => { cDrag = false; }));
+  $$('[data-view-angle2]').forEach(b => b.addEventListener('click', () => {
+    const base = Math.round((cy + 24) / 360) * 360;
+    cy = base + { front: -24, side: -90, back: 180 }[b.dataset.viewAngle2]; cx = -8; cIdle = 0; cLock = 240;
+  }));
+  let v2Visible = false;
+  new IntersectionObserver(([en]) => { v2Visible = en.isIntersecting; }).observe(viewer2);
+  function classicLoop(now = performance.now()) {
+    cRAF = requestAnimationFrame(classicLoop);
+    if (!GL || !GL.viewer2 || !v2Visible) return;
+    if (!cDrag) {
+      cIdle++;
+      if (cLock > 0) cLock--;
+      else if (cIdle > 90) { const base = Math.round((cy + 24) / 360) * 360 - 24; cy = lerp(cy, base + Math.sin(now / 1700) * 24, .03); }
+      cx = lerp(cx, -10, .02);
+    }
+    rcx = lerp(rcx, cx, .1); rcy = lerp(rcy, cy, .1);
+    const w = viewer2.clientWidth;
+    GL.viewer2.frame(now, rcx, rcy, Math.sin(now / 800) * 7, w < 420 ? .95 : w < 640 ? 1.05 : 1.3);
+  }
+  selectClassic(cls.id, true);
 
   let clsHover = -1;
   $('#classics').addEventListener('pointerover', e => { const b = e.target.closest('.classic-item'); clsHover = b ? +b.dataset.ci : -1; });
@@ -628,10 +685,10 @@
       </button>`;
     }
     const c = clsById(p.cls);
-    return `<article class="card" data-tags="${p.tags.join(' ')}" style="--c:${c.main}">
+    return `<button class="card" data-tags="${p.tags.join(' ')}" style="--c:${c.main}" data-go="produtos" data-cls="${c.id}" data-scroll="classica" data-cursor="abrir">
       <div class="card__art">${classicFlat(c)}</div>
       <div class="card__body"><h3>${c.name}</h3><p class="card__ing">${c.ativo} · ${c.qtyLabel}</p><p>${c.desc}</p></div>
-    </article>`;
+    </button>`;
   }).join('');
   const cards = $$('.card');
   $$('.filters .chip').forEach(f => {
@@ -807,7 +864,7 @@
   const index = [
     ...SKUS.map(s => ({ kind: 'sku', title: fullName(s), sub: `${s.ativo} · ${s.qtyLabel}`, text: `${fullName(s)} ${s.ativo} ${s.dose} ${s.form} ${s.extra} ${s.fam === 'dip' ? 'dipirona' : 'paracetamol'}`, run: () => { selectSku(s.id, true); go('lancamentos', { hash: s.id }); }, s })),
     ...order.map(id => ({ kind: 'tab', title: tabNames[id], sub: 'Ir para a aba', text: tabNames[id], run: () => go(id) })),
-    ...CLASSICS.map(c => ({ kind: 'line', title: c.name, sub: c.ativo, text: `${c.name} ${c.ativo} ${c.desc}`, cls: c, run: () => go('produtos') })),
+    ...CLASSICS.map(c => ({ kind: 'line', title: c.name, sub: c.ativo, text: `${c.name} ${c.ativo} ${c.desc} ${c.form}`, cls: c, run: () => { selectClassic(c.id); go('produtos', { scrollTo: 'classica' }); } })),
     ...FAQ.map(([q, a], i) => ({ kind: 'faq', title: q, sub: 'Dúvida frequente', text: `${q} ${a}`, run: () => openFaq(i) }))
   ];
   let results = [], sel = 0;
@@ -866,6 +923,8 @@
       qi = 0; typeLoop(); recClock();
     }
     if (id === 'historia') requestAnimationFrame(updateBar);
+    cancelAnimationFrame(cRAF); cRAF = null;
+    if (id === 'produtos') cRAF = requestAnimationFrame(classicLoop);
     onScroll();
   }
   document.addEventListener('visibilitychange', () => { if (!document.hidden) autoT0 = performance.now(); });

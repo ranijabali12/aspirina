@@ -408,36 +408,41 @@ export async function create({ lite }) {
     pick(x, y) { return orbit.pick(x, y, items); }
   };
 
-  // Lançamentos: visualizador
-  const viewerHost = document.getElementById('viewer');
-  const viewer = new Stage(viewerHost, { perspective: 1400, lite });
-  const cache = new Map();
-  let current = null, next = null, swapT0 = 0;
-  const holder = new THREE.Group();
-  viewer.scene.add(holder);
-  const viewerApi = {
-    async setProduct(s, instant) {
-      let g = cache.get(s.id);
-      if (!g) { g = await buildProduct(s, viewer.renderer, 0); g.userData.shadow.visible = false; cache.set(s.id, g); }
-      if (g === current) return;
-      if (instant || !current) { if (current) holder.remove(current); current = g; holder.add(g); swapT0 = 0; return; }
-      next = g; swapT0 = performance.now();
-    },
-    frame(now, rx, ry, bob, baseScale) {
-      // troca: encolhe a atual e cresce a nova (300 ms, ease-in-out)
-      let k = 1;
-      if (swapT0) {
-        const p = Math.min((now - swapT0) / 300, 1);
-        if (p < .5) k = 1 - .6 * easeIO(p * 2);
-        else { if (next) { holder.remove(current); current = next; next = null; holder.add(current); } k = .4 + .6 * easeIO((p - .5) * 2); }
-        if (p >= 1) swapT0 = 0;
+  // Visualizadores (Lançamentos e Linha clássica): mesma lógica, palcos separados
+  function makeViewer(hostId) {
+    const host = document.getElementById(hostId);
+    if (!host) return null;
+    const viewer = new Stage(host, { perspective: 1400, lite });
+    const cache = new Map();
+    let current = null, next = null, swapT0 = 0;
+    const holder = new THREE.Group();
+    viewer.scene.add(holder);
+    return {
+      async setProduct(s, instant) {
+        let g = cache.get(s.id);
+        if (!g) { g = await buildProduct(s, viewer.renderer, 0); g.userData.shadow.visible = false; cache.set(s.id, g); }
+        if (g === current) return;
+        if (instant || !current) { if (current) holder.remove(current); current = g; holder.add(g); swapT0 = 0; return; }
+        next = g; swapT0 = performance.now();
+      },
+      frame(now, rx, ry, bob, baseScale) {
+        // troca: encolhe a atual e cresce a nova (300 ms, ease-in-out)
+        let k = 1;
+        if (swapT0) {
+          const p = Math.min((now - swapT0) / 300, 1);
+          if (p < .5) k = 1 - .6 * easeIO(p * 2);
+          else { if (next) { holder.remove(current); current = next; next = null; holder.add(current); } k = .4 + .6 * easeIO((p - .5) * 2); }
+          if (p >= 1) swapT0 = 0;
+        }
+        holder.position.set(0, bob + viewer.h * .03, 0);
+        holder.scale.setScalar(baseScale * k);
+        holder.rotation.set(-rx * DEG, ry * DEG, 0, 'XYZ');
+        viewer.render();
       }
-      holder.position.set(0, bob + viewer.h * .03, 0);
-      holder.scale.setScalar(baseScale * k);
-      holder.rotation.set(-rx * DEG, ry * DEG, 0, 'XYZ');
-      viewer.render();
-    }
-  };
+    };
+  }
+  const viewerApi = makeViewer('viewer');
+  const classicViewerApi = makeViewer('viewer2');
   // Clássicos do início: uma cena por cartão, renderizada só quando visível
   const classics = [];
   for (const host of document.querySelectorAll('.classic-item__stage[data-cls]')) {
@@ -463,7 +468,7 @@ export async function create({ lite }) {
       });
     }
   };
-  return { orbit: orbitApi, viewer: viewerApi, classics: classicsApi };
+  return { orbit: orbitApi, viewer: viewerApi, viewer2: classicViewerApi, classics: classicsApi };
 }
 
 const easeIO = t => (t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
