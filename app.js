@@ -6,6 +6,9 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(pointer: fine)').matches;
   const lerp = (a, b, t) => a + (b - a) * t;
+  // Aparelhos de toque e modestos (tablets, celulares) recebem um modo mais leve
+  const lite = !fine || (navigator.hardwareConcurrency || 8) <= 4 || !!navigator.connection?.saveData;
+  if (lite) document.documentElement.classList.add('lite');
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const pad = n => String(n).padStart(2, '0');
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -20,7 +23,7 @@
   // Frasco: redesenha só quando o ângulo muda
   const paintBottle = (cv, yaw) => {
     if (!cv) return;
-    const a = Math.round(yaw * 2) / 2;
+    const a = Math.round(yaw);
     if (cv._a === a) return;
     cv._a = a;
     cv.style.setProperty('--bb', (-a).toFixed(1) + 'deg');
@@ -199,16 +202,21 @@
   let parts = [], pRAF = null, pmx = -999, pmy = -999;
   function sizeCanvas() {
     const r = canvas.getBoundingClientRect();
-    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const dpr = lite ? 1 : Math.min(devicePixelRatio || 1, 2);
     canvas.width = r.width * dpr; canvas.height = r.height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.round(clamp(r.width / 28, 18, 52));
+    const n = Math.round(clamp(r.width / (lite ? 60 : 28), lite ? 10 : 18, lite ? 22 : 52));
     parts = Array.from({ length: n }, () => ({
       x: Math.random() * r.width, y: Math.random() * r.height * .6,
       vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, r: 1 + Math.random() * 2
     }));
   }
+  let pSkip = false;
   function particles() {
+    pRAF = requestAnimationFrame(particles);
+    // No modo leve as partículas andam a 30 quadros por segundo
+    if (lite && (pSkip = !pSkip)) return;
+    if (!heroVisible) return;
     const w = canvas.clientWidth, h = canvas.clientHeight * .62;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const col = isDark() ? '0,167,133' : '0,121,96';
@@ -228,8 +236,10 @@
       ctx.fillStyle = `rgba(${col},.45)`;
       ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
     }
-    pRAF = requestAnimationFrame(particles);
   }
+  // Pausa o hero quando ele sai da tela
+  let heroVisible = true;
+  new IntersectionObserver(([en]) => { heroVisible = en.isIntersecting; }).observe($('#hero'));
   if (!reduced) {
     sizeCanvas();
     addEventListener('resize', sizeCanvas);
@@ -251,9 +261,9 @@
       g += `<text class="dial-label" x="${Math.cos(a) * 150}" y="${Math.sin(a) * 150}" text-anchor="middle">${t}</text>`;
     });
     g += `<circle r="186" fill="none" stroke="rgba(255,255,255,.35)" stroke-width=".6"/><circle r="120" fill="none" stroke="rgba(255,255,255,.18)" stroke-width=".6" stroke-dasharray="2 4"/>`;
-    svg.innerHTML = `<g id="dialRot">${g}</g>`;
+    svg.innerHTML = g;
   })();
-  const dialRot = $('#dialRot');
+  const dialRot = $('#dial');
 
   /* ---------- Órbita dos 5 lançamentos ---------- */
   const stage = $('#orbitStage');
@@ -291,6 +301,8 @@
   $('#hudTotal').textContent = pad(N);
 
   function orbitFrame(now) {
+    oRAF = requestAnimationFrame(orbitFrame);
+    if (!heroVisible) { autoT0 = now - Math.min(now - autoT0, AUTO); return; }
     if (!oDrag) {
       if (!hoverPause && !reduced && now - autoT0 > AUTO) { targetIdx++; autoT0 = now; }
       angle = lerp(angle, -targetIdx * step, reduced ? 1 : .07);
@@ -308,15 +320,15 @@
       const lift = i === hoverIdx ? 1.06 : 1;
       const sc = (.5 + .5 * depth) * G.k * (.7 + .3 * ie) * lift;
       el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${(sn * 28).toFixed(2)}deg) scale(${sc.toFixed(3)})`;
-      el.style.setProperty('--fog', ((1 - depth) * .32).toFixed(3));
+      // A névoa muda em degraus: trocar variável CSS todo quadro força recálculo de estilo em todo o SVG
+      const fog = Math.round((1 - depth) * 8) / 25;
+      if (el._fog !== fog) { el._fog = fog; el.style.setProperty('--fog', fog); }
       const cv = el._cv || (el._cv = el.querySelector('.bottle3d__c'));
-      if (cv) { cv._yaw = sn * 28 - 27; paintBottle(cv, cv._yaw); }
-      el.style.zIndex = Math.round(depth * 100);
+      if (cv) { cv._yaw = Math.round(sn * 28 - 27); paintBottle(cv, cv._yaw); }
     });
-    dialRot.setAttribute('transform', `rotate(${(-angle * 180 / Math.PI).toFixed(2)})`);
+    dialRot.style.transform = `rotate(${(-angle * 180 / Math.PI).toFixed(2)}deg)`;
     const fi = ((Math.round(-angle / step) % N) + N) % N;
     setFront(fi);
-    oRAF = requestAnimationFrame(orbitFrame);
   }
   const nudge = d => { targetIdx = Math.round(-angle / step) + d; autoT0 = performance.now(); };
   $('#orbitPrev').addEventListener('click', () => nudge(-1));

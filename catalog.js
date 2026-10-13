@@ -436,13 +436,13 @@ window.ASP = (() => {
       const lw = LABEL.width, lh = LABEL.height;
       const a = angleDeg * Math.PI / 180;
       const lt = yBody + 6, lhD = B.body - 22;
-      for (let px = -B.r; px < B.r; px += .5) {
-        const th = Math.asin(Math.max(-1, Math.min(1, (px + .25) / B.r)));
+      for (let px = -B.r; px < B.r; px += 1) {
+        const th = Math.asin(Math.max(-1, Math.min(1, (px + .5) / B.r)));
         let u = .5 + (th - a) / (2 * Math.PI);
         u -= Math.floor(u);
         // a borda do rótulo acompanha a curva da base
         const sag = Math.sqrt(Math.max(0, 1 - (px / B.r) ** 2)) * B.r * ell;
-        x.drawImage(LABEL, Math.floor(u * lw), 0, 2, lh, cx + px, lt + sag, .6, lhD);
+        x.drawImage(LABEL, Math.floor(u * lw), 0, 3, lh, cx + px, lt + sag, 1.1, lhD);
       }
     });
     // ombro
