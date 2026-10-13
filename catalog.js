@@ -40,7 +40,7 @@ window.ASP = (() => {
       ativo: 'Dipirona monoidratada', formula: 'C₁₃H₁₆N₃NaO₄S · H₂O',
       extra: 'Sabor abacaxi · 20 gotas = 1 mL',
       band: [C.lime1, C.lime2], drops: true,
-      box: { w: 104, h: 248, d: 104 }
+      box: { w: 104, h: 246, d: 104 }
     },
     {
       id: 'aspmol-500', fam: 'mol', name: 'AspMol', dose: '500 mg', doseShort: '500mg',
@@ -160,7 +160,7 @@ window.ASP = (() => {
     top: 150, bot: 232, riseTop: 46, riseBot: 34,
     silverTop: { off: -6, w: 9 }, silverBot: { off: 4, w: 10 }
   };
-  const GOTAS = { W: 420, H: 1000, top: 262, bot: 440, riseTop: 34, riseBot: 12, silverTop: { off: -8, w: 9 }, silverBot: { off: 6, w: 9 } };
+  const GOTAS = { W: 420, H: 994, top: 200, bot: 360, riseTop: 30, riseBot: 30, silverTop: { off: -8, w: 9 }, silverBot: { off: 6, w: 9 } };
 
   function bands(s) {
     const H = s.vb, k = H / 436;
@@ -265,47 +265,25 @@ window.ASP = (() => {
       <radialGradient id="${ids.gD}" cx=".35" cy=".35"><stop offset="0" stop-color="#F6E7A0"/><stop offset=".6" stop-color="${C.gold}"/><stop offset="1" stop-color="#8E7A2A"/></radialGradient>`;
   }
 
-  // Frente da caixa das gotas, medida na foto (frente 458 px -> 420 unidades)
   function gotasBoxSVG() {
     const { W, H } = GOTAS;
-    const ids = newIds(), Y = '#E4E24C';
+    const ids = newIds();
     return `<svg class="art" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>${gotasDefs(ids)}</defs>
       <rect width="${W}" height="${H}" fill="#fff"/>
       ${gotasLayer(ids, false)}
-      ${bayerCross(52, 116, 34)}
-      <text x="96" y="148" font-family="${FONT_W}" font-weight="600" font-size="100" textLength="306" lengthAdjust="spacingAndGlyphs"><tspan fill="${C.ink}">ASP</tspan><tspan fill="${C.dipWord}">DIP</tspan></text>
-      <text x="24" y="326" fill="#fff" font-family="${FONT_W}" font-weight="600" font-size="78" textLength="262" lengthAdjust="spacingAndGlyphs">dipirona</text>
-      <text x="24" y="402" fill="#fff" font-family="${FONT_W}" font-weight="600" font-size="78" textLength="366" lengthAdjust="spacingAndGlyphs">500mg/mL</text>
-      <text x="24" y="526" fill="#fff" font-family="${FONT_C}" font-style="italic" font-size="62" textLength="232" lengthAdjust="spacingAndGlyphs"><tspan font-weight="800">DOR</tspan><tspan font-weight="300"> &amp; </tspan><tspan font-weight="800">FEBRE</tspan></text>
-      <text x="24" y="650" fill="${Y}" font-family="${FONT_C}" font-style="italic" font-weight="600" font-size="40">Infantil</text>
-      <text x="24" y="800" fill="${Y}" font-family="${FONT_C}" font-weight="700" font-size="72">GOTAS</text>
-      <text x="24" y="840" fill="${Y}" font-family="${FONT_C}" font-weight="600" font-size="36">40 gotas = 1g</text>
-      <text x="24" y="880" fill="${Y}" font-family="${FONT_C}" font-weight="500" font-size="22">SABOR ABACAXI</text>
-      <path d="M302 700 C302 700 256 770 256 806 A46 46 0 0 0 348 806 C348 770 302 700 302 700 Z" fill="url(#${ids.gD})"/>
-      <path d="M280 798 a24 24 0 0 0 12 32" stroke="#fff" stroke-opacity=".75" stroke-width="5" fill="none"/>
-      <text x="24" y="948" fill="#fff" font-family="${FONT_C}" font-weight="700" font-size="32"><tspan font-size="24">CONTEÚDO</tspan> 20 mL</text>
-      <text x="24" y="984" fill="#fff" font-family="${FONT_C}" font-weight="500" font-size="17" textLength="382" lengthAdjust="spacingAndGlyphs">SOLUÇÃO ORAL. USO ORAL. USO ADULTO E PEDIÁTRICO ACIMA DE 3 MESES.</text>
-    </svg>`;
-  }
-
-  // Lateral da caixa das gotas: fundo branco com logo, como na foto
-  function gotasSideSVG() {
-    const { W, H } = GOTAS;
-    return `<svg class="art" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="${W}" height="${H}" fill="#F7F8F8"/>
-      ${bayerCross(48, 132, 30)}
-      <text x="88" y="160" font-family="${FONT_W}" font-weight="600" font-size="84" textLength="296" lengthAdjust="spacingAndGlyphs"><tspan fill="${C.ink}">ASP</tspan><tspan fill="${C.dipWord}">DIP</tspan></text>
-      <text x="20" y="236" fill="${C.ink}" font-family="${FONT_C}" font-weight="600" font-size="46" textLength="370" lengthAdjust="spacingAndGlyphs">dipirona 500mg/mL</text>
-      <rect x="20" y="300" width="380" height="380" rx="6" fill="${C.lime2}" fill-opacity=".28" stroke="${C.lime1}" stroke-width="3"/>
-      <text x="210" y="482" text-anchor="middle" fill="${C.ink}" fill-opacity=".7" font-family="${FONT_C}" font-weight="600" font-size="30">LEIA A BULA</text>
-      <text x="210" y="520" text-anchor="middle" fill="${C.ink}" fill-opacity=".55" font-family="${FONT_C}" font-weight="500" font-size="22">Solução oral · Sabor abacaxi</text>
-      <text x="20" y="760" fill="${C.ink}" fill-opacity=".7" font-family="${FONT_C}" font-weight="600" font-size="20">Registrado por: Bayer S.A.</text>
-      <text x="20" y="790" fill="${C.ink}" fill-opacity=".6" font-family="${FONT_C}" font-weight="500" font-size="18">Indústria Brasileira</text>
-      <text x="20" y="880" fill="${C.ink}" font-family="${FONT_C}" font-weight="700" font-size="40">SAC</text>
-      <text x="92" y="878" fill="${C.ink}" fill-opacity=".75" font-family="${FONT_C}" font-weight="600" font-size="22">0800 723 1010</text>
-      <text x="20" y="912" fill="${C.ink}" fill-opacity=".6" font-family="${FONT_C}" font-weight="500" font-size="18">www.bayer.com.br</text>
-      <text x="398" y="960" text-anchor="end" fill="${C.ink}" font-family="Jost, sans-serif" font-weight="600" font-size="34">Bayer</text>
+      ${bayerCross(54, 110, 26)}
+      <text x="88" y="132" font-family="${FONT_W}" font-weight="600" font-size="66" letter-spacing="-2"><tspan fill="${C.ink}">ASP</tspan><tspan fill="${C.dipWord}">DIP</tspan></text>
+      <text x="32" y="266" fill="#fff" font-family="${FONT_C}" font-weight="500" font-size="62">dipirona</text>
+      <text x="32" y="330" fill="#fff" font-family="${FONT_C}" font-weight="500" font-size="62">500mg/mL</text>
+      <text x="32" y="450" fill="#fff" font-family="${FONT_C}" font-style="italic" font-size="50"><tspan font-weight="800">DOR</tspan><tspan font-weight="300"> &amp; </tspan><tspan font-weight="800">FEBRE</tspan></text>
+      <text x="32" y="556" fill="${C.lime2}" font-family="${FONT_C}" font-style="italic" font-weight="500" font-size="34">Infantil</text>
+      <text x="32" y="728" fill="${C.lime2}" font-family="${FONT_C}" font-weight="700" font-size="52">GOTAS</text>
+      <text x="32" y="764" fill="${C.lime2}" font-family="${FONT_C}" font-weight="500" font-size="26">40 gotas = 1g</text>
+      <path d="M330 640 C330 640 290 700 290 730 A40 40 0 0 0 370 730 C370 700 330 640 330 640 Z" fill="url(#${ids.gD})"/>
+      <path d="M312 722 a20 20 0 0 0 10 26" stroke="#fff" stroke-opacity=".7" stroke-width="5" fill="none"/>
+      <text x="32" y="900" fill="#fff" font-family="${FONT_C}" font-weight="500" font-size="24">Conteúdo: 20 mL</text>
+      <text x="32" y="930" fill="#fff" fill-opacity=".8" font-family="${FONT_C}" font-size="17">SOLUÇÃO ORAL. USO ADULTO E PEDIÁTRICO ACIMA DE 3 MESES.</text>
     </svg>`;
   }
 
@@ -714,5 +692,5 @@ window.ASP = (() => {
     return `<div class="flat" style="aspect-ratio:${1000 / s.vb}">${frontSVG(s)}</div>`;
   }
 
-  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, frontSVG, backSVG, gotasBoxSVG, gotasSideSVG, gotasBackSVG, sideStops, CLASSICS, classicFlat, byId: id => SKUS.find(s => s.id === id) };
+  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, frontSVG, backSVG, gotasBoxSVG, gotasBackSVG, sideStops, CLASSICS, classicFlat, byId: id => SKUS.find(s => s.id === id) };
 })();
