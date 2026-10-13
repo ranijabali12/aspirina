@@ -11,11 +11,13 @@
   <meta property="og:locale" content="pt_BR" />
   <meta name="theme-color" content="#F2F5F7" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0A1E2B" media="(prefers-color-scheme: dark)" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%2300A785'/%3E%3Cpath d='M20 6v28M6 20h28' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg?v=2" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png?v=2" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,800;1,300;1,500;1,700;1,800&family=Jost:wght@600;700&family=Marcellus&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8b" />
   <script>
     // Tema salvo antes da pintura, para não piscar
     try { const t = localStorage.getItem('asp-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -388,7 +390,10 @@
               <input id="cep" inputmode="numeric" maxlength="9" placeholder="Seu CEP" autocomplete="postal-code" aria-describedby="cepMsg" />
               <button class="btn btn--accent" type="submit"><span>Ver no mapa</span></button>
             </form>
-            <button class="finder__geo" type="button" id="geoBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3" stroke="currentColor" stroke-width="1.6"/></svg>Farmácias perto de mim</button>
+            <div class="finder__actions">
+              <a class="finder__buy" href="#buyList" id="buyBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="9.5" cy="19" r="1.6" fill="currentColor"/><circle cx="17" cy="19" r="1.6" fill="currentColor"/></svg>Comprar on-line</a>
+              <button class="finder__geo" type="button" id="geoBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3" stroke="currentColor" stroke-width="1.6"/></svg>Farmácias perto de mim</button>
+            </div>
             <p class="finder__msg" id="cepMsg" aria-live="polite"></p>
             <a class="finder__link" href="https://www.aspirina.com.br/onde-comprar" target="_blank" rel="noopener">Lojas on-line no site oficial <span aria-hidden="true">↗</span></a>
           </aside>
@@ -452,7 +457,7 @@
     // Os produtos 3D (WebGL) chegam por módulo; se falhar, o app usa a versão em CSS
     window.ASP3D = new Promise(r => { window.__asp3d = r; setTimeout(() => r(null), 9000); });
   </script>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
   <script type="module">
     try {
       const m = await import('./scene3d.js?v=7');
