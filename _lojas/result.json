@@ -1,0 +1,1418 @@
+{
+ "vtex": {
+  "www.drogariaspacheco.com.br": [
+   {
+    "term": "aspdip",
+    "name": "Analgésico Aspdip Dipirona 500mg 30 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspdip-500mg-30-comprimidos/p",
+    "qty": 100,
+    "price": 15.21
+   },
+   {
+    "term": "aspdip",
+    "name": "Analgésico Aspdip Dipirona 1g 10 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspdip-1g-10-comprimidos/p",
+    "qty": 99999,
+    "price": 9.9
+   },
+   {
+    "term": "aspdip",
+    "name": "Analgésico Aspdip Dipirona 500mg 20ml Gotas",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspdip-500mg-20ml-gotas/p",
+    "qty": 100,
+    "price": 9.99
+   },
+   {
+    "term": "aspmol",
+    "name": "Analgésico Aspmol 500mg 20 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspmol-500mg-20-comprimidos/p",
+    "qty": 99999,
+    "price": 7.99
+   },
+   {
+    "term": "aspmol",
+    "name": "Analgésico Aspmol 750mg 20 Comprimido",
+    "brand": "Aspmol",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspmol-750mg-20-comprimido/p",
+    "qty": 99999,
+    "price": 9.45
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Ácido Acetilsalicílico Prevent 100mg 30 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-prevent-100mg-bayer-30-comprimidos/p",
+    "qty": 99999,
+    "price": 20.37
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Ácido Acetilsalicílico Prevent 100mg 100 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-prevent-100mg-bayer-100-comprimidos/p",
+    "qty": 99999,
+    "price": 60.95
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico e Relaxante Muscular Aspirina Adulto 500mg 10 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspirina-adulto-500mg-10-comprimidos/p",
+    "qty": 99999,
+    "price": 12.93
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico e Antitérmico Aspirina C 400mg + 240mg 2 Comprimidos Efervescentes Limão",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/analgesico-aspirina-c-400mg-bayer-limao-2-comprimidos/p",
+    "qty": 99999,
+    "price": 10.66
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 300mg Bayer 30 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-prevent-300mg-bayer-30-comprimidos/p",
+    "qty": 0,
+    "price": 66.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico CafiAspirina 650mg + 65mg 4 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/cafiaspirina-bayer-4-capsulas/p",
+    "qty": 0,
+    "price": 5.98
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina 500mg 20 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-500mg-bayer-20-comprimidos/p",
+    "qty": 0,
+    "price": 17.05
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina 500mg 4 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-500mg-bayer-4-comprimidos/p",
+    "qty": 0,
+    "price": 3.49
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Aspirina Microativa 500mg 4 Comprimidos Revestidos de Liberação Modificada",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-microativa-500mg-bayer-4-comprimidos/p",
+    "qty": 0,
+    "price": 7.59
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico e Antitérmico Aspirina C 400mg + 240mg 10 Comprimidos Efervescentes Limão",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-c-400mg-bayer-10-comprimidos-efervescentes/p",
+    "qty": 0,
+    "price": 39.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina Adulto 500mg 2 Comprimidos Efervescentes",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-adulto-efervescente-500mg-bayer-2-comprimidos/p",
+    "qty": 0,
+    "price": 3.59
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Aspirina Microativa 500mg 20 Comprimidos Revestidos de Liberação Modificada",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-microativa-500mg-bayer-20-comprimidos/p",
+    "qty": 0,
+    "price": 24.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina C 400mg + 200mg 2 Comprimidos Efervescentes Morango",
+    "brand": "Aspirina",
+    "link": "https://www.drogariaspacheco.com.br/aspirina-c-morango-400-200mg-bayer-2-comprimidos-efervescentes/p",
+    "qty": 0,
+    "price": 3.78
+   },
+   {
+    "term": "cafiaspirina",
+    "name": "Analgésico CafiAspirina 650mg + 65mg 4 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/cafiaspirina-bayer-4-capsulas/p",
+    "qty": 0,
+    "price": 5.98
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg 2 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-275mg-bayer-2-comprimidos/p",
+    "qty": 100,
+    "price": 6.06
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg 2 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-550mg-2-comprimidos/p",
+    "qty": 99999,
+    "price": 8.3
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico e Anti-inflamatório Flanax 550mg 10 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-550mg-bayer-10-comprimidos/p",
+    "qty": 100,
+    "price": 24.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico e Anti-inflamatório Flanax 275mg 20 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-275mg-bayer-20-comprimidos/p",
+    "qty": 99999,
+    "price": 19.19
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax 275mg 8 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-275mg-bayer-8-comprimidos/p",
+    "qty": 100,
+    "price": 14.59
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax 550mg 15 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-550mg-bayer-15-comprimidos/p",
+    "qty": 100,
+    "price": 32.49
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax XR 660mg 8 Comprimidos Revestidos de Liberação Prolongada",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-xr-660mg-bayer-8-comprimidos-revestidos/p",
+    "qty": 99999,
+    "price": 29.79
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax 275mg 5 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariaspacheco.com.br/flanax-275mg-60-comprimidos/p",
+    "qty": 0,
+    "price": 8.28
+   }
+  ],
+  "www.drogariasaopaulo.com.br": [
+   {
+    "term": "aspdip",
+    "name": "Analgésico Aspdip Dipirona 500mg 30 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspdip-500mg-30-comprimidos/p",
+    "qty": 100,
+    "price": 15.21
+   },
+   {
+    "term": "aspdip",
+    "name": "Analgésico Aspdip Dipirona 1g 10 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspdip-1g-10-comprimidos/p",
+    "qty": 99999,
+    "price": 16.9
+   },
+   {
+    "term": "aspdip",
+    "name": "Analgésico Aspdip Dipirona 500mg 20ml Gotas",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspdip-500mg-20ml-gotas/p",
+    "qty": 99999,
+    "price": 10.26
+   },
+   {
+    "term": "aspmol",
+    "name": "Analgésico Aspmol 750mg 20 Comprimido",
+    "brand": "Aspmol",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspmol-750mg-20-comprimido/p",
+    "qty": 99999,
+    "price": 9.45
+   },
+   {
+    "term": "aspmol",
+    "name": "Analgésico Aspmol 500mg 20 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspmol-500mg-20-comprimidos/p",
+    "qty": 100,
+    "price": 8.95
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Ácido Acetilsalicílico Prevent 100mg 100 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-prevent-100mg-bayer-100-comprimidos/p",
+    "qty": 99999,
+    "price": 59.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Ácido Acetilsalicílico Prevent 100mg 30 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-prevent-100mg-bayer-30-comprimidos/p",
+    "qty": 99999,
+    "price": 21.59
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico e Relaxante Muscular Aspirina Adulto 500mg 10 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspirina-adulto-500mg-10-comprimidos/p",
+    "qty": 99999,
+    "price": 12.3
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico e Antitérmico Aspirina C 400mg + 240mg 2 Comprimidos Efervescentes Limão",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/analgesico-aspirina-c-400mg-bayer-limao-2-comprimidos/p",
+    "qty": 99999,
+    "price": 10.14
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 300mg Bayer 30 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-prevent-300mg-bayer-30-comprimidos/p",
+    "qty": 0,
+    "price": 62.89
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico CafiAspirina 650mg + 65mg 4 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/cafiaspirina-bayer-4-capsulas/p",
+    "qty": 0,
+    "price": 5.95
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina 500mg 4 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-500mg-bayer-4-comprimidos/p",
+    "qty": 0,
+    "price": 3.39
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina 500mg 20 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-500mg-bayer-20-comprimidos/p",
+    "qty": 0,
+    "price": 15.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico e Antitérmico Aspirina C 400mg + 240mg 10 Comprimidos Efervescentes Limão",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-c-400mg-bayer-10-comprimidos-efervescentes/p",
+    "qty": 0,
+    "price": 37.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Aspirina Microativa 500mg 4 Comprimidos Revestidos de Liberação Modificada",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-microativa-500mg-bayer-4-comprimidos/p",
+    "qty": 0,
+    "price": 6.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Aspirina Microativa 500mg 20 Comprimidos Revestidos de Liberação Modificada",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-microativa-500mg-bayer-20-comprimidos/p",
+    "qty": 0,
+    "price": 24.74
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina Adulto 500mg 2 Comprimidos Efervescentes",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-adulto-efervescente-500mg-bayer-2-comprimidos/p",
+    "qty": 0,
+    "price": 3.46
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico, Antitérmico, Anti-inflamatório e Relaxante Muscular Aspirina C 400mg + 200mg 2 Comprimidos Efervescentes Morango",
+    "brand": "Aspirina",
+    "link": "https://www.drogariasaopaulo.com.br/aspirina-c-morango-400-200mg-bayer-2-comprimidos-efervescentes/p",
+    "qty": 0,
+    "price": 3.82
+   },
+   {
+    "term": "cafiaspirina",
+    "name": "Analgésico CafiAspirina 650mg + 65mg 4 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/cafiaspirina-bayer-4-capsulas/p",
+    "qty": 0,
+    "price": 5.95
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg 2 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-275mg-bayer-2-comprimidos/p",
+    "qty": 100,
+    "price": 5.77
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg 2 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-550mg-2-comprimidos/p",
+    "qty": 99999,
+    "price": 7.9
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico e Anti-inflamatório Flanax 550mg 10 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-550mg-bayer-10-comprimidos/p",
+    "qty": 100,
+    "price": 28.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico e Anti-inflamatório Flanax 275mg 20 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-275mg-bayer-20-comprimidos/p",
+    "qty": 99999,
+    "price": 18.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax 275mg 8 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-275mg-bayer-8-comprimidos/p",
+    "qty": 99999,
+    "price": 14.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax 550mg 15 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-550mg-bayer-15-comprimidos/p",
+    "qty": 99999,
+    "price": 31.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax XR 660mg 8 Comprimidos Revestidos de Liberação Prolongada",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-xr-660mg-bayer-8-comprimidos-revestidos/p",
+    "qty": 99999,
+    "price": 30.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico, Anti-inflamatório e Antitérmico Flanax 275mg 5 Comprimidos",
+    "brand": "Bayer",
+    "link": "https://www.drogariasaopaulo.com.br/flanax-275mg-60-comprimidos/p",
+    "qty": 0,
+    "price": 8.29
+   }
+  ],
+  "www.paguemenos.com.br": [
+   {
+    "term": "aspdip",
+    "name": "Dipirona AspDip 500mg Gotas 20ml",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspdip-500mg-ml-abacaxi-gotas-20ml/p",
+    "qty": 1,
+    "price": 21.02
+   },
+   {
+    "term": "aspdip",
+    "name": "Dipirona AspDip 1g 10 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspdip-1g-10-comprimidos/p",
+    "qty": 10,
+    "price": 17.32
+   },
+   {
+    "term": "aspdip",
+    "name": "Dipirona AspDip 500mg 30 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspdip-500mg-30-comprimidos/p",
+    "qty": 10,
+    "price": 31.18
+   },
+   {
+    "term": "aspmol",
+    "name": "Aspmol 750mg 20 Comprimidos",
+    "brand": "Aspmol",
+    "link": "https://www.paguemenos.com.br/aspmol-750mg-20-comprimidos/p",
+    "qty": 1,
+    "price": 9.9
+   },
+   {
+    "term": "aspmol",
+    "name": "Paracetamol Aspmol 500mg 20 Comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspmol-500mg-20-comprimidos/p",
+    "qty": 10,
+    "price": 18.34
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina 500mg 10 comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/analgesico-aspirina-500mg-bayer-10-comprimidos/p",
+    "qty": 99999,
+    "price": 11.19
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina 500mg 20 comprimidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspirina-500mg-com-20-comprimidos/p",
+    "qty": 10,
+    "price": 16.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 100mg 100 Comprimidos Revestidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspirina-prevent-100mg-com-100-comprimidos/p",
+    "qty": 99999,
+    "price": 56.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 100mg 30 Comprimidos Revestidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspirina-prevent-100mg-com-30-comprimidos/p",
+    "qty": 99999,
+    "price": 20.59
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina C Bayer 2 comprimidos efervescentes",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspirina-c-400mg-envelope-com-2-comprimidos-efervescentes/p",
+    "qty": 10,
+    "price": 9.59
+   },
+   {
+    "term": "aspirina",
+    "name": "Ácido Acetilsalicílico 100mg Infantil Sabor Morango 30 Comprimidos Genérico EMS",
+    "brand": "EMS",
+    "link": "https://www.paguemenos.com.br/acido-acetilsalicilico-100-mg-com-30-comprimidos-generico-ems/p",
+    "qty": 99999,
+    "price": 11.39
+   },
+   {
+    "term": "aspirina",
+    "name": "Saliprevi 100mg 30 Comprimidos de Liberação Prolongada",
+    "brand": "Eurofarma",
+    "link": "https://www.paguemenos.com.br/saliprevi-100mg-30-comprimidos/p",
+    "qty": 1,
+    "price": 21.29
+   },
+   {
+    "term": "aspirina",
+    "name": "Nattokinase 100mg 30 doses",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/nattokinase-100mg-30-doses-d169834y228s6158/p",
+    "qty": 99999,
+    "price": 65.9
+   },
+   {
+    "term": "aspirina",
+    "name": "Boswellia 200mg 240 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/boswellia-200mg-240-capsulas-1698l3h4y2263260/p",
+    "qty": 99999,
+    "price": 85.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Ginkgo Biloba 40mg 60 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/ginkgo-biloba-40mg-60-capsulas-16j9h834226358g9/p",
+    "qty": 99999,
+    "price": 52.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Betaína HCL 300mg 90 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/betaina-hcl-300mg-90-capsulas-n169q8342a205111/p",
+    "qty": 99999,
+    "price": 40.95
+   },
+   {
+    "term": "aspirina",
+    "name": "Complexo B Vitamínico 30 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/complexo-b-vitaminico-30-capsulas-1698b3uu42145383/p",
+    "qty": 99999,
+    "price": 59.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Resveratrol 20mg  30 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/resveratrol-20mg-30-capsulas-1m69n8342209d632/p",
+    "qty": 99999,
+    "price": 55.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Ginkgo Biloba 40mg 30 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/ginkgo-biloba-40mg-30-capsulas-j1l6983421g54920/p",
+    "qty": 99999,
+    "price": 48.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Resveratrol 20mg 60 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/resveratrol-20mg-60-capsulas-1698342nv18j5187/p",
+    "qty": 99999,
+    "price": 45.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Trans-Resveratrol 100mg 60 Cápsulas",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/trans-resveratrol-100mg-60-capsulas-g169834220q477c9/p",
+    "qty": 99999,
+    "price": 65.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Silicio Orgânico Terroir 30 Doses",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/silicio-organico-terroir-30-doses-169834b22183sz61/p",
+    "qty": 99999,
+    "price": 271.95
+   },
+   {
+    "term": "aspirina",
+    "name": "AntiOxxy 60 Doses",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/antioxxy-60-doses-169t83422f11n218/p",
+    "qty": 99999,
+    "price": 99.0
+   },
+   {
+    "term": "aspirina",
+    "name": "Tratamento Oral Para Acne e Rosácea 60 Doses",
+    "brand": "Miligrama",
+    "link": "https://www.paguemenos.com.br/tratamento-oral-para-acne-e-rosacea-60-doses-169k83422k057u56/p",
+    "qty": 99999,
+    "price": 99.9
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico CafiAspirina  650mg 4 comprimidos",
+    "brand": "Cafiaspirina",
+    "link": "https://www.paguemenos.com.br/cafiaspirina-envelope-com-4-comprimidos/p",
+    "qty": 0,
+    "price": 6.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 300mg 30 Comprimidos Revestidos",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspirina-prevent-300mg-com-30-comprimidos/p",
+    "qty": 0,
+    "price": 62.49
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina C Bayer 10 Comprimidos Efervescentes",
+    "brand": "Aspirina",
+    "link": "https://www.paguemenos.com.br/aspirina-c-400mg-com-10-comprimidos-efervescentes/p",
+    "qty": 0,
+    "price": 35.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Ácido Acetilsalicílico 500mg Adulto 10 Comprimidos Genérico EMS",
+    "brand": "Acido Acetilsalicilico",
+    "link": "https://www.paguemenos.com.br/acido-acetilsalicilico-500mg-adulto-com-10-comprimidos-generico-ems/p",
+    "qty": 0,
+    "price": 2.59
+   },
+   {
+    "term": "cafiaspirina",
+    "name": "Analgésico CafiAspirina  650mg 4 comprimidos",
+    "brand": "Cafiaspirina",
+    "link": "https://www.paguemenos.com.br/cafiaspirina-envelope-com-4-comprimidos/p",
+    "qty": 0,
+    "price": 6.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg 8 comprimidos",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/flanax-275mg-com-8-comprimidos/p",
+    "qty": 10,
+    "price": 13.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg 2 Comprimidos",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/flanax-550mg-envelope-com-2-comprimidos/p",
+    "qty": 100,
+    "price": 6.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg 2 Comprimidos Revestidos",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/analgesico-flanax-275mg-bayer-com-2-comprimidos/p",
+    "qty": 10,
+    "price": 4.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax XR 660mg Dores Insistentes 8 Comprimidos",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/flanax-xr-660mg-com-8-comprimidos/p",
+    "qty": 10,
+    "price": 27.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg Dores Intensas 10 Comprimidos",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/flanax-550mg-com-10-comprimidos/p",
+    "qty": 100,
+    "price": 19.49
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg 20 Comprimidos Embalagem Econômica",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/flanax-275mg-com-20-comprimidos/p",
+    "qty": 100,
+    "price": 18.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg Dores Intensas 15 Comprimidos Embalagem Econômica",
+    "brand": "Flanax",
+    "link": "https://www.paguemenos.com.br/flanax-550mg-com-15-comprimidos/p",
+    "qty": 10,
+    "price": 24.74
+   }
+  ],
+  "www.drogariavenancio.com.br": [
+   {
+    "term": "aspdip",
+    "name": "Dipirona AspDip 500mg Gotas 20ml",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspdip-gotas-500mg-ml-20ml/p",
+    "qty": 100,
+    "price": 9.99
+   },
+   {
+    "term": "aspdip",
+    "name": "Dipirona AspDip 1g 10 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspdip-1g-10-comprimidos/p",
+    "qty": 10,
+    "price": 17.09
+   },
+   {
+    "term": "aspdip",
+    "name": "Dipirona AspDip 500mg 30 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspdip-500mg-30-comprimidos/p",
+    "qty": 100,
+    "price": 16.99
+   },
+   {
+    "term": "aspmol",
+    "name": "Aspmol 500mg 20 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspmol-500mg-20-comprimidos/p",
+    "qty": 10,
+    "price": 7.99
+   },
+   {
+    "term": "aspmol",
+    "name": "Aspmol 750mg 20 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspmol-750mg-20com/p",
+    "qty": 100,
+    "price": 9.99
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina 500mg Bayer 20 comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspirina-500mg-com-20-comprimidos/p",
+    "qty": 100,
+    "price": 17.39
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina 500mg Bayer 10 comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspirina-adulto-500mg-bayer-10-comprimidos/p",
+    "qty": 100,
+    "price": 12.19
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 100mg Bayer 30 Comprimidos Revestidos",
+    "brand": "MEGALABS",
+    "link": "https://www.drogariavenancio.com.br/aspirina-prevent-100mg-bayer-30-comprimidos-revestidos/p",
+    "qty": 100,
+    "price": 20.79
+   },
+   {
+    "term": "aspirina",
+    "name": "Aspirina Prevent 100mg Bayer 100 Comprimidos Revestidos",
+    "brand": "MEGALABS",
+    "link": "https://www.drogariavenancio.com.br/aspirina-prevent-100mg-bayer-100-comprimidos-revestidos/p",
+    "qty": 100,
+    "price": 62.19
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina C Bayer 10 Comprimidos Efervescentes",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspirina-c-bayer-10-comprimidos/p",
+    "qty": 10,
+    "price": 38.69
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina C Bayer Sabor Limão 2 Comprimidos Efervescentes",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspirina-c-limao-400mg-bayer-2-comprimidos/p",
+    "qty": 100,
+    "price": 10.09
+   },
+   {
+    "term": "aspirina",
+    "name": "Saliprevi 100mg Eurofarma 30 Comprimidos",
+    "brand": "EUROFARMA",
+    "link": "https://www.drogariavenancio.com.br/saliprevi-100mg-30com/p",
+    "qty": 10,
+    "price": 21.79
+   },
+   {
+    "term": "aspirina",
+    "name": "Analgésico Aspirina MicroAtiva Bayer 20 comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/aspirina-microativa-500mg-bayer-20-comprimidos/p",
+    "qty": 0,
+    "price": 29.39
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg Bayer 20 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-275mg-bayer-20-comprimidos-revestidos/p",
+    "qty": 10,
+    "price": 19.19
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg Bayer 8 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-275mg-bayer-8comprimidos/p",
+    "qty": 100,
+    "price": 14.59
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 275mg Bayer 2 comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-275mg-bayer-2comprimidos/p",
+    "qty": 100,
+    "price": 4.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg Bayer Dores Intensas 10 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-550mg-bayer-10-comprimidos/p",
+    "qty": 10,
+    "price": 24.99
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg Bayer Dose Extraforte 2 comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-550mg-2-comprimidos/p",
+    "qty": 100,
+    "price": 7.49
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax 550mg Bayer Dores Intensas 15 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-550mg-15cpr-revest/p",
+    "qty": 10,
+    "price": 32.49
+   },
+   {
+    "term": "flanax",
+    "name": "Analgésico Flanax Xr 660mg Bayer Dores Insistentes 8 Comprimidos",
+    "brand": "BAYER",
+    "link": "https://www.drogariavenancio.com.br/flanax-xr-660mg-bayer-8-comprimidos/p",
+    "qty": 100,
+    "price": 29.79
+   }
+  ]
+ },
+ "bing": {
+  "drogasil.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3adrogasil.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3adrogasil.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogasil.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogasil.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3adrogasil.com.br+flanax"
+   ]
+  },
+  "drogaraia.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+flanax"
+   ]
+  },
+  "araujo.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3aaraujo.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3aaraujo.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3aaraujo.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3aaraujo.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3aaraujo.com.br+flanax"
+   ]
+  },
+  "panvel.com": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3apanvel.com+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3apanvel.com+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3apanvel.com+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3apanvel.com+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3apanvel.com+flanax"
+   ]
+  },
+  "onofre.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3aonofre.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3aonofre.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3aonofre.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3aonofre.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3aonofre.com.br+flanax"
+   ]
+  },
+  "farmadelivery.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+flanax"
+   ]
+  },
+  "drogariavenancio.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+flanax"
+   ]
+  },
+  "paguemenos.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+flanax"
+   ]
+  },
+  "drogariasaopaulo.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+flanax"
+   ]
+  },
+  "drogariaspacheco.com.br": {
+   "aspdip": [
+    "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+aspdip"
+   ],
+   "aspmol": [
+    "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+aspmol"
+   ],
+   "aspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+aspirina"
+   ],
+   "cafiaspirina": [
+    "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+cafiaspirina"
+   ],
+   "flanax": [
+    "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+flanax"
+   ]
+  }
+ },
+ "log": [
+  "200 https://www.drogariaspacheco.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "200 https://www.drogariaspacheco.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "200 https://www.drogariaspacheco.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "200 https://www.drogariaspacheco.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "200 https://www.drogariaspacheco.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "200 https://www.drogariasaopaulo.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "200 https://www.drogariasaopaulo.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "200 https://www.drogariasaopaulo.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "200 https://www.drogariasaopaulo.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "200 https://www.drogariasaopaulo.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "200 https://www.paguemenos.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "200 https://www.paguemenos.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "200 https://www.paguemenos.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "200 https://www.paguemenos.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "200 https://www.paguemenos.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "403 https://www.onofre.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "403 https://www.onofre.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "403 https://www.onofre.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "403 https://www.onofre.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "403 https://www.onofre.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "200 https://www.drogariavenancio.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "200 https://www.drogariavenancio.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "200 https://www.drogariavenancio.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "200 https://www.drogariavenancio.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "200 https://www.drogariavenancio.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "0 https://www.farmadelivery.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "0 https://www.farmadelivery.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "0 https://www.farmadelivery.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "0 https://www.farmadelivery.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "0 https://www.farmadelivery.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "403 https://www.araujo.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "403 https://www.araujo.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "403 https://www.araujo.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "403 https://www.araujo.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "403 https://www.araujo.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "403 https://www.panvel.com/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "403 https://www.panvel.com/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "403 https://www.panvel.com/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "403 https://www.panvel.com/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "403 https://www.panvel.com/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "403 https://www.drogasil.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "403 https://www.drogasil.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "403 https://www.drogasil.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "403 https://www.drogasil.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "403 https://www.drogasil.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "403 https://www.drogaraia.com.br/api/catalog_system/pub/products/search/?ft=aspdip&_from=0&_to=49",
+  "403 https://www.drogaraia.com.br/api/catalog_system/pub/products/search/?ft=aspmol&_from=0&_to=49",
+  "403 https://www.drogaraia.com.br/api/catalog_system/pub/products/search/?ft=aspirina&_from=0&_to=49",
+  "403 https://www.drogaraia.com.br/api/catalog_system/pub/products/search/?ft=cafiaspirina&_from=0&_to=49",
+  "403 https://www.drogaraia.com.br/api/catalog_system/pub/products/search/?ft=flanax&_from=0&_to=49",
+  "200 bing drogasil.com.br aspdip",
+  "200 ddg drogasil.com.br aspdip",
+  "200 bing drogasil.com.br aspmol",
+  "200 ddg drogasil.com.br aspmol",
+  "200 bing drogasil.com.br aspirina",
+  "202 ddg drogasil.com.br aspirina",
+  "200 bing drogasil.com.br cafiaspirina",
+  "202 ddg drogasil.com.br cafiaspirina",
+  "200 bing drogasil.com.br flanax",
+  "202 ddg drogasil.com.br flanax",
+  "200 bing drogaraia.com.br aspdip",
+  "202 ddg drogaraia.com.br aspdip",
+  "200 bing drogaraia.com.br aspmol",
+  "202 ddg drogaraia.com.br aspmol",
+  "200 bing drogaraia.com.br aspirina",
+  "202 ddg drogaraia.com.br aspirina",
+  "200 bing drogaraia.com.br cafiaspirina",
+  "202 ddg drogaraia.com.br cafiaspirina",
+  "200 bing drogaraia.com.br flanax",
+  "202 ddg drogaraia.com.br flanax",
+  "200 bing araujo.com.br aspdip",
+  "202 ddg araujo.com.br aspdip",
+  "200 bing araujo.com.br aspmol",
+  "202 ddg araujo.com.br aspmol",
+  "200 bing araujo.com.br aspirina",
+  "202 ddg araujo.com.br aspirina",
+  "200 bing araujo.com.br cafiaspirina",
+  "202 ddg araujo.com.br cafiaspirina",
+  "200 bing araujo.com.br flanax",
+  "202 ddg araujo.com.br flanax",
+  "200 bing panvel.com aspdip",
+  "202 ddg panvel.com aspdip",
+  "200 bing panvel.com aspmol",
+  "202 ddg panvel.com aspmol",
+  "200 bing panvel.com aspirina",
+  "202 ddg panvel.com aspirina",
+  "200 bing panvel.com cafiaspirina",
+  "202 ddg panvel.com cafiaspirina",
+  "200 bing panvel.com flanax",
+  "202 ddg panvel.com flanax",
+  "200 bing onofre.com.br aspdip",
+  "202 ddg onofre.com.br aspdip",
+  "200 bing onofre.com.br aspmol",
+  "202 ddg onofre.com.br aspmol",
+  "200 bing onofre.com.br aspirina",
+  "202 ddg onofre.com.br aspirina",
+  "200 bing onofre.com.br cafiaspirina",
+  "202 ddg onofre.com.br cafiaspirina",
+  "200 bing onofre.com.br flanax",
+  "202 ddg onofre.com.br flanax",
+  "200 bing farmadelivery.com.br aspdip",
+  "202 ddg farmadelivery.com.br aspdip",
+  "200 bing farmadelivery.com.br aspmol",
+  "202 ddg farmadelivery.com.br aspmol",
+  "200 bing farmadelivery.com.br aspirina",
+  "202 ddg farmadelivery.com.br aspirina",
+  "200 bing farmadelivery.com.br cafiaspirina",
+  "202 ddg farmadelivery.com.br cafiaspirina",
+  "200 bing farmadelivery.com.br flanax",
+  "202 ddg farmadelivery.com.br flanax",
+  "200 bing drogariavenancio.com.br aspdip",
+  "202 ddg drogariavenancio.com.br aspdip",
+  "200 bing drogariavenancio.com.br aspmol",
+  "202 ddg drogariavenancio.com.br aspmol",
+  "200 bing drogariavenancio.com.br aspirina",
+  "202 ddg drogariavenancio.com.br aspirina",
+  "200 bing drogariavenancio.com.br cafiaspirina",
+  "202 ddg drogariavenancio.com.br cafiaspirina",
+  "200 bing drogariavenancio.com.br flanax",
+  "202 ddg drogariavenancio.com.br flanax",
+  "200 bing paguemenos.com.br aspdip",
+  "202 ddg paguemenos.com.br aspdip",
+  "200 bing paguemenos.com.br aspmol",
+  "202 ddg paguemenos.com.br aspmol",
+  "200 bing paguemenos.com.br aspirina",
+  "202 ddg paguemenos.com.br aspirina",
+  "200 bing paguemenos.com.br cafiaspirina",
+  "202 ddg paguemenos.com.br cafiaspirina",
+  "200 bing paguemenos.com.br flanax",
+  "202 ddg paguemenos.com.br flanax",
+  "200 bing drogariasaopaulo.com.br aspdip",
+  "202 ddg drogariasaopaulo.com.br aspdip",
+  "200 bing drogariasaopaulo.com.br aspmol",
+  "202 ddg drogariasaopaulo.com.br aspmol",
+  "200 bing drogariasaopaulo.com.br aspirina",
+  "202 ddg drogariasaopaulo.com.br aspirina",
+  "200 bing drogariasaopaulo.com.br cafiaspirina",
+  "202 ddg drogariasaopaulo.com.br cafiaspirina",
+  "200 bing drogariasaopaulo.com.br flanax",
+  "202 ddg drogariasaopaulo.com.br flanax",
+  "200 bing drogariaspacheco.com.br aspdip",
+  "202 ddg drogariaspacheco.com.br aspdip",
+  "200 bing drogariaspacheco.com.br aspmol",
+  "202 ddg drogariaspacheco.com.br aspmol",
+  "200 bing drogariaspacheco.com.br aspirina",
+  "202 ddg drogariaspacheco.com.br aspirina",
+  "200 bing drogariaspacheco.com.br cafiaspirina",
+  "202 ddg drogariaspacheco.com.br cafiaspirina",
+  "200 bing drogariaspacheco.com.br flanax",
+  "202 ddg drogariaspacheco.com.br flanax"
+ ],
+ "check": {
+  "http://www.bing.com:80/search?q=site%3adrogasil.com.br+aspdip": [
+   200,
+   "site:drogasil.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogasil.com.br+aspmol": [
+   200,
+   "site:drogasil.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogasil.com.br+aspirina": [
+   200,
+   "site:drogasil.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogasil.com.br+cafiaspirina": [
+   200,
+   "site:drogasil.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogasil.com.br+flanax": [
+   200,
+   "site:drogasil.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+aspdip": [
+   200,
+   "site:drogaraia.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+aspmol": [
+   200,
+   "site:drogaraia.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+aspirina": [
+   200,
+   "site:drogaraia.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+cafiaspirina": [
+   200,
+   "site:drogaraia.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogaraia.com.br+flanax": [
+   200,
+   "site:drogaraia.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aaraujo.com.br+aspdip": [
+   200,
+   "site:araujo.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aaraujo.com.br+aspmol": [
+   200,
+   "site:araujo.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aaraujo.com.br+aspirina": [
+   200,
+   "site:araujo.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aaraujo.com.br+cafiaspirina": [
+   200,
+   "site:araujo.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aaraujo.com.br+flanax": [
+   200,
+   "site:araujo.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apanvel.com+aspdip": [
+   200,
+   "site:panvel.com aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apanvel.com+aspmol": [
+   200,
+   "site:panvel.com aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apanvel.com+aspirina": [
+   200,
+   "site:panvel.com aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apanvel.com+cafiaspirina": [
+   200,
+   "site:panvel.com cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apanvel.com+flanax": [
+   200,
+   "site:panvel.com flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aonofre.com.br+aspdip": [
+   200,
+   "site:onofre.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aonofre.com.br+aspmol": [
+   200,
+   "site:onofre.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aonofre.com.br+aspirina": [
+   200,
+   "site:onofre.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aonofre.com.br+cafiaspirina": [
+   200,
+   "site:onofre.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3aonofre.com.br+flanax": [
+   200,
+   "site:onofre.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+aspdip": [
+   200,
+   "site:farmadelivery.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+aspmol": [
+   200,
+   "site:farmadelivery.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+aspirina": [
+   200,
+   "site:farmadelivery.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+cafiaspirina": [
+   200,
+   "site:farmadelivery.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3afarmadelivery.com.br+flanax": [
+   200,
+   "site:farmadelivery.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+aspdip": [
+   200,
+   "site:drogariavenancio.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+aspmol": [
+   200,
+   "site:drogariavenancio.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+aspirina": [
+   200,
+   "site:drogariavenancio.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+cafiaspirina": [
+   200,
+   "site:drogariavenancio.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariavenancio.com.br+flanax": [
+   200,
+   "site:drogariavenancio.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+aspdip": [
+   200,
+   "site:paguemenos.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+aspmol": [
+   200,
+   "site:paguemenos.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+aspirina": [
+   200,
+   "site:paguemenos.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+cafiaspirina": [
+   200,
+   "site:paguemenos.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3apaguemenos.com.br+flanax": [
+   200,
+   "site:paguemenos.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+aspdip": [
+   200,
+   "site:drogariasaopaulo.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+aspmol": [
+   200,
+   "site:drogariasaopaulo.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+aspirina": [
+   200,
+   "site:drogariasaopaulo.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+cafiaspirina": [
+   200,
+   "site:drogariasaopaulo.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariasaopaulo.com.br+flanax": [
+   200,
+   "site:drogariasaopaulo.com.br flanax - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+aspdip": [
+   200,
+   "site:drogariaspacheco.com.br aspdip - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+aspmol": [
+   200,
+   "site:drogariaspacheco.com.br aspmol - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+aspirina": [
+   200,
+   "site:drogariaspacheco.com.br aspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+cafiaspirina": [
+   200,
+   "site:drogariaspacheco.com.br cafiaspirina - Pesquisar"
+  ],
+  "http://www.bing.com:80/search?q=site%3adrogariaspacheco.com.br+flanax": [
+   200,
+   "site:drogariaspacheco.com.br flanax - Pesquisar"
+  ]
+ }
+}
