@@ -1,28 +1,46 @@
-/* Aspirina · AspDip & AspMol — interações */
+/* Família Asp · interações */
 (() => {
+  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, byId } = window.ASP;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(pointer: fine)').matches;
   const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const pad = n => String(n).padStart(2, '0');
+  const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  const fullName = s => s.drops ? `AspDip Gotas ${s.dose}` : `${s.name} ${s.dose}`;
 
   $('#year').textContent = new Date().getFullYear();
 
-  /* ---------- Texto do hero dividido em letras ---------- */
-  $$('[data-split]').forEach(line => {
-    const text = line.textContent;
-    line.textContent = '';
-    [...text].forEach((ch, i) => {
-      const s = document.createElement('span');
-      s.className = 'char';
-      s.style.setProperty('--i', i + (line.classList.contains('hero__mega-line--serif') ? 6 : 0));
-      s.textContent = ch;
-      line.appendChild(s);
-    });
+  /* ---------- Toast ---------- */
+  let toastT;
+  function toast(msg) {
+    const t = $('#toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  /* ---------- Tema ---------- */
+  const themeBtn = $('#themeBtn');
+  const isDark = () => {
+    const t = document.documentElement.dataset.theme;
+    return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  };
+  themeBtn.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark';
+    const apply = () => { document.documentElement.dataset.theme = next; store.set('asp-theme', next); };
+    if (document.startViewTransition && !reduced) document.startViewTransition(apply); else apply();
+    toast(next === 'dark' ? 'Tema escuro ativado' : 'Tema claro ativado');
   });
 
   /* ---------- Abas ---------- */
-  const views = $$('.view');
   const tabBtns = $$('.tabs__btn');
   const pill = $('.tabs__pill');
   const order = ['inicio', 'lancamentos', 'produtos', 'historia', 'duvidas'];
@@ -33,21 +51,18 @@
     if (!btn) return;
     pill.style.width = btn.offsetWidth + 'px';
     pill.style.transform = `translateX(${btn.offsetLeft}px)`;
-    // Mantém a aba ativa visível na barra inferior (mobile)
     const nav = btn.parentElement;
-    if (nav.scrollWidth > nav.clientWidth) {
-      nav.scrollTo({ left: btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2, behavior: 'smooth' });
-    }
+    if (nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2, behavior: 'smooth' });
   }
 
-  function go(id, { push = true, scrollTo = null } = {}) {
+  function go(id, { push = true, scrollTo = null, hash = null } = {}) {
     if (!order.includes(id)) id = 'inicio';
     const finish = () => {
-      if (scrollTo) {
-        const t = document.getElementById(scrollTo);
-        if (t) setTimeout(() => t.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }), 120);
-      }
+      if (!scrollTo) return;
+      const t = typeof scrollTo === 'string' ? document.getElementById(scrollTo) : scrollTo;
+      if (t) setTimeout(() => t.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }), 140);
     };
+    if (push) history.pushState({ id }, '', '#' + (hash || id));
     if (id === current) {
       if (!scrollTo) window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
       finish();
@@ -56,20 +71,14 @@
     const from = $(`.view[data-view="${current}"]`);
     const to = $(`.view[data-view="${id}"]`);
     current = id;
-    document.body.dataset.tab = id;
-
-    tabBtns.forEach(b => {
-      const on = b.dataset.go === id;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-selected', on);
-    });
+    tabBtns.forEach(b => { const on = b.dataset.go === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     movePill();
-    if (push) history.pushState({ id }, '', '#' + id);
-
     const swap = () => {
-      from.classList.remove('is-active', 'is-leaving');
+      from.classList.remove('is-active', 'is-leaving', 'is-settled');
       window.scrollTo(0, 0);
       to.classList.add('is-active');
+      // Encerra a animação de entrada: opacidade animada achata o 3D no Chrome
+      to.addEventListener('animationend', function done(ev) { if (ev.target !== to) return; to.classList.add('is-settled'); to.removeEventListener('animationend', done); });
       observeReveals(to);
       onEnter(id);
       finish();
@@ -83,16 +92,9 @@
     const el = e.target.closest('[data-go]');
     if (!el) return;
     e.preventDefault();
-    if (el.dataset.product) setProduct(el.dataset.product);
-    go(el.dataset.go, { scrollTo: el.dataset.scroll || null });
+    if (el.dataset.sku) selectSku(el.dataset.sku);
+    go(el.dataset.go, { scrollTo: el.dataset.scroll || null, hash: el.dataset.sku || null });
   });
-  document.addEventListener('keydown', e => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.tile[data-go]')) {
-      e.preventDefault();
-      e.target.click();
-    }
-  });
-  // Setas no tablist
   $('.tabs').addEventListener('keydown', e => {
     if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
     const i = order.indexOf(current) + (e.key === 'ArrowRight' ? 1 : -1);
@@ -100,26 +102,32 @@
     go(id);
     $(`.tabs__btn[data-go="${id}"]`).focus();
   });
-  window.addEventListener('popstate', () => go(location.hash.slice(1) || 'inicio', { push: false }));
-  window.addEventListener('resize', movePill);
+  window.addEventListener('popstate', () => routeFromHash(false));
+  addEventListener('resize', movePill);
   document.fonts?.ready.then(movePill);
 
-  /* ---------- Reveal ---------- */
+  function routeFromHash(push) {
+    const h = location.hash.slice(1);
+    if (byId(h)) { selectSku(h, true); go('lancamentos', { push }); }
+    else go(h || 'inicio', { push });
+  }
+
+  /* ---------- Reveal + contadores ---------- */
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
       en.target.classList.add('in');
       io.unobserve(en.target);
-      if (en.target.querySelector('.counter')) runCounter(en.target.querySelector('.counter'));
+      $$('.counter', en.target).forEach(runCounter);
+      if (en.target.matches('.mol')) drawMol(en.target);
     });
-  }, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
 
   function observeReveals(scope) {
     const groups = new Map();
     $$('.reveal:not(.in)', scope).forEach(el => {
-      const p = el.parentElement;
-      const n = groups.get(p) || 0;
-      groups.set(p, n + 1);
+      const n = groups.get(el.parentElement) || 0;
+      groups.set(el.parentElement, n + 1);
       el.style.setProperty('--d', Math.min(n * 60, 300) + 'ms');
       io.observe(el);
     });
@@ -129,15 +137,13 @@
     if (el.dataset.done) return;
     el.dataset.done = 1;
     const target = +el.dataset.count;
-    const suffix = el.dataset.suffix || '';
-    if (reduced) { el.textContent = target + suffix; return; }
-    const start = target > 1000 ? target - 120 : 0;
-    const dur = 1400;
-    const t0 = performance.now();
+    if (reduced) { el.textContent = target; return; }
+    const start = target > 1000 ? target - 100 : 0;
+    const t0 = performance.now(), dur = 1200;
     const tick = now => {
       const p = Math.min((now - t0) / dur, 1);
-      const eased = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
-      el.textContent = Math.round(start + (target - start) * eased) + (p === 1 ? suffix : '');
+      const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      el.textContent = Math.round(start + (target - start) * e);
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -147,300 +153,653 @@
   const topbar = $('.topbar');
   const prog = $('.scroll-progress span');
   const onScroll = () => {
-    const y = scrollY;
-    topbar.classList.toggle('is-scrolled', y > 24);
+    topbar.classList.toggle('is-scrolled', scrollY > 24);
     const max = document.documentElement.scrollHeight - innerHeight;
-    prog.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    prog.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
   };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- Hero: parallax 3D com inércia ---------- */
-  const hero = $('#hero');
-  const stage = $('#stageInner');
-  const pills = $$('.pill', stage);
-  let tx = 0, ty = 0, cx = 0, cy = 0, heroRAF = null;
-
+  /* ---------- Cursor ---------- */
+  const cursor = $('#cursor');
   if (fine && !reduced) {
-    hero.addEventListener('pointermove', e => {
-      const r = hero.getBoundingClientRect();
-      tx = (e.clientX - r.left) / r.width - .5;
-      ty = (e.clientY - r.top) / r.height - .5;
-      hero.style.setProperty('--mx', e.clientX - r.left + 'px');
-      hero.style.setProperty('--my', e.clientY - r.top + 'px');
+    let mx = -100, my = -100, cx = -100, cy = -100;
+    addEventListener('pointermove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.classList.add('is-on');
+      const t = e.target.closest('[data-cursor]');
+      cursor.classList.toggle('is-label', !!t);
+      if (t) $('.cursor__label', cursor).textContent = t.dataset.cursor;
     });
-    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+    document.addEventListener('pointerleave', () => cursor.classList.remove('is-on'));
+    (function loop() {
+      cx = lerp(cx, mx, .22); cy = lerp(cy, my, .22);
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      requestAnimationFrame(loop);
+    })();
   }
 
-  function heroLoop() {
-    cx = lerp(cx, tx, .06);
-    cy = lerp(cy, ty, .06);
-    stage.style.setProperty('--ry', (cx * 22).toFixed(2) + 'deg');
-    stage.style.setProperty('--rx', (-cy * 14).toFixed(2) + 'deg');
-    pills.forEach(p => {
-      const d = +p.dataset.depth;
-      p.style.setProperty('--px', (cx * -60 * d).toFixed(1) + 'px');
-      p.style.setProperty('--py', (cy * -40 * d).toFixed(1) + 'px');
-    });
-    heroRAF = requestAnimationFrame(heroLoop);
+  /* ---------- Partículas do hero (moléculas ligadas) ---------- */
+  const canvas = $('#particles');
+  const ctx = canvas.getContext('2d');
+  let parts = [], pRAF = null, pmx = -999, pmy = -999;
+  function sizeCanvas() {
+    const r = canvas.getBoundingClientRect();
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(clamp(r.width / 28, 18, 52));
+    parts = Array.from({ length: n }, () => ({
+      x: Math.random() * r.width, y: Math.random() * r.height * .6,
+      vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, r: 1 + Math.random() * 2
+    }));
   }
-  if (!reduced) heroLoop();
+  function particles() {
+    const w = canvas.clientWidth, h = canvas.clientHeight * .62;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const col = isDark() ? '0,167,133' : '0,121,96';
+    for (const p of parts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      const dx = p.x - pmx, dy = p.y - pmy, d = Math.hypot(dx, dy);
+      if (d < 120) { p.x += dx / d * .6; p.y += dy / d * .6; }
+    }
+    for (let i = 0; i < parts.length; i++) {
+      const a = parts[i];
+      for (let j = i + 1; j < parts.length; j++) {
+        const b = parts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < 110) { ctx.strokeStyle = `rgba(${col},${(1 - d / 110) * .22})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+      }
+      ctx.fillStyle = `rgba(${col},.45)`;
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+    }
+    pRAF = requestAnimationFrame(particles);
+  }
+  if (!reduced) {
+    sizeCanvas();
+    addEventListener('resize', sizeCanvas);
+    $('#hero').addEventListener('pointermove', e => { const r = canvas.getBoundingClientRect(); pmx = e.clientX - r.left; pmy = e.clientY - r.top; });
+  }
 
-  // Giroscópio leve no mobile (quando disponível, sem pedir permissão)
-  if (!fine && !reduced && 'DeviceOrientationEvent' in window && typeof DeviceOrientationEvent.requestPermission !== 'function') {
-    addEventListener('deviceorientation', e => {
-      if (e.gamma == null) return;
-      tx = Math.max(-.5, Math.min(.5, e.gamma / 60));
-      ty = Math.max(-.5, Math.min(.5, (e.beta - 45) / 90));
+  /* ---------- Mostrador do chão da órbita ---------- */
+  (function dial() {
+    const svg = $('#dial');
+    let g = '';
+    for (let i = 0; i < 120; i++) {
+      const a = (i / 120) * Math.PI * 2, major = i % 10 === 0;
+      const r1 = 180, r2 = major ? 166 : 173;
+      g += `<line class="dial-tick${major ? ' dial-tick--major' : ''}" x1="${Math.cos(a) * r1}" y1="${Math.sin(a) * r1}" x2="${Math.cos(a) * r2}" y2="${Math.sin(a) * r2}" stroke-width="${major ? 1.2 : .6}"/>`;
+    }
+    const labels = ['500 MG', '1 G', '500 MG/ML', '500 MG', '750 MG'];
+    labels.forEach((t, i) => {
+      const a = (i / labels.length) * Math.PI * 2 - Math.PI / 2;
+      g += `<text class="dial-label" x="${Math.cos(a) * 150}" y="${Math.sin(a) * 150}" text-anchor="middle">${t}</text>`;
     });
-  }
+    g += `<circle r="186" fill="none" stroke="rgba(255,255,255,.35)" stroke-width=".6"/><circle r="120" fill="none" stroke="rgba(255,255,255,.18)" stroke-width=".6" stroke-dasharray="2 4"/>`;
+    svg.innerHTML = `<g id="dialRot">${g}</g>`;
+  })();
+  const dialRot = $('#dialRot');
 
-  // Botões magnéticos
-  if (fine && !reduced) {
-    $$('.magnetic').forEach(btn => {
-      btn.addEventListener('pointermove', e => {
-        const r = btn.getBoundingClientRect();
-        const x = e.clientX - r.left - r.width / 2;
-        const y = e.clientY - r.top - r.height / 2;
-        btn.style.transform = `translate(${x * .18}px, ${y * .28}px)`;
-      });
-      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
-    });
+  /* ---------- Órbita dos 5 lançamentos ---------- */
+  const stage = $('#orbitStage');
+  const orbitEl = $('#orbit');
+  const N = SKUS.length, step = (Math.PI * 2) / N;
+  stage.innerHTML = SKUS.map((s, i) => `
+    <div class="orbit__item" data-i="${i}" role="group" aria-label="${fullName(s)}">
+      <div class="orbit__shadow" style="--delay:${-i * .8}s"></div>
+      <div class="float" style="--delay:${-i * .8}s">${product3D(s)}</div>
+    </div>`).join('');
+  const items = $$('.orbit__item', stage);
+  let angle = 0, targetIdx = 0, oDrag = false, oLastX = 0, oMoved = 0, hoverPause = false, autoT0 = performance.now(), oRAF = null, frontIdx = -1;
+  const AUTO = 3800;
+  const geo = () => {
+    const w = orbitEl.clientWidth;
+    return { rx: w < 640 ? w * .56 : clamp(w * .36, 240, 540), rz: clamp(w * .18, 120, 260), k: w < 640 ? .74 : w < 1000 ? 1 : 1.3 };
+  };
+  let G = geo();
+  addEventListener('resize', () => { G = geo(); });
+
+  function setFront(i) {
+    if (i === frontIdx) return;
+    frontIdx = i;
+    const s = SKUS[i], f = FAMILIES[s.fam];
+    const hud = $('#hud');
+    hud.classList.add('is-swap');
+    setTimeout(() => {
+      $('#hudIdx').textContent = pad(i + 1);
+      $('#hudFam').textContent = `${f.name} · ${f.ativo}`;
+      $('#hudName').textContent = fullName(s);
+      $('#hudMeta').textContent = `${s.qtyLabel} · ${s.indic}`;
+      hud.classList.remove('is-swap');
+    }, reduced ? 0 : 160);
   }
+  $('#hudTotal').textContent = pad(N);
+
+  function orbitFrame(now) {
+    if (!oDrag) {
+      if (!hoverPause && !reduced && now - autoT0 > AUTO) { targetIdx++; autoT0 = now; }
+      angle = lerp(angle, -targetIdx * step, reduced ? 1 : .07);
+    }
+    const p = hoverPause || oDrag ? 0 : clamp((now - autoT0) / AUTO, 0, 1);
+    $('#hudBar').style.transform = `scaleX(${p})`;
+    items.forEach((el, i) => {
+      const th = angle + i * step;
+      const c = Math.cos(th), sn = Math.sin(th);
+      const depth = (c + 1) / 2;
+      const x = sn * G.rx, z = c * G.rz, y = -c * 10 - (1 - depth) * 40;
+      const sc = (.5 + .5 * depth) * G.k;
+      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${(sn * 32).toFixed(2)}deg) scale(${sc.toFixed(3)})`;
+      el.style.setProperty('--fog', ((1 - depth) * .55).toFixed(3));
+      el.style.zIndex = Math.round(depth * 100);
+    });
+    dialRot.setAttribute('transform', `rotate(${(-angle * 180 / Math.PI).toFixed(2)})`);
+    const fi = ((Math.round(-angle / step) % N) + N) % N;
+    setFront(fi);
+    oRAF = requestAnimationFrame(orbitFrame);
+  }
+  const nudge = d => { targetIdx = Math.round(-angle / step) + d; autoT0 = performance.now(); };
+  $('#orbitPrev').addEventListener('click', () => nudge(-1));
+  $('#orbitNext').addEventListener('click', () => nudge(1));
+  $('#hudOpen').addEventListener('click', () => { selectSku(SKUS[frontIdx].id, true); go('lancamentos', { hash: SKUS[frontIdx].id }); });
+  orbitEl.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hoverPause = true; });
+  orbitEl.addEventListener('pointerleave', () => { hoverPause = false; autoT0 = performance.now(); });
+  orbitEl.addEventListener('pointerdown', e => { oDrag = true; oLastX = e.clientX; oMoved = 0; orbitEl.setPointerCapture(e.pointerId); });
+  orbitEl.addEventListener('pointermove', e => {
+    if (!oDrag) return;
+    const dx = e.clientX - oLastX;
+    oMoved += Math.abs(dx);
+    angle += dx * .006;
+    oLastX = e.clientX;
+  });
+  const oEnd = e => {
+    if (!oDrag) return;
+    oDrag = false;
+    targetIdx = Math.round(-angle / step);
+    autoT0 = performance.now();
+    if (oMoved < 6) {
+      // Clique: abre o da frente ou gira até o clicado
+      const hit = document.elementsFromPoint(e.clientX, e.clientY).map(n => n.closest && n.closest('.orbit__item')).find(Boolean);
+      if (hit) {
+        const i = +hit.dataset.i;
+        if (i === frontIdx) { selectSku(SKUS[i].id, true); go('lancamentos', { hash: SKUS[i].id }); }
+        else {
+          let d = (i - frontIdx + N) % N; if (d > N / 2) d -= N;
+          nudge(d);
+        }
+      }
+    }
+  };
+  orbitEl.addEventListener('pointerup', oEnd);
+  orbitEl.addEventListener('pointercancel', () => { oDrag = false; targetIdx = Math.round(-angle / step); });
+  document.addEventListener('keydown', e => {
+    if (current !== 'inicio' || e.target.closest('input, textarea, dialog')) return;
+    if (e.key === 'ArrowRight' && !e.target.closest('.tabs')) nudge(1);
+    if (e.key === 'ArrowLeft' && !e.target.closest('.tabs')) nudge(-1);
+  });
+
+  /* ---------- Ticker ---------- */
+  const tick = ['AspDip 500 mg', 'AspDip 1 g', 'AspDip gotas 500 mg/mL', 'AspMol 500 mg', 'AspMol 750 mg', 'Dor & Febre', 'É Bayer, é bom'];
+  $('#tickerTrack').innerHTML = [...tick, ...tick].map(t => `<span>${t}</span><b>✚</b>`).join('');
+
+  /* ---------- Famílias ---------- */
+  $('#families').innerHTML = ['dip', 'mol'].map(k => {
+    const f = FAMILIES[k];
+    const list = SKUS.filter(s => s.fam === k).map(s => `
+      <button class="family__sku" data-go="lancamentos" data-sku="${s.id}" data-cursor="abrir">
+        ${flat(s)}
+        <div><b>${fullName(s)}</b><span>${s.qtyLabel}</span></div>
+        <i aria-hidden="true">→</i>
+      </button>`).join('');
+    return `<article class="family family--${k} reveal">
+      <span class="family__band" aria-hidden="true"></span>
+      <div class="family__head"><h3 class="family__word">ASP<b>${f.word}</b></h3><span class="family__formula">${f.ativo}<br>${f.formula}</span></div>
+      <p class="family__lead">${f.lead}</p>
+      <div class="family__list">${list}</div>
+    </article>`;
+  }).join('');
 
   /* ---------- Lançamentos ---------- */
   const launchView = $('#view-lancamentos');
-  const viewer = $('#viewer');
-  const vBox = $('#viewerBox');
-  const word = $('#launchWord');
-  const data = {
-    dip: { name: 'Asp<b>Dip</b>', sub: 'dipirona monoidratada', side: 'AspDip', word: 'DIP' },
-    mol: { name: 'Asp<b>Mol</b>', sub: 'paracetamol', side: 'AspMol', word: 'MOL' }
-  };
-  let product = 'dip';
+  const viewerObj = $('#viewerObj');
+  let sku = SKUS[0];
+  let fam = 'dip';
 
-  function setProduct(p) {
-    if (!data[p]) return;
-    const changed = p !== product;
-    product = p;
-    launchView.dataset.activeProduct = p;
-    $$('.switch__btn').forEach(b => {
-      const on = b.dataset.product === p;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-selected', on);
-    });
-    $$('.swap, .presets', launchView).forEach(el => { el.hidden = el.dataset.for !== p; });
+  function setFamily(k, keepSku) {
+    fam = k;
+    launchView.dataset.family = k;
+    const f = FAMILIES[k];
+    $$('.switch__btn').forEach(b => { const on = b.dataset.family === k; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
+    $('#famTitle').innerHTML = `ASP<b>${f.word}</b>`;
+    $('#famLead').textContent = f.lead;
+    const fl = $('#launchFormula');
+    fl.classList.add('is-swap');
+    setTimeout(() => { fl.textContent = f.formula; fl.classList.remove('is-swap'); }, reduced ? 0 : 200);
+    const list = SKUS.filter(s => s.fam === k);
+    $('#skuList').innerHTML = list.map((s, i) => `
+      <button class="sku" role="option" data-id="${s.id}" style="--i:${i}" aria-selected="false">
+        ${flat(s)}<div><b>${s.drops ? 'Gotas ' + s.dose : s.dose}</b><span>${s.qtyLabel}</span></div>
+      </button>`).join('');
+    $$('.sku').forEach(b => b.addEventListener('click', () => { selectSku(b.dataset.id); history.replaceState(null, '', '#' + b.dataset.id); }));
+    if (!keepSku) selectSku(list[0].id);
+  }
 
-    const apply = () => {
-      vBox.classList.toggle('box--dip', p === 'dip');
-      vBox.classList.toggle('box--mol', p === 'mol');
-      $('#vName').innerHTML = data[p].name;
-      $('#vSub').textContent = data[p].sub;
-      $('#vSide').textContent = data[p].side;
-      word.textContent = data[p].word;
-      const active = $(`.presets[data-for="${p}"] .chip.is-active`);
-      applyDose(active);
+  function selectSku(id, instant) {
+    const s = byId(id);
+    if (!s) return;
+    if (s.fam !== fam) setFamily(s.fam, true);
+    const changed = s !== sku || !viewerObj.firstElementChild;
+    sku = s;
+    $$('.sku').forEach(b => { const on = b.dataset.id === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
+    renderSheet(s);
+    if (!changed) return;
+    const put = () => {
+      viewerObj.innerHTML = product3D(s);
+      vy = -24 + Math.round((vy + 24) / 360) * 360 + (instant || reduced ? 0 : 360);
+      viewerObj.classList.remove('is-swap');
     };
-    if (!changed || reduced) return apply();
-    viewer.classList.add('is-swapping');
-    word.classList.add('is-swapping');
-    vy += 360; // volta completa ao trocar
-    setTimeout(() => {
-      apply();
-      viewer.classList.remove('is-swapping');
-      word.classList.remove('is-swapping');
-    }, 220);
+    if (instant || reduced || !viewerObj.firstElementChild) return put();
+    viewerObj.classList.add('is-swap');
+    setTimeout(put, 200);
   }
 
-  function applyDose(chip) {
-    if (!chip) return;
-    $('#vDose').textContent = chip.dataset.dose;
-    $('#vQty').textContent = chip.dataset.qty;
-    viewer.classList.toggle('is-drops', chip.dataset.form === 'drops');
+  function renderSheet(s) {
+    const f = FAMILIES[s.fam];
+    const rows = [
+      ['Princípio ativo', s.ativo],
+      ['Apresentação', `${s.form} · ${s.qtyLabel}`],
+      ['Indicação', s.indic],
+      ['Uso', s.idade],
+      ['Posologia', s.poso],
+      ['Destaque', s.extra]
+    ];
+    $('#sheet').innerHTML = `
+      <div class="sheet__head">
+        <span class="eyebrow">Ficha do produto</span>
+        <h3 class="sheet__name">${s.drops ? 'AspDip Gotas' : s.name} <b>${s.dose}</b></h3>
+        <span class="sheet__formula">${s.formula}</span>
+      </div>
+      <dl>${rows.map(([k, v], i) => `<div class="sheet__row" style="--i:${i}"><dt>${k}</dt><dd>${v}</dd></div>`).join('')}
+      ${s.ean ? `<div class="sheet__row" style="--i:6"><dt>EAN</dt><dd>${ean13(s.ean)}</dd></div>` : ''}</dl>`;
   }
 
-  $$('.switch__btn').forEach(b => b.addEventListener('click', () => setProduct(b.dataset.product)));
-  $$('.presets .chip').forEach(c => c.addEventListener('click', () => {
-    $$('.chip', c.parentElement).forEach(x => x.classList.toggle('is-active', x === c));
-    applyDose(c);
+  $$('.switch__btn').forEach(b => b.addEventListener('click', () => {
+    setFamily(b.dataset.family);
+    history.replaceState(null, '', '#' + sku.id);
   }));
 
-  // Arrastar para girar + auto-rotação suave
-  let vx = -8, vy = -28, rvx = vx, rvy = vy, dragging = false, lastX = 0, lastY = 0, idle = 0, viewerRAF = null;
+  // Visualizador: arrastar, ângulos prontos e oscilação suave
+  const viewer = $('#viewer');
+  let vx = -10, vy = -24, rvx = vx, rvy = vy, vDrag = false, vlx = 0, vly = 0, idle = 0, vRAF = null, lockAngle = 0;
   viewer.addEventListener('pointerdown', e => {
-    dragging = true; lastX = e.clientX; lastY = e.clientY;
-    viewer.setPointerCapture(e.pointerId);
+    if (e.target.closest('button')) return;
+    vDrag = true; vlx = e.clientX; vly = e.clientY; viewer.setPointerCapture(e.pointerId);
   });
   viewer.addEventListener('pointermove', e => {
-    if (!dragging) return;
-    vy += (e.clientX - lastX) * .5;
-    vx = Math.max(-40, Math.min(40, vx - (e.clientY - lastY) * .3));
-    lastX = e.clientX; lastY = e.clientY;
-    idle = 0;
+    if (!vDrag) return;
+    vy += (e.clientX - vlx) * .5;
+    vx = clamp(vx - (e.clientY - vly) * .3, -45, 45);
+    vlx = e.clientX; vly = e.clientY; idle = 0; lockAngle = 0;
   });
-  const end = () => { dragging = false; };
-  viewer.addEventListener('pointerup', end);
-  viewer.addEventListener('pointercancel', end);
-
+  ['pointerup', 'pointercancel'].forEach(t => viewer.addEventListener(t, () => { vDrag = false; }));
+  $$('[data-view-angle]').forEach(b => b.addEventListener('click', () => {
+    const base = Math.round((vy + 24) / 360) * 360;
+    const map = { front: -24, side: -90, back: 180 };
+    vy = base + map[b.dataset.viewAngle];
+    vx = -8; idle = 0; lockAngle = 240;
+  }));
   function viewerLoop() {
-    if (!dragging) {
+    if (!vDrag) {
       idle++;
-      if (idle > 90) {
-        // Oscila em torno da frente mais próxima, sem nunca mostrar só o verso
-        const base = Math.round((vy + 28) / 360) * 360 - 28;
-        vy = lerp(vy, base + Math.sin(performance.now() / 1600) * 26, .03);
+      if (lockAngle > 0) lockAngle--;
+      else if (idle > 90) {
+        const base = Math.round((vy + 24) / 360) * 360 - 24;
+        vy = lerp(vy, base + Math.sin(performance.now() / 1700) * 24, .03);
       }
-      vx = lerp(vx, -8, .02);
+      vx = lerp(vx, -10, .02);
     }
-    rvx = lerp(rvx, vx, .1);
-    rvy = lerp(rvy, vy, .1);
-    vBox.style.setProperty('--vx', rvx.toFixed(2) + 'deg');
-    vBox.style.setProperty('--vy', rvy.toFixed(2) + 'deg');
-    viewerRAF = requestAnimationFrame(viewerLoop);
+    rvx = lerp(rvx, vx, .1); rvy = lerp(rvy, vy, .1);
+    const pk = viewerObj.firstElementChild;
+    if (pk) { pk.style.setProperty('--vx', rvx.toFixed(2) + 'deg'); pk.style.setProperty('--vy', rvy.toFixed(2) + 'deg'); }
+    vRAF = requestAnimationFrame(viewerLoop);
   }
 
-  // Campanha: perguntas digitadas
+  /* ---------- Guia ---------- */
+  let gAge = 'adulto', gNeed = 'febre';
+  function guide() {
+    const out = SKUS.filter(s => s.age.includes(gAge) && s.need.includes(gNeed));
+    $('#guideOut').innerHTML = out.length
+      ? out.map((s, i) => `<button class="match" style="--i:${i}" data-go="lancamentos" data-sku="${s.id}" data-scroll="viewer">${flat(s)}<div><b>${fullName(s)}</b><span>${s.indic} · ${s.idade}</span></div></button>`).join('')
+      : `<div class="empty"><b>Nenhum lançamento indicado para essa combinação.</b><span>Converse com o farmacêutico ou com o médico.</span></div>`;
+  }
+  $$('.seg').forEach(seg => seg.addEventListener('click', e => {
+    const b = e.target.closest('.seg__btn');
+    if (!b) return;
+    $$('.seg__btn', seg).forEach(x => { const on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-checked', on); });
+    if (b.dataset.age) gAge = b.dataset.age;
+    if (b.dataset.need) gNeed = b.dataset.need;
+    guide();
+  }));
+  guide();
+
+  /* ---------- Matriz ---------- */
+  (function matrix() {
+    const rows = [
+      ['Princípio ativo', s => s.ativo],
+      ['Concentração', s => s.dose],
+      ['Forma', s => s.form],
+      ['Embalagem', s => s.qtyLabel],
+      ['Indicação', s => s.indic],
+      ['Uso', s => s.idade],
+      ['Posologia', s => s.poso],
+      ['Destaque', s => s.extra]
+    ];
+    const head = `<thead><tr><th scope="col"><span class="sr-only">Atributo</span></th>${SKUS.map((s, i) => `<th scope="col" data-col="${i}">${flat(s)}<b>${fullName(s)}</b></th>`).join('')}</tr></thead>`;
+    const body = `<tbody>${rows.map(([k, fn]) => `<tr><th scope="row">${k}</th>${SKUS.map((s, i) => `<td data-col="${i}">${fn(s)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    const t = $('#matrix');
+    t.innerHTML = head + body;
+    t.addEventListener('pointerover', e => {
+      const c = e.target.closest('[data-col]');
+      $$('.is-col', t).forEach(x => x.classList.remove('is-col'));
+      if (c) $$(`[data-col="${c.dataset.col}"]`, t).forEach(x => x.classList.add('is-col'));
+    });
+    t.addEventListener('pointerleave', () => $$('.is-col', t).forEach(x => x.classList.remove('is-col')));
+  })();
+
+  /* ---------- Campanha ---------- */
   const qa = [
-    ['Dor de cabeça no meio da reunião. Você toma o quê?', 'Uma Asp.'],
-    ['Febre chegou de surpresa. E agora?', 'AspDip.'],
-    ['Aquela dor que não passa. Qual você pede?', 'AspMol. É Bayer.'],
-    ['Por que confiar?', 'É Bayer, é bom.']
+    ['Dor de cabeça no meio da reunião. Toma o quê?', 'Uma Asp.'],
+    ['Febre no pequeno de madrugada?', 'AspDip gotas.'],
+    ['Dor no corpo depois do treino?', 'AspMol.'],
+    ['Aquela dor forte que não passa?', 'AspDip 1 g.'],
+    ['E por que confiar?', 'É Bayer, é bom.']
   ];
-  let typing = null, qi = 0;
+  let typing = null, qi = 0, recT = null, recS = 0;
   function typeLoop() {
     clearTimeout(typing);
-    const q = $('#typed'), r = $('#typedReply'), rb = r.parentElement;
+    const q = $('#typed'), r = $('#typedReply'), rb = $('#replyBubble');
     const [question, reply] = qa[qi % qa.length];
     rb.classList.remove('show');
     q.textContent = '';
     let i = 0;
-    const step = () => {
+    const stepT = () => {
       if (current !== 'lancamentos') return;
       q.textContent = question.slice(0, ++i);
-      if (i < question.length) typing = setTimeout(step, reduced ? 0 : 34);
-      else typing = setTimeout(() => {
-        r.textContent = reply;
-        rb.classList.add('show');
-        typing = setTimeout(() => { qi++; typeLoop(); }, 2400);
-      }, 500);
+      if (i < question.length) typing = setTimeout(stepT, reduced ? 0 : 32);
+      else typing = setTimeout(() => { r.textContent = reply; rb.classList.add('show'); typing = setTimeout(() => { qi++; typeLoop(); }, 2400); }, 450);
     };
-    typing = setTimeout(step, 300);
+    typing = setTimeout(stepT, 300);
+  }
+  function recClock() {
+    clearInterval(recT);
+    recS = 0;
+    recT = setInterval(() => { recS++; $('#recTime').textContent = `${pad(Math.floor(recS / 60))}:${pad(recS % 60)}`; }, 1000);
   }
 
-  /* ---------- Produtos: filtro + tilt ---------- */
-  $$('.filter').forEach(f => f.addEventListener('click', () => {
-    $$('.filter').forEach(x => x.classList.toggle('is-active', x === f));
+  /* ---------- Linha completa ---------- */
+  const classicCard = p => `<div class="classic" style="--c:${p.color}"><b>${p.name.replace(/ \d.*$/, '')}</b><span>${p.ativo}</span></div>`;
+  $('#cards').innerHTML = LINE.map(p => {
+    if (p.sku) {
+      const s = byId(p.sku);
+      return `<button class="card" data-tags="${p.tags.join(' ')}" data-go="lancamentos" data-sku="${s.id}" style="--c:${FAMILIES[s.fam].band}" data-cursor="abrir">
+        <span class="card__badge">Novo</span>
+        <div class="card__art">${flat(s)}</div>
+        <div class="card__body"><h3>${fullName(s)}</h3><p class="card__ing">${s.ativo} · ${s.qtyLabel}</p><p>${s.indic}. ${s.idade}.</p></div>
+      </button>`;
+    }
+    return `<article class="card" data-tags="${p.tags.join(' ')}" style="--c:${p.color}">
+      <div class="card__art">${classicCard(p)}</div>
+      <div class="card__body"><h3>${p.name}</h3><p class="card__ing">${p.ativo}</p><p>${p.desc}</p></div>
+    </article>`;
+  }).join('');
+  const cards = $$('.card');
+  $$('.filters .chip').forEach(f => {
     const v = f.dataset.filter;
-    $$('.card').forEach((c, i) => {
-      const show = v === 'all' || c.dataset.cat.split(' ').includes(v);
-      c.classList.toggle('is-hidden', !show);
-      if (show && !reduced) {
-        c.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }],
-          { duration: 300, delay: i * 40, easing: 'cubic-bezier(.45,0,.55,1)', fill: 'backwards' });
-      }
+    $('.chip__n', f).textContent = v === 'all' ? cards.length : cards.filter(c => c.dataset.tags.split(' ').includes(v)).length;
+    f.addEventListener('click', () => {
+      $$('.filters .chip').forEach(x => x.classList.toggle('is-active', x === f));
+      let k = 0;
+      cards.forEach(c => {
+        const show = v === 'all' || c.dataset.tags.split(' ').includes(v);
+        c.classList.toggle('is-hidden', !show);
+        if (show && !reduced) c.animate([{ opacity: 0, translate: '0 16px' }, { opacity: 1, translate: '0 0' }], { duration: 300, delay: k++ * 40, easing: 'cubic-bezier(.45,0,.55,1)', fill: 'backwards' });
+      });
     });
-  }));
+  });
   if (fine && !reduced) {
-    $$('.card').forEach(card => {
+    cards.forEach(card => {
       card.addEventListener('pointermove', e => {
         const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - .5;
-        const y = (e.clientY - r.top) / r.height - .5;
-        card.style.setProperty('--ty', (x * 10).toFixed(2) + 'deg');
-        card.style.setProperty('--tx', (-y * 10).toFixed(2) + 'deg');
+        card.style.setProperty('--ty', (((e.clientX - r.left) / r.width - .5) * 8).toFixed(2) + 'deg');
+        card.style.setProperty('--tx', ((-(e.clientY - r.top) / r.height + .5) * 8).toFixed(2) + 'deg');
       });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--tx', '0deg');
-        card.style.setProperty('--ty', '0deg');
-      });
+      card.addEventListener('pointerleave', () => { card.style.setProperty('--tx', '0deg'); card.style.setProperty('--ty', '0deg'); });
     });
   }
 
-  /* ---------- Linha do tempo: arrastar + progresso ---------- */
+  /* ---------- Linha do tempo ---------- */
   const track = $('#timelineTrack');
   const bar = $('#timelineBar');
+  const eras = $$('.era', track);
   const updateBar = () => {
     const max = track.scrollWidth - track.clientWidth;
     bar.style.transform = `scaleX(${max > 0 ? Math.max(.04, track.scrollLeft / max) : 1})`;
+    const left = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).paddingLeft);
+    const cur = eras.reduce((best, el) => Math.abs(el.getBoundingClientRect().left - left) < Math.abs(best.getBoundingClientRect().left - left) ? el : best, eras[0]);
+    $('#timelineYear').textContent = cur.dataset.year;
   };
   track.addEventListener('scroll', updateBar, { passive: true });
-  let down = false, sx = 0, sl = 0, moved = false;
-  track.addEventListener('pointerdown', e => {
-    if (e.pointerType !== 'mouse') return;
-    down = true; moved = false; sx = e.clientX; sl = track.scrollLeft;
+  const eraStep = () => eras[0].offsetWidth + 16;
+  $('#tlPrev').addEventListener('click', () => track.scrollBy({ left: -eraStep(), behavior: reduced ? 'auto' : 'smooth' }));
+  $('#tlNext').addEventListener('click', () => track.scrollBy({ left: eraStep(), behavior: reduced ? 'auto' : 'smooth' }));
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: eraStep(), behavior: 'smooth' }); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -eraStep(), behavior: 'smooth' }); }
   });
+  let tDown = false, tsx = 0, tsl = 0;
+  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; tDown = true; tsx = e.clientX; tsl = track.scrollLeft; });
   addEventListener('pointermove', e => {
-    if (!down) return;
-    const dx = e.clientX - sx;
-    if (Math.abs(dx) > 4) { moved = true; track.classList.add('is-drag'); }
-    track.scrollLeft = sl - dx;
+    if (!tDown) return;
+    const dx = e.clientX - tsx;
+    if (Math.abs(dx) > 4) track.classList.add('is-drag');
+    track.scrollLeft = tsl - dx;
   });
-  addEventListener('pointerup', () => {
-    if (!down) return;
-    down = false;
-    track.classList.remove('is-drag');
-  });
-  track.addEventListener('click', e => { if (moved) e.preventDefault(); }, true);
-  // Roda do mouse vertical vira horizontal enquanto houver espaço
+  addEventListener('pointerup', () => { if (!tDown) return; tDown = false; track.classList.remove('is-drag'); });
   track.addEventListener('wheel', e => {
     if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
     const max = track.scrollWidth - track.clientWidth;
-    const atStart = track.scrollLeft <= 0 && e.deltaY < 0;
-    const atEnd = track.scrollLeft >= max - 1 && e.deltaY > 0;
-    if (atStart || atEnd) return;
+    if ((track.scrollLeft <= 0 && e.deltaY < 0) || (track.scrollLeft >= max - 1 && e.deltaY > 0)) return;
     e.preventDefault();
     track.scrollLeft += e.deltaY;
   }, { passive: false });
 
-  /* ---------- Onde encontrar ---------- */
-  const cep = $('#cep');
-  const msg = $('#cepMsg');
+  /* ---------- Moléculas (fórmula estrutural desenhada) ---------- */
+  const MOLS = (() => {
+    const hex = (cx, cy, r) => Array.from({ length: 6 }, (_, i) => { const a = Math.PI / 6 + i * Math.PI / 3; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; });
+    const ringBonds = (p, dbl) => p.map((a, i) => [a, p[(i + 1) % 6], dbl.includes(i)]);
+    // AAS
+    const A = hex(120, 100, 34);
+    const aas = {
+      bonds: [...ringBonds(A, [0, 2, 4]),
+        [A[5], [A[5][0] + 30, A[5][1] - 17]], [[A[5][0] + 30, A[5][1] - 17], [A[5][0] + 30, A[5][1] - 51], true], [[A[5][0] + 30, A[5][1] - 17], [A[5][0] + 60, A[5][1]]],
+        [A[0], [A[0][0] + 30, A[0][1] + 17]], [[A[0][0] + 30, A[0][1] + 17], [A[0][0] + 60, A[0][1]]], [[A[0][0] + 60, A[0][1]], [A[0][0] + 60, A[0][1] - 34], true], [[A[0][0] + 60, A[0][1]], [A[0][0] + 90, A[0][1] + 17]]],
+      atoms: [[[A[5][0] + 30, A[5][1] - 51], 'O'], [[A[5][0] + 60, A[5][1]], 'OH'], [[A[0][0] + 30, A[0][1] + 17], 'O'], [[A[0][0] + 60, A[0][1] - 34], 'O'], [[A[0][0] + 90, A[0][1] + 17], 'CH₃']]
+    };
+    // Paracetamol
+    const P = hex(140, 100, 34);
+    const par = {
+      bonds: [...ringBonds(P, [0, 2, 4]),
+        [P[4], [P[4][0], P[4][1] - 30]],
+        [P[1], [P[1][0], P[1][1] + 30]], [[P[1][0], P[1][1] + 30], [P[1][0] + 30, P[1][1] + 47]], [[P[1][0] + 30, P[1][1] + 47], [P[1][0] + 30, P[1][1] + 81], true], [[P[1][0] + 30, P[1][1] + 47], [P[1][0] + 60, P[1][1] + 30]]],
+      atoms: [[[P[4][0], P[4][1] - 30], 'HO'], [[P[1][0], P[1][1] + 30], 'NH'], [[P[1][0] + 30, P[1][1] + 81], 'O'], [[P[1][0] + 60, P[1][1] + 30], 'CH₃']]
+    };
+    // Dipirona (anel pirazolona + fenil)
+    const pen = Array.from({ length: 5 }, (_, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / 5; return [190 + 30 * Math.cos(a), 96 + 30 * Math.sin(a)]; });
+    const F = hex(96, 140, 26);
+    const dip = {
+      bonds: [[pen[0], pen[1]], [pen[1], pen[2]], [pen[2], pen[3]], [pen[3], pen[4], true], [pen[4], pen[0]],
+        [pen[4], [pen[4][0] - 22, pen[4][1] - 22], true], [pen[3], F[5]], ...ringBonds(F, [0, 2, 4]),
+        [pen[2], [pen[2][0] + 10, pen[2][1] + 30]], [pen[1], [pen[1][0] + 30, pen[1][1] - 8]],
+        [pen[0], [pen[0][0], pen[0][1] - 28]], [[pen[0][0], pen[0][1] - 28], [pen[0][0] - 26, pen[0][1] - 42]], [[pen[0][0], pen[0][1] - 28], [pen[0][0] + 26, pen[0][1] - 42]], [[pen[0][0] + 26, pen[0][1] - 42], [pen[0][0] + 52, pen[0][1] - 28]]],
+      atoms: [[pen[2], 'N'], [pen[3], 'N'], [[pen[4][0] - 22, pen[4][1] - 22], 'O'], [[pen[2][0] + 10, pen[2][1] + 30], 'CH₃'], [[pen[1][0] + 30, pen[1][1] - 8], 'CH₃'], [[pen[0][0], pen[0][1] - 28], 'N'], [[pen[0][0] - 26, pen[0][1] - 42], 'CH₃'], [[pen[0][0] + 52, pen[0][1] - 28], 'SO₃Na']]
+    };
+    return { aas, dip, mol: par };
+  })();
+
+  function drawMol(fig) {
+    const c = $('canvas', fig), m = MOLS[fig.dataset.mol];
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const w = c.clientWidth, h = c.clientHeight;
+    c.width = w * dpr; c.height = h * dpr;
+    const x = c.getContext('2d');
+    const sc = Math.min(w / 300, h / 200);
+    const ox = (w - 300 * sc) / 2, oy = (h - 200 * sc) / 2;
+    const P = ([a, b]) => [ox + a * sc, oy + b * sc];
+    const css = getComputedStyle(document.documentElement);
+    const ink = css.getPropertyValue('--ink').trim(), accent = css.getPropertyValue(fig.dataset.mol === 'mol' ? '--red' : fig.dataset.mol === 'dip' ? '--dip' : '--teal').trim();
+    const t0 = performance.now(), dur = reduced ? 1 : 1400;
+    const frame = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      x.setTransform(dpr, 0, 0, dpr, 0, 0);
+      x.clearRect(0, 0, w, h);
+      x.lineCap = 'round'; x.lineWidth = 1.6; x.strokeStyle = ink;
+      const shown = m.bonds.length * p;
+      m.bonds.forEach(([a, b, dbl], i) => {
+        const f = clamp(shown - i, 0, 1);
+        if (!f) return;
+        const A = P(a), B0 = P(b), B = [A[0] + (B0[0] - A[0]) * f, A[1] + (B0[1] - A[1]) * f];
+        x.beginPath(); x.moveTo(...A); x.lineTo(...B); x.stroke();
+        if (dbl) {
+          const dx = B0[0] - A[0], dy = B0[1] - A[1], L = Math.hypot(dx, dy), nx = -dy / L * 4, ny = dx / L * 4;
+          x.beginPath(); x.moveTo(A[0] + nx, A[1] + ny); x.lineTo(B[0] + nx, B[1] + ny); x.stroke();
+        }
+      });
+      if (p > .6) {
+        x.globalAlpha = (p - .6) / .4;
+        x.font = `600 ${Math.round(13 * sc)}px "Geist Mono", monospace`;
+        x.textAlign = 'center'; x.textBaseline = 'middle';
+        const bg = css.getPropertyValue('--surface').trim();
+        m.atoms.forEach(([pt, label]) => {
+          const [ax, ay] = P(pt);
+          const tw = x.measureText(label).width + 6;
+          x.fillStyle = bg; x.fillRect(ax - tw / 2, ay - 9 * sc, tw, 18 * sc);
+          x.fillStyle = accent; x.fillText(label, ax, ay);
+        });
+        x.globalAlpha = 1;
+      }
+      if (p < 1) requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+  // Redesenha ao trocar de tema
+  new MutationObserver(() => $$('.mol.in').forEach(drawMol)).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  /* ---------- FAQ ---------- */
+  $('#faq').innerHTML = FAQ.map(([q, a], i) => `
+    <details class="faq__item reveal" id="faq-${i}"${i === 0 ? ' open' : ''}>
+      <summary>${q}<i aria-hidden="true"></i></summary>
+      <div class="faq__a"><p>${a}</p></div>
+    </details>`).join('');
+  $$('.faq__item').forEach(d => d.addEventListener('toggle', () => { if (d.open) $$('.faq__item').forEach(o => { if (o !== d) o.open = false; }); }));
+
+  /* ---------- Onde comprar ---------- */
+  const cep = $('#cep'), msg = $('#cepMsg');
   cep.addEventListener('input', () => {
     let v = cep.value.replace(/\D/g, '').slice(0, 8);
     if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5);
     cep.value = v;
+    msg.textContent = '';
   });
-  $('.finder__form').addEventListener('submit', () => {
-    const digits = cep.value.replace(/\D/g, '');
-    if (digits.length !== 8) {
-      msg.textContent = 'Digite um CEP com 8 números.';
-      cep.focus();
-      return;
-    }
-    msg.textContent = 'Abrindo farmácias próximas no mapa…';
-    window.open(`https://www.google.com/maps/search/farm%C3%A1cia+${digits}`, '_blank', 'noopener');
+  $('#finderForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const d = cep.value.replace(/\D/g, '');
+    if (d.length !== 8) { msg.textContent = 'Digite o CEP com 8 números, por exemplo 01310-100.'; cep.focus(); return; }
+    const url = `https://www.google.com/maps/search/farm%C3%A1cia+${d}`;
+    msg.innerHTML = `Farmácias perto de ${cep.value}: <a href="${url}" target="_blank" rel="noopener">abrir no mapa ↗</a>`;
+    window.open(url, '_blank', 'noopener');
   });
 
-  // FAQ: um aberto por vez
-  $$('.faq__item').forEach(d => d.addEventListener('toggle', () => {
-    if (d.open) $$('.faq__item').forEach(o => { if (o !== d) o.open = false; });
-  }));
+  /* ---------- Busca (Ctrl K) ---------- */
+  const pal = $('#palette'), pin = $('#paletteInput'), plist = $('#paletteList');
+  const tabNames = { inicio: 'Início', lancamentos: 'Lançamentos', produtos: 'Linha completa', historia: 'História', duvidas: 'Dúvidas e onde comprar' };
+  const index = [
+    ...SKUS.map(s => ({ kind: 'sku', title: fullName(s), sub: `${s.ativo} · ${s.qtyLabel}`, text: `${fullName(s)} ${s.ativo} ${s.indic} ${s.idade} ${s.extra} ${s.fam === 'dip' ? 'dipirona' : 'paracetamol'}`, run: () => { selectSku(s.id, true); go('lancamentos', { hash: s.id }); }, s })),
+    ...order.map(id => ({ kind: 'tab', title: tabNames[id], sub: 'Ir para a aba', text: tabNames[id], run: () => go(id) })),
+    ...LINE.filter(p => !p.sku).map(p => ({ kind: 'line', title: p.name, sub: p.ativo, text: `${p.name} ${p.ativo} ${p.desc}`, run: () => go('produtos') })),
+    ...FAQ.map(([q, a], i) => ({ kind: 'faq', title: q, sub: 'Dúvida frequente', text: `${q} ${a}`, run: () => openFaq(i) }))
+  ];
+  let results = [], sel = 0;
+  function openFaq(i) {
+    const d = $(`#faq-${i}`);
+    go('duvidas', { scrollTo: d });
+    setTimeout(() => { d.open = true; d.classList.add('in', 'is-flash'); setTimeout(() => d.classList.remove('is-flash'), 1200); }, 260);
+  }
+  function renderPal() {
+    const q = norm(pin.value.trim());
+    results = q ? index.filter(it => q.split(/\s+/).every(w => norm(it.text).includes(w))) : index.slice(0, 9);
+    sel = 0;
+    plist.innerHTML = results.length ? results.slice(0, 12).map((it, i) => `
+      <li class="palette__item${i === 0 ? ' is-sel' : ''}" role="option" data-i="${i}" aria-selected="${i === 0}">
+        ${it.s ? flat(it.s) : `<span class="palette__ic">${{ tab: 'aba', line: 'AAS', faq: '?' }[it.kind]}</span>`}
+        <div><b>${it.title}</b><span>${it.sub}</span></div><kbd>Enter</kbd>
+      </li>`).join('') : `<li class="palette__empty">Nada encontrado para “${pin.value}”. Tente “gotas”, “750” ou “febre”.</li>`;
+  }
+  function moveSel(d) {
+    const els = $$('.palette__item', plist);
+    if (!els.length) return;
+    sel = (sel + d + els.length) % els.length;
+    els.forEach((el, i) => { el.classList.toggle('is-sel', i === sel); el.setAttribute('aria-selected', i === sel); });
+    els[sel].scrollIntoView({ block: 'nearest' });
+  }
+  function openPal() { if (pal.open) return; pin.value = ''; renderPal(); pal.showModal(); pin.focus(); }
+  function runSel(i = sel) { const it = results[i]; if (!it) return; pal.close(); it.run(); }
+  $('#openPalette').addEventListener('click', openPal);
+  pin.addEventListener('input', renderPal);
+  pin.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveSel(1); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); moveSel(-1); }
+    if (e.key === 'Enter') { e.preventDefault(); runSel(); }
+  });
+  plist.addEventListener('click', e => { const li = e.target.closest('.palette__item'); if (li) runSel(+li.dataset.i); });
+  pal.addEventListener('click', e => { if (e.target === pal) pal.close(); });
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); pal.open ? pal.close() : openPal(); }
+    else if (e.key === '/' && !e.target.closest('input, textarea')) { e.preventDefault(); openPal(); }
+  });
 
-  /* ---------- Entrada em cada aba ---------- */
+  /* ---------- Ciclo de vida por aba ---------- */
   function onEnter(id) {
-    cancelAnimationFrame(viewerRAF);
-    clearTimeout(typing);
-    if (heroRAF === null && !reduced && id === 'inicio') heroLoop();
-    if (id !== 'inicio' && heroRAF !== null) { cancelAnimationFrame(heroRAF); heroRAF = null; }
+    cancelAnimationFrame(vRAF); vRAF = null;
+    clearTimeout(typing); clearInterval(recT);
+    if (id === 'inicio') {
+      if (!oRAF) oRAF = requestAnimationFrame(orbitFrame);
+      if (!reduced && !pRAF) { sizeCanvas(); pRAF = requestAnimationFrame(particles); }
+      autoT0 = performance.now();
+    } else {
+      cancelAnimationFrame(oRAF); oRAF = null;
+      cancelAnimationFrame(pRAF); pRAF = null;
+    }
     if (id === 'lancamentos') {
-      if (!reduced) viewerLoop();
-      else { vBox.style.setProperty('--vx', '-8deg'); vBox.style.setProperty('--vy', '-28deg'); }
-      qi = 0;
-      typeLoop();
+      vRAF = requestAnimationFrame(viewerLoop);
+      qi = 0; typeLoop(); recClock();
     }
     if (id === 'historia') requestAnimationFrame(updateBar);
     onScroll();
   }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) autoT0 = performance.now(); });
 
   /* ---------- Início ---------- */
-  const initial = location.hash.slice(1);
-  if (initial && order.includes(initial) && initial !== 'inicio') {
+  setFamily('dip');
+  const h = location.hash.slice(1);
+  const startTab = byId(h) ? 'lancamentos' : (order.includes(h) ? h : 'inicio');
+  if (byId(h)) selectSku(h, true);
+  if (startTab !== 'inicio') {
     $('.view.is-active').classList.remove('is-active');
-    current = initial;
-    document.body.dataset.tab = initial;
-    $(`.view[data-view="${initial}"]`).classList.add('is-active');
-    tabBtns.forEach(b => { const on = b.dataset.go === initial; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
+    current = startTab;
+    $(`.view[data-view="${startTab}"]`).classList.add('is-active');
+    tabBtns.forEach(b => { const on = b.dataset.go === startTab; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
   }
+  $('.view.is-active').classList.add('is-settled');
   movePill();
   observeReveals($('.view.is-active'));
   onEnter(current);
