@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<title>Saúde - Minha Vida</title>
+
+
+<meta name="robots" content="index,follow,max-snippet:-1" />
+<meta name="description" content="Confira tudo sobre Saúde. Só o Minha Vida oferece os melhores conteúdos de Saúde." />
+<meta property="og:title" content="Saúde" />
+<meta property="og:description" content="Confira tudo sobre Saúde. Só o Minha Vida oferece os melhores conteúdos de Saúde." />
+    <meta property="og:image" content="https://static1.minhavida.com.br/categories/6e/a4/eb/f9/dxldhcslvpszlc8tdcxmrbgcqq6fnxizix8q6uty-orig-1.jpg" />
+
+<meta name="keywords" content="" />
+<meta name="Googlebot" content="noarchive" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+    <meta name="dailymotion-domain-verification" content="dmt93a95p79hn5dia"/>
+
+<script type="text/javascript">
+    window._GLOBALS = {
+        site_device: window.innerWidth >= 1024 ? 'web' : 'mobile',
+        facebook: {
+            id: '395134527334122',
+            sdk: 'https://connect.facebook.net/pt_BR/sdk.js'
+        },
+        pinterest: {
+            sdk: '//assets.pinterest.com/js/pinit.js'
+        },
+        jad_config: {
+            src: "https:\/\/cdn.lib.getjad.io\/library\/21636860837\/minhavida_br_web",
+            page: "\/21636860837\/MINHAVIDA_BR_WEB\/Health",
+            keywords: {"type":"category","category":"saude"}        }
+    };
+</script>
+
+<link rel="preload" as="style" type="text/css" href="https://static1.minhavida.com.br/assets/css/app.css?id=d019f191310ae415f759">
+<link rel="preload" as="script" href="https://static1.minhavida.com.br/assets/js/jad.js?id=90c186228fe1397abfe3">
+
+<link rel="preload" as="font" type="font/woff2" href="https://static1.minhavida.com.br/assets/fonts/libre-franklin/regular.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="https://static1.minhavida.com.br/assets/fonts/libre-franklin/medium.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="https://static1.minhavida.com.br/assets/fonts/libre-franklin/bold.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="https://static1.minhavida.com.br/assets/fonts/asap/regular.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="https://static1.minhavida.com.br/assets/fonts/asap/regular.woff" crossorigin />
+
+
+<link href="https://static1.minhavida.com.br/assets/css/app.css?id=d019f191310ae415f759" rel="stylesheet" />
+<style>.cat-color,.cat-color-hover:hover,.cat-color-links a,.cat-color-links-hover a:hover,.cat-color-before:before,.cat-color-after:after,.cat-marker ul li::marker { color:#009df7; fill:#009df7; }.cat-bg,.cat-bg-hover:hover,.cat-bg-after-hover:hover:after,.cat-bg-after:after,.cat-bg-before:before { background-color:#009df7; }.cat-border-before:before,.cat-border-after:after,.cat-border { border-color:#009df7; }.cat-bg-light,.cat-bg-light-hover:hover,.cat-bg-light-after-hover:hover:after,.cat-bg-light-after:after,.cat-bg-light-before:before { background-color:#c0e7fd; }.cat-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #c0e7fd 100%); }.cat-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #c0e7fd 100%); }.cat-1-color,.cat-1-color-hover:hover,.cat-1-color-links a,.cat-1-color-links-hover a:hover,.cat-1-color-before:before,.cat-1-color-after:after,.cat-1-marker ul li::marker { color:#2bd603; fill:#2bd603; }.cat-1-marker ol li::before { color:#2bd603; fill:#2bd603; }.cat-1-bg,.cat-1-bg-hover:hover,.cat-1-bg-after-hover:hover:after,.cat-1-bg-after:after,.cat-1-bg-before:before { background-color:#2bd603; }.cat-1-border-before:before,.cat-1-border-after:after,.cat-1-border { border-color:#2bd603; }.cat-1-bg-light,.cat-1-bg-light-hover:hover,.cat-1-bg-light-after-hover:hover:after,.cat-1-bg-light-after:after,.cat-1-bg-light-before:before { background-color:#caf5c0; }.cat-1-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #caf5c0 100%); }.cat-1-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #caf5c0 100%); }.cat-1-bg-best { background-color:#eafbe6; }.cat-2-color,.cat-2-color-hover:hover,.cat-2-color-links a,.cat-2-color-links-hover a:hover,.cat-2-color-before:before,.cat-2-color-after:after,.cat-2-marker ul li::marker { color:#fb2717; fill:#fb2717; }.cat-2-marker ol li::before { color:#fb2717; fill:#fb2717; }.cat-2-bg,.cat-2-bg-hover:hover,.cat-2-bg-after-hover:hover:after,.cat-2-bg-after:after,.cat-2-bg-before:before { background-color:#fb2717; }.cat-2-border-before:before,.cat-2-border-after:after,.cat-2-border { border-color:#fb2717; }.cat-2-bg-light,.cat-2-bg-light-hover:hover,.cat-2-bg-light-after-hover:hover:after,.cat-2-bg-light-after:after,.cat-2-bg-light-before:before { background-color:#fec9c5; }.cat-2-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #fec9c5 100%); }.cat-2-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #fec9c5 100%); }.cat-2-bg-best { background-color:#ffeae8; }.cat-3-color,.cat-3-color-hover:hover,.cat-3-color-links a,.cat-3-color-links-hover a:hover,.cat-3-color-before:before,.cat-3-color-after:after,.cat-3-marker ul li::marker { color:#ff0076; fill:#ff0076; }.cat-3-marker ol li::before { color:#ff0076; fill:#ff0076; }.cat-3-bg,.cat-3-bg-hover:hover,.cat-3-bg-after-hover:hover:after,.cat-3-bg-after:after,.cat-3-bg-before:before { background-color:#ff0076; }.cat-3-border-before:before,.cat-3-border-after:after,.cat-3-border { border-color:#ff0076; }.cat-3-bg-light,.cat-3-bg-light-hover:hover,.cat-3-bg-light-after-hover:hover:after,.cat-3-bg-light-after:after,.cat-3-bg-light-before:before { background-color:#ffc0dd; }.cat-3-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #ffc0dd 100%); }.cat-3-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #ffc0dd 100%); }.cat-3-bg-best { background-color:#ffe6f2; }.cat-4-color,.cat-4-color-hover:hover,.cat-4-color-links a,.cat-4-color-links-hover a:hover,.cat-4-color-before:before,.cat-4-color-after:after,.cat-4-marker ul li::marker { color:#009df7; fill:#009df7; }.cat-4-marker ol li::before { color:#009df7; fill:#009df7; }.cat-4-bg,.cat-4-bg-hover:hover,.cat-4-bg-after-hover:hover:after,.cat-4-bg-after:after,.cat-4-bg-before:before { background-color:#009df7; }.cat-4-border-before:before,.cat-4-border-after:after,.cat-4-border { border-color:#009df7; }.cat-4-bg-light,.cat-4-bg-light-hover:hover,.cat-4-bg-light-after-hover:hover:after,.cat-4-bg-light-after:after,.cat-4-bg-light-before:before { background-color:#c0e7fd; }.cat-4-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #c0e7fd 100%); }.cat-4-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #c0e7fd 100%); }.cat-4-bg-best { background-color:#e6f6ff; }.cat-5-color,.cat-5-color-hover:hover,.cat-5-color-links a,.cat-5-color-links-hover a:hover,.cat-5-color-before:before,.cat-5-color-after:after,.cat-5-marker ul li::marker { color:#ff6c00; fill:#ff6c00; }.cat-5-marker ol li::before { color:#ff6c00; fill:#ff6c00; }.cat-5-bg,.cat-5-bg-hover:hover,.cat-5-bg-after-hover:hover:after,.cat-5-bg-after:after,.cat-5-bg-before:before { background-color:#ff6c00; }.cat-5-border-before:before,.cat-5-border-after:after,.cat-5-border { border-color:#ff6c00; }.cat-5-bg-light,.cat-5-bg-light-hover:hover,.cat-5-bg-light-after-hover:hover:after,.cat-5-bg-light-after:after,.cat-5-bg-light-before:before { background-color:#ffdbc0; }.cat-5-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #ffdbc0 100%); }.cat-5-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #ffdbc0 100%); }.cat-5-bg-best { background-color:#fff1e6; }.cat-6-color,.cat-6-color-hover:hover,.cat-6-color-links a,.cat-6-color-links-hover a:hover,.cat-6-color-before:before,.cat-6-color-after:after,.cat-6-marker ul li::marker { color:#00ba9e; fill:#00ba9e; }.cat-6-marker ol li::before { color:#00ba9e; fill:#00ba9e; }.cat-6-bg,.cat-6-bg-hover:hover,.cat-6-bg-after-hover:hover:after,.cat-6-bg-after:after,.cat-6-bg-before:before { background-color:#00ba9e; }.cat-6-border-before:before,.cat-6-border-after:after,.cat-6-border { border-color:#00ba9e; }.cat-6-bg-light,.cat-6-bg-light-hover:hover,.cat-6-bg-light-after-hover:hover:after,.cat-6-bg-light-after:after,.cat-6-bg-light-before:before { background-color:#c0eee7; }.cat-6-bg-gradient-light-after:after { background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #c0eee7 100%); }.cat-6-bg-gradient-light-before:before { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #c0eee7 100%); }.cat-6-bg-best { background-color:#e6f9f6; }</style>
+
+
+
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5QM6RVW');</script>
+<script>
+    var s = document.createElement("script");
+    s.async = true;
+    // this url is the url of library, you can find it above
+    s.src = "https://cdn.lib.getjan.io/library/minhavida.js";
+    s.setAttribute("importance", "high");
+        var g = document.getElementsByTagName("head")[0];
+    g.parentNode.insertBefore(s, g);
+    window.jan = window.jan || {};
+    jan.cmd = jan.cmd || [];
+    jancmd = function(){jan.cmd.push(arguments);};
+
+    jancmd("setConfig", {"metadata": {"page_category":"health","page_type":"index","page_subtype":"category","site_route":"index\/category","ad_unit":"\/21636860837\/MINHAVIDA_BR_WEB\/Health"} });
+    jancmd("sendEvent", "pageview");
+</script>
+<script src="https://geo.dailymotion.com/libs/player/x54ku.js" async defer></script>
+
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u, i) {
+    if (!document.getElementById(i)){
+      e.async = 1;
+      e.src = u;
+      e.id = i;
+      f.parentNode.insertBefore(e, f);
+    }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/webediabr-minhavida/loader.js',
+  'tb_loader_script');
+  if(window.performance && typeof window.performance.mark == 'function')
+    {window.performance.mark('tbl_ic');}
+</script>
+    </head>
+
+    <body class="">
+        <script>
+        function gtmPush() {
+                        window.dataLayer.push({"pageCategory":"health","pageType":"index","pageSubtype":"category","site_route":"index\/category","adUnit":"\/21636860837\/MINHAVIDA_BR_WEB\/Health"});
+                                }
+        addEventListener("load", gtmPush);
+    </script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QM6RVW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+        <div class="js-ad"></div>
+
+                <div class="u-hidden-desk">
+            <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-footer">
+            <div class="mvn-announcement__default">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>
+        </div>
+    
+    <div class="mvn-announcement__container">
+                    <div class="mvn-announcement__placeholder">
+                Publicidade
+            </div>
+        
+        <div class="mvn-announcement__content"
+             id="dfp-footer-01"
+             data-position="sticky"
+             data-device="mobile"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+        </div>
+        
+        <input type="checkbox" class="js-header-nav-toggle u-hidden" id="js-header-nav-toggle" aria-hidden="true" /><header class="header header--is-stickable "><div class="header-bar"><div class="header-bar-left"><div class="u-iblock u-pointer js-vue-instance header-burger-container" title="Open menu" aria-label="Open menu"><mvn-nav-burger /></div><div class="header-logo"><span class="hrl 1F u-iblock" title="Go to the homepage" aria-label="Go to the homepage"><svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg></span><span class="header-title u-bold "></span></div></div><div class="header-bar-right"><div class="u-iblock u-margin-right-desk"><a href="#section-newsletter" class="cta-newsletter"><svg class="u-icon u-icon-envelope " viewbox="0 0 477.867 477.867" role="img"><use xlink:href="/assets/svg/icons.svg#icon-envelope"></use></svg><span class="u-upper u-medium u-visible-desk">Newsletter</span></a></div><div class="u-iblock u-margin-left-desk u-pointer u-h-underline"><mvn-search
+                    class-name="header-search"
+                    url="https://www.minhavida.com.br/materias/busca"
+                    autocomplete-url="https://www.minhavida.com.br/api/search"
+                    autocomplete-see-all-result-label="Veja todos os resultados"
+                    placeholder="Escreva o que você está buscado" /></div></div></div><div class="panel panel--is-left header-panel js-vue-instance"><mvn-nav><mvn-nav-item id="4" class="header-nav-item--has-sub"><span class="hrl 1FC24AC34B43 header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Saúde
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></span><mvn-nav-panel><section class="container is-transparent is-marginless"><header><span class="hrl 1FC24AC34B43 header-nav-link" role="heading" aria-level="2">
+                                        Saúde
+                                    </span></header><hr class="header-nav-item-separator cat-4-border" /><ul><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A20201EC24AC34B431E4C43C14A48 header-nav-link">
+                                                Saúde geral
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A20221E43C54A4E43C2 header-nav-link">
+                                                Exames
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A202A1E424F49CBC14A4243C0424A4F header-nav-link">
+                                                Contracepção
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A20211E434E4A4CC1434243C1 header-nav-link">
+                                                Emagrecer
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A202B1E464EC349464B4A4B43 header-nav-link">
+                                                Imunidade
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A20231EC0484A49CB4AC21E4E434B464246494A46C2 header-nav-link">
+                                                Plantas medicinais
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A20241EC24F494F header-nav-link">
+                                                Sono
+                                            </span></li><li class="header-nav-item"><span class="hrl 1FC24AC34B431F2A202C1EC44A4246494AC2 header-nav-link">
+                                                Vacinas
+                                            </span></li><hr class="header-nav-item-separator cat-4-border" /><li class="header-nav-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11FC24AC34B431F4B4F4349424AC2 header-nav-link">
+                                                doenças
+                                            </span></li><li class="header-nav-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11FC24AC34B431FC24649CB4F4E4AC2 header-nav-link">
+                                                Condições &amp; Sintomas
+                                            </span></li><li class="header-nav-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11FC24AC34B431F41C3484AC2 header-nav-link">
+                                                Medicamentos &amp; Tratamentos
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><mvn-nav-item id="1" class="header-nav-item--has-sub"><span class="hrl 1F4A48464E4349CB4A424A4F header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Alimentação
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></span><mvn-nav-panel><section class="container is-transparent is-marginless"><header><span class="hrl 1F4A48464E4349CB4A424A4F header-nav-link" role="heading" aria-level="2">
+                                        Alimentação
+                                    </span></header><hr class="header-nav-item-separator cat-1-border" /><ul><li class="header-nav-item"><span class="hrl 1F4A48464E4349CB4A424A4F1F2A20251E4A48464E4349CB4A424A4F1E4C43C14A48 header-nav-link">
+                                                Alimentação geral
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4A48464E4349CB4A424A4F1F2A20261E414341464B4AC2 header-nav-link">
+                                                Bebidas
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4A48464E4349CB4A424A4F1F2A2A201E49C3CBC1464349CB43C2 header-nav-link">
+                                                Nutrientes
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4A48464E4349CB4A424A4F1F2A2A2A1EC0484A494F1E4A48464E4349CB4AC1 header-nav-link">
+                                                Plano alimentar
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4A48464E4349CB4A424A4F1F2A2A211EC2C3C048434E4349CB4F header-nav-link">
+                                                Suplemento
+                                            </span></li><hr class="header-nav-item-separator cat-1-border" /><li class="header-nav-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11F4A48464E4349CB4A424A4F1FC143424346CB4AC2 header-nav-link">
+                                                receitas
+                                            </span></li><li class="header-nav-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11F4A48464E4349CB4A424A4F1FCBC34B4F1EC24F41C143 header-nav-link">
+                                                ingredientes
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><mvn-nav-item id="3" class="header-nav-item--has-sub"><span class="hrl 1F41434843CD4A header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Beleza
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></span><mvn-nav-panel><section class="container is-transparent is-marginless"><header><span class="hrl 1F41434843CD4A header-nav-link" role="heading" aria-level="2">
+                                        Beleza
+                                    </span></header><hr class="header-nav-item-separator cat-3-border" /><ul><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A221E41434843CD4A1E4C43C14A48 header-nav-link">
+                                                Beleza geral
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A2B1E424A4143484F header-nav-link">
+                                                Cabelo
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A231E424FC1C04F header-nav-link">
+                                                Corpo
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A241E4E4ACAC3464A4C434E header-nav-link">
+                                                Maquiagem
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A2C1EC0434843 header-nav-link">
+                                                Pele
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A251EC0C14F42434B464E4349CB4F header-nav-link">
+                                                Procedimento
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A2A261EC14FC2CB4F header-nav-link">
+                                                Rosto
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434843CD4A1F2A21201EC349454AC2 header-nav-link">
+                                                Unhas
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><mvn-nav-item id="2" class="header-nav-item--has-sub"><span class="hrl 1F4446CB4943C2C2 header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Fitness
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></span><mvn-nav-panel><section class="container is-transparent is-marginless"><header><span class="hrl 1F4446CB4943C2C2 header-nav-link" role="heading" aria-level="2">
+                                        Fitness
+                                    </span></header><hr class="header-nav-item-separator cat-2-border" /><ul><li class="header-nav-item"><span class="hrl 1F4446CB4943C2C21F2A21261E4446CB4943C2C21E4C43C14A48 header-nav-link">
+                                                Fitness geral
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4446CB4943C2C21F2A22201E43C2C04FC1CB43 header-nav-link">
+                                                Esporte
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4446CB4943C2C21F2A222A1E43C543C14242464F header-nav-link">
+                                                Exercício
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><mvn-nav-item id="5" class="header-nav-item--has-sub"><span class="hrl 1F444A4E4648464A header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Família
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></span><mvn-nav-panel><section class="container is-transparent is-marginless"><header><span class="hrl 1F444A4E4648464A header-nav-link" role="heading" aria-level="2">
+                                        Família
+                                    </span></header><hr class="header-nav-item-separator cat-5-border" /><ul><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A212A1E444A4E48464A1E4C43C14A48 header-nav-link">
+                                                Família geral
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A21211E41434143C2 header-nav-link">
+                                                Bebês
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A21221E4CC14AC4464B43CD header-nav-link">
+                                                Gravidez
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A212B1E4A4E4A4E4349CB4A424A4F header-nav-link">
+                                                Amamentação
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A21231E42C1464A49424AC2 header-nav-link">
+                                                Crianças
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A21241E4A48464E4349CB4A424A4F1E4649444A49CB4648 header-nav-link">
+                                                Alimentação infantil
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A212C1E4443C1CB4648464B4A4B43 header-nav-link">
+                                                Fertilidade
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F444A4E4648464A1F2A21251E4E4ACB43C149464B4A4B43 header-nav-link">
+                                                Maternidade
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><mvn-nav-item id="6" class="header-nav-item--has-sub"><span class="hrl 1F41434E1E43C2CB4AC1 header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Bem-Estar
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></span><mvn-nav-panel><section class="container is-transparent is-marginless"><header><span class="hrl 1F41434E1E43C2CB4AC1 header-nav-link" role="heading" aria-level="2">
+                                        Bem-Estar
+                                    </span></header><hr class="header-nav-item-separator cat-6-border" /><ul><li class="header-nav-item"><span class="hrl 1F41434E1E43C2CB4AC11F2A22211E41434E1E43C2CB4AC11E4C43C14A48 header-nav-link">
+                                                Bem-estar geral
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434E1E43C2CB4AC11F2A22221E424F4EC04FC1CB4A4E4349CB4F header-nav-link">
+                                                Comportamento
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434E1E43C2CB4AC11F2A222B1E42C3464B4A4B4FC21E424F4E1E4A1E424AC24A header-nav-link">
+                                                Cuidados com a casa
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434E1E43C2CB4AC11F2A22231EC143484A42464F494A4E4349CB4F header-nav-link">
+                                                Relacionamento
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434E1E43C2CB4AC11F2A22241EC243C54F header-nav-link">
+                                                Sexo
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F41434E1E43C2CB4AC11F2A222C1EC442464FC2 header-nav-link">
+                                                Vícios
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><hr class="header-nav-item-separator" /><mvn-nav-item id="487" class="header-nav-item--has-sub"><a href="" class="header-nav-link header-nav-link--has-sub "><svg class="u-icon u-icon-flower " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                        Canais especiais
+                        <svg class="u-icon u-icon-arrow " viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg></a><mvn-nav-panel><section class="container is-transparent is-marginless"><ul><li class="header-nav-item"><span class="hrl 1F4E4AC1424AC21F414F49C4464446CB header-nav-link">
+                                                Bonvifit
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4E4AC1424AC21F4CC3464A1E4B4F1E42454342471EC3C0 header-nav-link">
+                                                Guia do Check-up
+                                            </span></li><li class="header-nav-item"><span class="hrl 1F4E4AC1424AC21FC24F1EC04AC14A1E4FC21E2320 header-nav-link">
+                                                Só para os 50+
+                                            </span></li></ul></section></mvn-nav-panel></mvn-nav-item><li class="header-nav-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11F43C2C04342464A4846C2CB4AC2 header-nav-link ">
+                        Especialistas
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1FCAC3434E1EC24F4E4FC2 header-nav-link header-nav-link--is-alt">
+                        Quem somos
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1F43CAC346C043 header-nav-link header-nav-link--is-alt">
+                        Equipe
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1FC04F4846CB46424A header-nav-link header-nav-link--is-alt">
+                        Políticas
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1FCBC14A414A4845431E424F494FC2424F header-nav-link header-nav-link--is-alt">
+                        Trabalhe conosco
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1F4A49C3494246431E4ACAC346 header-nav-link header-nav-link--is-alt">
+                        Anuncie aqui
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1F444A48431E424F494FC2424F header-nav-link header-nav-link--is-alt">
+                        Fale conosco
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1F4AC446C24F1E48434C4A48 header-nav-link header-nav-link--is-alt">
+                        Aviso Legal
+                    </span></li><li class="header-nav-item"><span class="hrl 1F424FC1C04FC14ACB46C44F1FC3C24F1E4B431E4B4A4B4FC2 header-nav-link header-nav-link--is-alt">
+                        Uso de Dados
+                    </span></li><ul class="social-sharing"><li class="social-sharing-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC19444A4243414F4F4719424F4E1F4E4649454AC4464B4A" target="_blank" rel="noopener" title="Facebook de Minha Vida" aria-label="Facebook de Minha Vida"><svg class="u-icon u-icon-facebook " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-facebook"></use></svg></span></li><li class="social-sharing-item"><span class="hrl 45CBCBC0C22D1F1FCBCC46CBCB43C119424F4E1F4E4649454AC4464B4A" target="_blank" rel="noopener" title="Twitter de Minha Vida" aria-label="Twitter de Minha Vida"><svg class="u-icon u-icon-twitter " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-twitter"></use></svg></span></li><li class="social-sharing-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC19C64FC3CBC3414319424F4E1FCBC44E4649454AC4464B4A" target="_blank" rel="noopener" title="Youtube de Minha Vida" aria-label="Youtube de Minha Vida"><svg class="u-icon u-icon-youtube " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-youtube"></use></svg></span></li><li class="social-sharing-item"><span class="hrl 45CBCBC0C22D1F1FC04649CB43C143C2CB19424F4E1F4E4649454AC4464B4A" target="_blank" rel="noopener" title="Pinterest de Minha Vida" aria-label="Pinterest de Minha Vida"><svg class="u-icon u-icon-pinterest " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-pinterest"></use></svg></span></li><li class="social-sharing-item"><span class="hrl 45CBCBC0C22D1F1F4649C2CB4A4CC14A4E19424F4E1F4E4649454AC4464B4A4F444642464A48" target="_blank" rel="noopener" title="Instagram de Minha Vida" aria-label="Instagram de Minha Vida"><svg class="u-icon u-icon-instagram " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-instagram"></use></svg></span></li><li class="social-sharing-item"><span class="hrl 45CBCBC0C22D1F1FCCCCCC19CB4647CB4F4719424F4E1FB04E4649454AC4464B4A4F444642464A48" target="_blank" rel="noopener" title="TiTtok de Minha Vida" aria-label="TikTok de Minha Vida"><svg class="u-icon u-icon-tiktok " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-tiktok"></use></svg></span></li></ul></mvn-nav></ul></header>
+
+
+
+        
+        <main class="">
+                <nav class="u-visible-desk u-bg-white nav-wrapper">
+        <div class="container container-nav is-gapless is-wide">
+    <div class="slider head-navigation navigation-slider">
+        <div class="swiper-nav slider-wrapper">
+            <ul class="slider-track">
+                                    <li class="slider-slide " data-key="0">
+                                                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11FC24AC34B431F4B4F4349424AC2 slider-slide-link cat-color-hover">doenças</span>
+                    </li>
+                                    <li class="slider-slide " data-key="1">
+                                                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11FC24AC34B431FC24649CB4F4E4AC2 slider-slide-link cat-color-hover">Condições &amp; Sintomas</span>
+                    </li>
+                                    <li class="slider-slide " data-key="2">
+                                                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11FC24AC34B431F41C3484AC2 slider-slide-link cat-color-hover">Medicamentos &amp; Tratamentos</span>
+                    </li>
+                                    <li class="slider-slide " data-key="3">
+                                                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11F43C2C04342464A4846C2CB4AC2 slider-slide-link cat-color-hover">Especialistas</span>
+                    </li>
+                            </ul>
+        </div>
+    </div>
+</div>
+    </nav>
+
+    <div class="u-hidden-desk container is-wide is-gapless is-grey no-subs">
+        <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-header-mobile">
+            <div class="mvn-announcement__default">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>
+        </div>
+    
+    <div class="mvn-announcement__container">
+        
+        <div class="mvn-announcement__content"
+             id="dfp-header-mobile-01"
+             data-position="top"
+             data-device="mobile"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+    </div>
+
+            <div id="main-slider" class="slider main-slider main-slider--is-expanded">
+    <div class="slider-track">
+                <div class="slider-slide is-wide main-slider-slide"
+             data-cat="4">
+             <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/b3/8b/08/46/adolescente-com-feicao-triste-full-1.jpg"><img src="https://static1.minhavida.com.br/articles/b3/8b/08/46/adolescente-com-feicao-triste-full-1.jpg" class="main-slider-image" alt="Adolescente com fei&ccedil;&atilde;o triste" fetchpriority="high"/></picture>            <div class="main-slider-inner">
+                <div class="main-slider-category">
+                    <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                    Saúde
+                </div>
+                <div class="main-slider-title">
+                                                                        Saiba as principais causas da depressão e se é possível prevenir
+                                                            </div>
+                <span class="hrl 1F4E4ACB43C1464AC21F4E4ACB43C1464A1E212222202B button cat-4-bg">Saiba mais sobre</span>
+            </div>
+        </div>
+                <div class="slider-slide is-wide main-slider-slide"
+             data-cat="4">
+             <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/92/8d/d6/6b/mulher-assoando-o-nariz-full-1.jpg"><img src="https://static1.minhavida.com.br/articles/92/8d/d6/6b/mulher-assoando-o-nariz-full-1.jpg" class="main-slider-image" alt="Mulher assoando o nariz" fetchpriority="high"/></picture>            <div class="main-slider-inner">
+                <div class="main-slider-category">
+                    <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>                    Saúde
+                </div>
+                <div class="main-slider-title">
+                                                                        Rinite e sinusite: reconheça as diferenças entre os sintomas
+                                                            </div>
+                <span class="hrl 1F4E4ACB43C1464AC21F4E4ACB43C1464A1E2C2B2C23 button cat-4-bg">Saiba mais sobre</span>
+            </div>
+        </div>
+            </div>
+    <div class="main-slider-pagination slider-pagination"></div>
+</div>
+    
+    <div class="page is-white u-padding-top tpl-category">
+        <div class="container is-vertically-gapless">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                    <a class="breadcrumb-item-link" href="https://www.minhavida.com.br">Home</a>
+                </li>
+            <li class="breadcrumb-item">
+                    <h1 class="breadcrumb-item sponsored-breadcrumb" aria-current="page">Saúde</h1>
+                </li>
+    </ol>
+
+        </div>
+
+        <section class="section">
+    <div class="container is-vertically-gapless">
+        <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Em destaque
+        </div>
+            </h2>
+
+    </header>
+
+        <div class="grid grid-articles-featured--is-3">
+                            
+                <div class="card-article card-article--featured">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/symptoms/9f/71/0e/2b/mulher-de-cabelo-branco-no-sofa-com-dor-de-garganta-spotlight_big-1.jpg"><img src="https://static1.minhavida.com.br/symptoms/9f/71/0e/2b/mulher-de-cabelo-branco-no-sofa-com-dor-de-garganta-card_m-1.jpg" alt="Mulher de cabelo branco no sof&aacute; com dor de garganta" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/saude/temas/dor-de-garganta">
+                                    Dor de garganta: o que tomar, remédios e causas
+                            </a>
+        </h2>
+    </div>
+</div>
+                            
+                <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/b7/61/5c/4b/mulheres-idosas-fazendo-exercicio-fisico-com-um-elastico-nas-maos-spotlight_small-1.png"><img src="https://static1.minhavida.com.br/articles/b7/61/5c/4b/mulheres-idosas-fazendo-exercicio-fisico-com-um-elastico-nas-maos-card_m-1.png" alt="Mulheres idosas fazendo exerc&iacute;cio f&iacute;sico com um el&aacute;stico nas m&atilde;os" loading="lazy"/></picture>    <div class="card-article-content cat-2-bg-after">
+        <span class="card-article-category cat-2-color">
+            <svg class="u-icon u-icon-flower cat-2-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Fitness
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-23298">
+                                    5 benefícios da atividade física para prevenir quedas em idosos
+                            </a>
+        </h2>
+    </div>
+</div>
+                            
+                <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/diseases/de/98/a1/76/recorte-aproximado-de-olho-levemente-avermelhado-spotlight_small-1.jpg"><img src="https://static1.minhavida.com.br/diseases/de/98/a1/76/recorte-aproximado-de-olho-levemente-avermelhado-card_m-1.jpg" alt="Recorte aproximado de olho levemente avermelhado" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/saude/temas/herpes-ocular">
+                                    Herpes ocular: o que é, sintomas e se é transmissível
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+    </div>
+</section>
+        <section class="section">
+    <div class="container is-vertically-gapless">
+        <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Canais especiais
+        </div>
+            </h2>
+
+    </header>
+        
+        <div class="cards-slider slider">
+    <div class="slider-track" data-glide-el="track">
+                <div class="slider-slide">
+            <div class="card ">
+                <div class="card-poster">
+                    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/branded_channel/ae/c4/8c/53/8jcza2ti7drkj8vbbgwhjzpnzffmuillhn2xxw6a-slider-1.png"><img src="https://static1.minhavida.com.br/branded_channel/ae/c4/8c/53/8jcza2ti7drkj8vbbgwhjzpnzffmuillhn2xxw6a-slider-1.png" loading="lazy" alt="Especial Doa&ccedil;&atilde;o de Sangue"/></picture>                </div>
+                <div class="card-heading">
+                    <div>
+                                                <div class="card-category cat-4-color">Saúde</div>
+                                                <span>
+                            <span class="hrl 1F4E4AC1424AC21F43C2C04342464A481E4B4F4A424A4F1E4B431EC24A494CC343 card-title">Especial Doação de Sangue</span>
+                        </span>
+                    </div>
+                                            <img src="https://static1.minhavida.com.br/branded_channel/5f/94/35/04/sqqehv8w8tlfui4fdswxxeuyndjv4zwqf44w4zvy-bc_logo-1.png" class="card-brand" alt="Especial Doa&ccedil;&atilde;o de Sangue" loading="lazy"/>                                    </div>
+            </div>
+        </div>
+                <div class="slider-slide">
+            <div class="card ">
+                <div class="card-poster">
+                    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/branded_channel/66/64/6d/c9/mn7hzdeqcjt7xaowkh1xqn5rruxlgp7nzpvhxlbd-slider-1.jpg"><img src="https://static1.minhavida.com.br/branded_channel/66/64/6d/c9/mn7hzdeqcjt7xaowkh1xqn5rruxlgp7nzpvhxlbd-slider-1.jpg" loading="lazy" alt="Guia do Check-up"/></picture>                </div>
+                <div class="card-heading">
+                    <div>
+                                                <div class="card-category cat-4-color">Saúde</div>
+                                                <span>
+                            <span class="hrl 1F4E4AC1424AC21F4CC3464A1E4B4F1E42454342471EC3C0 card-title">Guia do Check-up</span>
+                        </span>
+                    </div>
+                                            <img src="https://static1.minhavida.com.br/branded_channel/a7/f0/48/7b/htgukbn5k0ofdou98kgiwetolnjgfy451rmg6png-bc_logo-1.png" class="card-brand" alt="" loading="lazy"/>                                    </div>
+            </div>
+        </div>
+            </div>
+</div>
+<div class="cards-slider-directions">
+    <button data-glide-dir="<" aria-label="Previous" class="cards-slider-directions--control-previous sponsored-bg">
+        <svg class="u-icon u-icon-arrow " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg>    </button>
+    <button data-glide-dir=">" aria-label="Next" class="cards-slider-directions--control-next sponsored-bg">
+        <svg class="u-icon u-icon-arrow " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-arrow"></use></svg>    </button>
+</div>
+    </div>
+</section>
+        <section class="section">
+    <div class="container is-vertically-gapless">
+        <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Últimas matérias
+        </div>
+            </h2>
+
+    </header>
+
+        <div class="grid u-padding-bottom">
+                            
+                <div class="is-12 is-6-tablet is-4-desk">
+                    <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/b8/bb/73/d4/utero-com-diu-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/b8/bb/73/d4/utero-com-diu-card_m-1.jpg" alt="&uacute;tero com diu" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-29851">
+                                    Por que tantas mulheres não trocam o DIU por nada?
+                            </a>
+        </h2>
+    </div>
+</div>
+                </div>
+                            
+                <div class="is-12 is-6-tablet is-4-desk">
+                    <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/42/51/4a/50/mulher-sorrindo-deitada-na-cama-se-alongando-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/42/51/4a/50/mulher-sorrindo-deitada-na-cama-se-alongando-card_m-1.jpg" alt="mulher sorrindo deitada na cama se alongando" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-29853">
+                                    Cinco exercícios rápidos para fazer na cama e dormir melhor, de acordo com um es
+                            </a>
+        </h2>
+    </div>
+</div>
+                </div>
+                                                <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="container is-gapless is-grey">
+                            <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-inside-card">
+            <div class="mvn-announcement__default">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>
+        </div>
+    
+    <div class="mvn-announcement__container">
+                    <div class="mvn-announcement__placeholder">
+                Publicidade
+            </div>
+        
+        <div class="mvn-announcement__content"
+             id="dfp-inside-card-01"
+             data-position="1"
+             data-device="all"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+                        </div>
+                    </div>
+                
+                <div class="is-12 is-6-tablet is-4-desk">
+                    <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/a8/6f/7c/aa/mao-usando-caneta-lancet-no-dedo-com-teste-de-glicose-no-sangue-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/a8/6f/7c/aa/mao-usando-caneta-lancet-no-dedo-com-teste-de-glicose-no-sangue-card_m-1.jpg" alt="M&atilde;o usando caneta lancet no dedo com teste de glicose no sangue" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-29852">
+                                    Controle a glicemia logo cedo: médicos revelam os pequenos hábitos que você deve
+                            </a>
+        </h2>
+    </div>
+</div>
+                </div>
+                            
+                <div class="is-12 is-6-tablet is-4-desk">
+                    <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/24/9f/b0/6d/tardigrados-porquinhos-do-musgo-microscopicos-nadadores-ilustracao-cientifica-em-3d-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/24/9f/b0/6d/tardigrados-porquinhos-do-musgo-microscopicos-nadadores-ilustracao-cientifica-em-3d-card_m-1.jpg" alt="tard&iacute;grados, &quot;porquinhos-do-musgo&quot; microsc&oacute;picos nadadores, ilustra&ccedil;&atilde;o cient&iacute;fica em 3D" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <span class="hrl 1F4E4ACB43C1464AC21F4E4ACB43C1464A1E2126252B2C card-article-title">
+                                    Ao inserir o gene de um tardígrado japonês em células humanas, os pesquisadores
+                            </span>
+        </h2>
+    </div>
+</div>
+                </div>
+                            
+                <div class="is-12 is-6-tablet is-4-desk">
+                    <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/81/b9/4f/94/kiwi-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/81/b9/4f/94/kiwi-card_m-1.jpg" alt="Kiwi" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-29835">
+                                    Segundo especialistas em sono, quem come kiwi antes de dormir adormece mais rápi
+                            </a>
+        </h2>
+    </div>
+</div>
+                </div>
+                    </div>
+
+                <div class="u-margin-top u-align-center">
+            <a href="https://www.minhavida.com.br/saude/materias" class="button cat-bg button-yellow">Todos as matérias</a>
+        </div>
+            </div>
+</section>
+
+        <section class="section">
+    <div class="container is-vertically-gapless">
+        <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Assuntos em alta
+        </div>
+            </h2>
+
+    </header>
+        
+        <div class="grid is-column-gapless-tablet">
+                                            <div class="is-12 is-4-desk">
+                                            <span class="card-multi-title cat-4-color">Saúde geral</span>
+                                        <div class="card-multi">
+                        <div class="card-multi-media ">
+                            <img src="https://static1.minhavida.com.br/articles/24/9f/b0/6d/tardigrados-porquinhos-do-musgo-microscopicos-nadadores-ilustracao-cientifica-em-3d-orig-1.jpg" loading="lazy" alt="tard&iacute;grados, &quot;porquinhos-do-musgo&quot; microsc&oacute;picos nadadores, ilustra&ccedil;&atilde;o cient&iacute;fica em 3D"/>                                                    </div>
+                        <div class="card-multi-content">
+                            
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-29847">Ao inserir o gene de um tardígrado japonês em células humanas, os pesquisadores deram ao nosso DNA uma proteção que a evolução nunca nos concede</a>
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-16153">Depressão: ator Jim Carrey comenta sua luta contra a doença</a>
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-23431">4 pomadas para candidíase masculina e como usar</a>
+                                
+                                
+                                                    </div>
+                    </div>
+                </div>
+                                                            <div class="is-12 is-4-desk">
+                                            <span class="card-multi-title cat-4-color">Contracepção</span>
+                                        <div class="card-multi">
+                        <div class="card-multi-media ">
+                            <img src="https://static1.minhavida.com.br/articles/93/eb/e6/12/camisinha-preservativo-masculino-orig-1.jpg" loading="lazy" alt="Foto:  Oleksiy Boyko / EyeEm/GettyImages"/>                                                    </div>
+                        <div class="card-multi-content">
+                            
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-10366">Camisinha: 14 dúvidas sobre o preservativo masculino</a>
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-16215">Camisinha: passo a passo para usar o preservativo masculino</a>
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-9570">Tratamentos para endometriose: conheça as 4 melhores opções</a>
+                                
+                                
+                                                    </div>
+                    </div>
+                </div>
+                                                            <div class="is-12 is-4-desk">
+                                            <span class="card-multi-title cat-4-color">Imunidade</span>
+                                        <div class="card-multi">
+                        <div class="card-multi-media ">
+                            <img src="https://static1.minhavida.com.br/articles/43/93/b1/b7/mulher-bebendo-agua-orig-1.jpg" loading="lazy" alt="Mulher bebendo &aacute;gua"/>                                                    </div>
+                        <div class="card-multi-content">
+                            
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-7632">10 hábitos que turbinam a sua imunidade</a>
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-29768">Pneumonia que não melhora ou vive voltando: quando investigar além da infecção</a>
+                                                            <a class="card-multi-link cat-4-border-before" href="/materias/materia-8838">Proteja seu corpo das mudanças bruscas de temperatura</a>
+                                
+                                
+                                                    </div>
+                    </div>
+                </div>
+                                    </div>
+    </div>
+</section>
+
+        
+
+                    <section class="section">
+                <div class="container is-vertically-gapless">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Doenças populares
+        </div>
+            </h2>
+
+    </header>
+
+    
+    <div class="card-popular-wrapper grid is-row-gapless is-column-gapless-tablet">
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/94/d6/99/96/pele-com-furunculo-grande-avermelhado-90x90-1.jpg" loading="lazy" alt="Fur&uacute;nculo"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/furunculo" class="card-popular-link cat-color-hover">Furúnculo</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            O furúnculo é a inflamação de folículos capilares, geralmente do tamanho de uma ervilha, que atinge regiões como virilha e axila.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/d1/f0/c7/fe/pele-irritada-por-fungo-da-candidiase-90x90-1.jpg" loading="lazy" alt="Candid&iacute;ase cut&acirc;nea"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/candidiase-cutanea" class="card-popular-link cat-color-hover">Candidíase cutânea</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            A candidíase pode afetar diferentes áreas da pele, provocando sintomas como coceira e edema. Confira como tratar a candidíase cutânea
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/60/ed/d2/eb/homem-sentado-no-sofa-com-a-mao-na-barriga-sentindo-dor-no-apendice-90x90-1.jpg" loading="lazy" alt="Apendicite"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/apendicite" class="card-popular-link cat-color-hover">Apendicite</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Apendicite é a inflamação do apêndice, que causa dores intensas no abdômen. Veja tratamento de apendicite, quando é aguda e qual lado afeta
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/8b/e2/17/2a/maracuja-cortado-ao-meio-90x90-1.jpg" loading="lazy" alt="Calcanhar de maracuj&aacute;"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/calcanhar-de-maracuja" class="card-popular-link cat-color-hover">Calcanhar de maracujá</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            O calcanhar de maracujá é uma doença provocada por larvas. Confira fotos e sintomas da doença.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/a0/a9/44/4f/amigdalite-destaque-90x90-1.jpg" loading="lazy" alt="Amigdalite"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/amigdalite" class="card-popular-link cat-color-hover">Amigdalite</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            A amigdalite é a inflamação das amígdalas. Veja soluções caseiras para aliviar a dor de garganta, tratamentos e sintomas da amigdalite
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/a2/fb/08/6a/pessoa-de-costas-com-dermatite-90x90-1.jpg" loading="lazy" alt="Dermatite at&oacute;pica"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/dermatite-atopica" class="card-popular-link cat-color-hover">Dermatite atópica</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            A dermatite atópica é uma doença não-contagiosa que pode vir associada à asma brônquica e rinite alérgica. Veja como funciona o tratamento.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/06/4c/d9/81/manchas-de-impinge-em-braco-90x90-1.jpg" loading="lazy" alt="Impinge"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/impinge" class="card-popular-link cat-color-hover">Impinge</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            A impinge, também chamada de micose de pele, é tratada com medicamentos antifúngicos
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/diseases/1a/ae/82/97/berne-foto-principal-1-90x90-1.jpg" loading="lazy" alt="Berne"/>            </picture>
+                    <h3>
+            <a href="/saude/temas/berne" class="card-popular-link cat-color-hover">Berne</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Berne é uma infecção parasitária causada por larvas da mosca-varejeira na pele, com foco na cabeça, pernas e braços. Veja como tirar berne e fotos.
+                                    </div>
+                    </div>
+            </div>
+
+            <div class="u-margin-top u-align-center">
+            <a href="https://www.minhavida.com.br/saude/doencas" class="button cat-bg">Todas as doenças</a>
+        </div>
+    </div>
+
+            </section>
+        
+                    <section class="section">
+                <div class="container is-vertically-gapless">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Tratamentos populares
+        </div>
+            </h2>
+
+    </header>
+
+    
+    <div class="card-popular-wrapper grid is-row-gapless is-column-gapless-tablet">
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/1a/bb/37/61/seringa-medica-em-um-fundo-vermelho-90x90-1.jpg" loading="lazy" alt="inje&ccedil;&atilde;o anticoncepcional"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/3987-injecao-anticoncepcional" class="card-popular-link cat-color-hover">injeção anticoncepcional</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Injeção anticoncepcional é um método contraceptivo aplicado mensal ou trimestralmente para evitar a gravidez. Veja como tomar, tipos, prós e contras.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/97/a0/b2/7a/mulher-recebendo-massagem-na-cabeca-90x90-1.jpg" loading="lazy" alt="Barras de Access"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/4019-barras-de-access" class="card-popular-link cat-color-hover">Barras de Access</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Método promete tratar questões emocionais a partir de toques na cabeça. Entenda quais são os pontos das barras de access e se realmente funciona.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/8c/27/35/d4/mulher-recebendo-massagem-90x90-1.jpg" loading="lazy" alt="Microfisioterapia"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/3900-microfisioterapia" class="card-popular-link cat-color-hover">Microfisioterapia</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            A microfisioterapia é uma técnica de terapia manual que visa tratar a causa da doença e não apenas seu sintoma. Veja como funciona e para que serve a microfisioterapia.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/80/fa/dc/ed/pessoa-com-adesivo-de-nicotina-no-braco-90x90-1.jpg" loading="lazy" alt="Adesivo de Nicotina"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/3219-adesivo-de-nicotina" class="card-popular-link cat-color-hover">Adesivo de Nicotina</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Adesivos de nicotina são um método de parar de fumar. Veja como o adesivo de nicotina funciona e se ele ajuda a parar de fumar.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/52/c1/8e/35/instrumento-utilizado-para-histeroscopia-90x90-1.jpg" loading="lazy" alt="Histeroscopia"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/3377-histeroscopia" class="card-popular-link cat-color-hover">Histeroscopia</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            A histeroscopia pode ser diagnostica ou cirúrgica. Veja para que server cada tipo, como é feita, tempo de exame e recomendações.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/df/48/df/c2/terapeuta-reiki-com-as-maos-sobre-o-rosto-de-uma-paciente-90x90-1.jpg" loading="lazy" alt="Reiki"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/3988-reiki" class="card-popular-link cat-color-hover">Reiki</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            O reiki é uma terapia integrativa que proporciona benefícios físicos e mentais através da canalização de energia. Entenda para que serve o reiki.
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/ee/0d/40/b5/mao-feminina-segurando-um-teste-de-gravidez-positivo-90x90-1.jpg" loading="lazy" alt="Teste de gravidez"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/4788-teste-de-gravidez" class="card-popular-link cat-color-hover">Teste de gravidez</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Aprenda a interpretar os resultados e se os testes de gravidez caseiros realmente funcionam
+                                    </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/treatments/a3/af/6a/7e/mulher-deitada-recebendo-a-massagem-shiatsu-nas-costas-90x90-1.jpg" loading="lazy" alt="shiatsu"/>            </picture>
+                    <h3>
+            <a href="/saude/tratamento/3985-shiatsu" class="card-popular-link cat-color-hover">shiatsu</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                            Shiatsu é uma técnica de massagem terapêutica que pode prevenir doenças e amenizar problemas como estresse e ansiedade. Veja os benefícios da técnica.
+                                    </div>
+                    </div>
+            </div>
+
+    </div>
+
+            </section>
+        
+                    <section class="section">
+                <div class="container is-vertically-gapless">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Medicamentos populares
+        </div>
+            </h2>
+
+    </header>
+
+    
+    <div class="card-popular-wrapper grid is-row-gapless is-column-gapless-tablet">
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Ibuprofeno"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/6-ibuprofeno-comprimido" class="card-popular-link cat-color-hover">Ibuprofeno: para que serve e como usar</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                        <div>Medicamento Genérico.</div>
+                                                                            <div>Laboratório: Prati Donaduzzi</div>
+                                                                            <div>Este medicamento tem ação contra a inflamação (reação de defesa do...</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Miosan"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/93-miosan-comprimido-revestido" class="card-popular-link cat-color-hover">Miosan: para que serve, composição e como tomar?</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                                                <div>Laboratório: Apsen</div>
+                                                                            <div>Este medicamento é destinado ao tratamento de espasmos musculares...</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Azelan"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/445-azelan-creme" class="card-popular-link cat-color-hover">Azelan (creme)</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                                                <div>Laboratório: Bayer</div>
+                                                                            <div>Azelan. (ácido azelaico) creme é indicado para o tratamento da acne....</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Doxiciclina"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/418-doxiciclina-comprimido" class="card-popular-link cat-color-hover">Doxiciclina (comprimido)</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                        <div>Medicamento Genérico.</div>
+                                                                            <div>Laboratório: Sandoz</div>
+                                                                            <div>A doxiciclina (doxiciclina monoidratada) é utilizada para o...</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Clonazepam"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/48-clonazepam-comprimido" class="card-popular-link cat-color-hover">Clonazepam: para que serve, composição e como tomar?</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                        <div>Medicamento Genérico.</div>
+                                                                            <div>Laboratório: EMS</div>
+                                                                            <div>Distúrbio epiléptico:   O clonazepam é indicado para tratar crises...</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Mupirocina"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/266-mupirocina-pomada" class="card-popular-link cat-color-hover">Mupirocina (pomada)</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                        <div>Medicamento Genérico.</div>
+                                                                            <div>Laboratório: Prati Donaduzzi</div>
+                                                                            <div>Este medicamento é indicado para o tratamento tópico de infecções de...</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/medicines/fc/06/57/05/imagem-de-uma-agulha-e-uma-ampola-90x90-1.jpg" loading="lazy" alt="Diprospan"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/531-diprospan-suspensao-injetavel" class="card-popular-link cat-color-hover">Diprospan: para que serve e como usar</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                                                <div>Laboratório: Mantecorp</div>
+                                                                            <div>DIPROSPAN® está indicado para o tratamento de doenças agudas e...</div>
+                                                            </div>
+                    </div>
+                <div class="is-12 is-6-tablet is-3-desk card-popular">
+            <picture class="card-popular-media">
+                <img src="https://static1.minhavida.com.br/skin/default_logo-90x90-1.png" loading="lazy" alt="Donaren"/>            </picture>
+                    <h3>
+            <a href="/saude/bulas/102-donaren" class="card-popular-link cat-color-hover">Donaren (comprimido revestido)</a>
+            </h3>
+                                    <div class="u-align-center u-margin-bottom u-rem-085">
+                                                                                                <div>Laboratório: Apsen</div>
+                                                                            <div>Este medicamento é indicado no tratamento da depressão mental com ou...</div>
+                                                            </div>
+                    </div>
+            </div>
+
+            <div class="u-margin-top u-align-center">
+            <a href="https://www.minhavida.com.br/saude/bulas" class="button cat-bg">Todas as medicamentos</a>
+        </div>
+    </div>
+
+            </section>
+        
+        
+        
+        <section class="section">
+            <div class="u-visible-desk container is-grey is-gapless">
+                <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-billboard">
+            <div class="mvn-announcement__default">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>
+        </div>
+    
+    <div class="mvn-announcement__container">
+                    <div class="mvn-announcement__placeholder">
+                Publicidade
+            </div>
+        
+        <div class="mvn-announcement__content"
+             id="dfp-billboard-web-01"
+             data-position="middle"
+             data-device="web"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+            </div>
+
+            <div class="u-hidden-desk container is-grey is-gapless">
+                <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-billboard">
+            <div class="mvn-announcement__default">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>
+        </div>
+    
+    <div class="mvn-announcement__container">
+                    <div class="mvn-announcement__placeholder">
+                Publicidade
+            </div>
+        
+        <div class="mvn-announcement__content"
+             id="dfp-billboard-mobile-01"
+             data-position="2"
+             data-device="mobile"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+            </div>
+        </section>
+
+        <section class="section">
+        <div class="container is-vertically-gapless">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Matérias mais populares
+        </div>
+            </h2>
+
+    </header>
+
+            <div class="grid">
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/24/9f/b0/6d/tardigrados-porquinhos-do-musgo-microscopicos-nadadores-ilustracao-cientifica-em-3d-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/24/9f/b0/6d/tardigrados-porquinhos-do-musgo-microscopicos-nadadores-ilustracao-cientifica-em-3d-card_m-1.jpg" alt="tard&iacute;grados, &quot;porquinhos-do-musgo&quot; microsc&oacute;picos nadadores, ilustra&ccedil;&atilde;o cient&iacute;fica em 3D" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-29847">
+                                    Ao inserir o gene de um tardígrado japonês em células humanas, os pesquisadores
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/92/54/57/8e/jim-carrey-mb-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/92/54/57/8e/jim-carrey-mb-card_m-1.jpg" alt="Depress&atilde;o: ator Jim Carrey comenta sua luta contra a doen&ccedil;a" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-16153">
+                                    Depressão: ator Jim Carrey comenta sua luta contra a doença
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/3d/e6/ae/2a/homem-usando-blusa-vermelha-em-desfoco-colocando-pomada-no-dedo-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/3d/e6/ae/2a/homem-usando-blusa-vermelha-em-desfoco-colocando-pomada-no-dedo-card_m-1.jpg" alt="Homem usando blusa vermelha em desfoco colocando pomada no dedo" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-23431">
+                                    4 pomadas para candidíase masculina e como usar
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/78/b0/69/5a/joelho-estalando-por-que-isso-acontece-e-normal-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/78/b0/69/5a/joelho-estalando-por-que-isso-acontece-e-normal-card_m-1.jpg" alt="Joelho estalando: por que isso acontece? &Eacute; normal?" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-29735">
+                                    Joelho estalando ao treinar ou caminhar? Descubra por que isso acontece e...
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/08/d5/f1/b2/pessoa-passando-pomada-nos-dedos-dos-pes-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/08/d5/f1/b2/pessoa-passando-pomada-nos-dedos-dos-pes-card_m-1.jpg" alt="pessoa passando pomada nos dedos dos p&eacute;s" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-22959">
+                                    6 pomadas para o tratamento da micose
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/24/d3/dc/12/imagem-aproximada-de-homem-de-pele-branca-vestindo-camiseta-polo-vermelha-aplicando-um-pouco-de-pomada-em-seu-dedo-indicador-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/24/d3/dc/12/imagem-aproximada-de-homem-de-pele-branca-vestindo-camiseta-polo-vermelha-aplicando-um-pouco-de-pomada-em-seu-dedo-indicador-card_m-1.jpg" alt="Imagem aproximada de homem, de pele branca, vestindo camiseta polo vermelha, aplicando um pouco de pomada em seu dedo indicador" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-23721">
+                                    Pomada para coceira no ânus: 4 opções para aliviar o sintoma
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/51/7e/ac/82/imagem-aproximada-da-sola-de-um-pe-com-uma-bolha-de-disidrose-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/51/7e/ac/82/imagem-aproximada-da-sola-de-um-pe-com-uma-bolha-de-disidrose-card_m-1.jpg" alt="imagem aproximada da sola de um p&eacute; com uma bolha de disidrose" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-23626">
+                                    Disidrose: como é feito o tratamento de bolhas na pele?
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/97/fc/d0/a7/homem-segurando-um-abacaxi-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/97/fc/d0/a7/homem-segurando-um-abacaxi-card_m-1.jpg" alt="Homem segurando um abacaxi" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-19344">
+                                    Abacaxi muda gosto do sêmen? Saiba o que influencia no sabor
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk">
+                        <div class="card-article">
+    <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/c8/95/c0/30/imagem-ampliada-das-maos-de-uma-pessoa-aplicando-pomada-na-mao-card3-1.jpg"><img src="https://static1.minhavida.com.br/articles/c8/95/c0/30/imagem-ampliada-das-maos-de-uma-pessoa-aplicando-pomada-na-mao-card_m-1.jpg" alt="Imagem ampliada das m&atilde;os de uma pessoa aplicando pomada na m&atilde;o" loading="lazy"/></picture>    <div class="card-article-content cat-4-bg-after">
+        <span class="card-article-category cat-4-color">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 18 18" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Saúde
+        </span>
+        <h2>
+                        <a class="card-article-title" href="/materias/materia-23282">
+                                    5 pomadas para candidíase na gravidez
+                            </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                            </div>
+
+                    </div>
+    </section>    
+<section class="section">
+        <div class="container">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Respostas de especialistas mais lidas
+        </div>
+            </h2>
+
+    </header>
+
+            <div class="grid">
+                                                        <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/116">Todo mundo terá colesterol alto um dia?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2A24 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/5c/5c/a9/1d/bruno-valdigem-user_small-1.jpg" loading="lazy" alt="Dr. Bruno Valdigem"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/7166-bruno-valdigem"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. Bruno Valdigem</strong>
+                </a>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 118535/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/117">Como tratar colesterol quando se tem hipotireoidismo e mais de 35 anos?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2A2C block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/5c/5c/a9/1d/bruno-valdigem-user_small-1.jpg" loading="lazy" alt="Dr. Bruno Valdigem"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <span class="hrl 1F43C2C04342464A4846C2CB4AC21F2C2A24241E41C1C3494F1EC44A484B464C434E profile-title cat-4-color">
+                    <strong class="profile-name">Dr. Bruno Valdigem</strong>
+                </span>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 118535/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/118">Colesterol total e triglicérides elevados podem ser resolvidos com dieta e exercícios na adolescência?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2A25 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/5c/5c/a9/1d/bruno-valdigem-user_small-1.jpg" loading="lazy" alt="Dr. Bruno Valdigem"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <span class="hrl 1F43C2C04342464A4846C2CB4AC21F2C2A24241E41C1C3494F1EC44A484B464C434E profile-title cat-4-color">
+                    <strong class="profile-name">Dr. Bruno Valdigem</strong>
+                </span>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 118535/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/122">Como baixar o colesterol ruim (LDL)?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2121 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/5c/5c/a9/1d/bruno-valdigem-user_small-1.jpg" loading="lazy" alt="Dr. Bruno Valdigem"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <span class="hrl 1F43C2C04342464A4846C2CB4AC21F2C2A24241E41C1C3494F1EC44A484B464C434E profile-title cat-4-color">
+                    <strong class="profile-name">Dr. Bruno Valdigem</strong>
+                </span>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 118535/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/128">Colesterol alto pode ser revertido só com dieta e exercícios ou eu preciso tomar medicamentos?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2125 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/5c/5c/a9/1d/bruno-valdigem-user_small-1.jpg" loading="lazy" alt="Dr. Bruno Valdigem"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <span class="hrl 1F43C2C04342464A4846C2CB4AC21F2C2A24241E41C1C3494F1EC44A484B464C434E profile-title cat-4-color">
+                    <strong class="profile-name">Dr. Bruno Valdigem</strong>
+                </span>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 118535/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/140">Colesterol alto pode causar aumento nas taxas de ácido úrico?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2B20 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/5c/5c/a9/1d/bruno-valdigem-user_small-1.jpg" loading="lazy" alt="Dr. Bruno Valdigem"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <span class="hrl 1F43C2C04342464A4846C2CB4AC21F2C2A24241E41C1C3494F1EC44A484B464C434E profile-title cat-4-color">
+                    <strong class="profile-name">Dr. Bruno Valdigem</strong>
+                </span>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 118535/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/141">Menopausa aumenta o colesterol?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2B2A block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/c0/27/30/bf/roberto-navarro-user_small-1.jpg" loading="lazy" alt="Dr. Roberto Navarro"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/5264-roberto-navarro-sousa-nilo"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. Roberto Navarro</strong>
+                </a>
+                <span class="profile-job">Nutrologia</span>
+                <span class="profile-phone">CRM 78392/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/158">Como baixar o colesterol e o triglicérides?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F2A2325 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/82/b7/14/75/abel-magalhaes-user_small-1.jpg" loading="lazy" alt="Dr. Abel Magalhaes"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/6101-abel-magalhaes"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. Abel Magalhaes</strong>
+                </a>
+                <span class="profile-job">Cardiologia</span>
+                <span class="profile-phone">CRM 585588/RJ</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                                            <div class="is-12 is-12-tablet is-4-desk is-limited block-question__wrapper">
+    <div class="block-question ">
+        <div class="block-question__content">
+
+                            <span class="block-question__question">
+                                            1 Pessoa perguntou
+                                    </span>
+            
+            <h3 class="block-question__title">
+                <a href="/perguntas/320">Uma vez com colesterol alto, é possível remover as gorduras já aderidas aos vasos sanguíneos?</a>
+            </h3>
+            
+                            <span class="hrl 1FC043C14CC349CB4AC21F222120 block-question__btn cat-color">
+                    [ Continuar lendo ]
+                </span>
+                    </div>
+                    <div class="profile is-horizontal u-margin-bottom">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/c0/27/30/bf/roberto-navarro-user_small-1.jpg" loading="lazy" alt="Dr. Roberto Navarro"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <span class="hrl 1F43C2C04342464A4846C2CB4AC21F2321242B1EC14F4143C1CB4F1E494AC44AC1C14F1EC24FC3C24A1E4946484F profile-title cat-4-color">
+                    <strong class="profile-name">Dr. Roberto Navarro</strong>
+                </span>
+                <span class="profile-job">Nutrologia</span>
+                <span class="profile-phone">CRM 78392/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</div>
+                                                </div>
+
+                                </div>
+    </section>
+<section class="section">
+        <div class="container">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-4-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Nossos especialistas mais consultados
+        </div>
+            </h2>
+
+    </header>
+
+            <div class="grid is-column-gapless-tablet is-column-gapless-phone">
+                                    <div class="is-12 is-6-tablet is-4-desk is-borderless">
+                        <div class="card card-specialist is-borderless">
+    <div class="profile">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/2b/a3/90/90/alessandro-mariani-user_small-1.png" loading="lazy" alt="Dr. Alessandro Mariani"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/40869-alessandro-mariani"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. Alessandro Mariani</strong>
+                </a>
+                <span class="profile-job">Cirurgia Torácica</span>
+                <span class="profile-phone">CRM 116960/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk is-borderless">
+                        <div class="card card-specialist is-borderless">
+    <div class="profile">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/d2/27/5c/fa/paola-teruya-user_small-1.jpg" loading="lazy" alt="Dra. Paola Teruya"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/40868-paola-teruya"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dra. Paola Teruya</strong>
+                </a>
+                <span class="profile-job">Geriatria</span>
+                <span class="profile-phone">CRM 168227/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk is-borderless">
+                        <div class="card card-specialist is-borderless">
+    <div class="profile">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/1b/4e/e0/d9/ully-caroline-fernandes-e-sousa-user_small-1.jpg" loading="lazy" alt="Dra. Ully Caroline Fernandes e Sousa"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/40873-ully-caroline-fernandes-e-sousa"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dra. Ully Caroline Fernandes e Sousa</strong>
+                </a>
+                <span class="profile-job">Endocrinologia e Metabologia</span>
+                <span class="profile-phone">CRM 145754/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk is-borderless">
+                        <div class="card card-specialist is-borderless">
+    <div class="profile">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/0c/9d/7d/2c/marcos-villela-pedras-user_small-1.png" loading="lazy" alt="Dr. Marcos Villela Pedras"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/40867-marcos-villela-pedras"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. Marcos Villela Pedras</strong>
+                </a>
+                <span class="profile-job">Medicina Nuclear</span>
+                <span class="profile-phone">CRM 52821039/RJ</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk is-borderless">
+                        <div class="card card-specialist is-borderless">
+    <div class="profile">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/2a/2d/54/d1/joao-pedro-cantarini-user_small-1.jpg" loading="lazy" alt="Dr. Jo&atilde;o Pedro Cantarini"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/40875-joao-pedro-cantarini"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. João Pedro Cantarini</strong>
+                </a>
+                <span class="profile-job">Otorrinolaringologia</span>
+                <span class="profile-phone">CRM 521049879/RJ</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+                    </div>
+                                    <div class="is-12 is-6-tablet is-4-desk is-borderless">
+                        <div class="card card-specialist is-borderless">
+    <div class="profile">
+    <div class="profile-wrapper">
+                <picture class="profile-media">
+            <img src="https://static1.minhavida.com.br/specialists/c5/04/15/4e/robinson-poffo-user_small-1.jpg" loading="lazy" alt="Dr. Robinson Poffo"/>        </picture>
+                <div class="profile-data ">
+            <div>
+                                <a
+                    href="/especialistas/10486-robinson-poffo"
+                    class="profile-title cat-4-color"
+                >
+                    <strong class="profile-name">Dr. Robinson Poffo</strong>
+                </a>
+                <span class="profile-job">Cirurgia Cardiovascular</span>
+                <span class="profile-phone">CRM 133469/SP</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+                    </div>
+                            </div>
+
+                    </div>
+    </section>    
+
+
+        <section class="section">
+        <div class="container is-vertically-gapless">
+            <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower cat-color" viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Matérias em vídeo
+        </div>
+            </h2>
+
+    </header>
+                
+            <div class="grid">
+                <div class="is-12 is-8-desk">
+                    <div class="card-video card-video--featured">
+    <div class="card-video-picture">
+        <svg class="u-icon u-icon-youtube " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-youtube"></use></svg>        <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/f6/97/d9/bf/mulher-apalpando-a-lateral-da-mama-para-identificar-alguma-alteracao-mamaria-spotlight_videos-1.jpg"><img src="https://static1.minhavida.com.br/articles/f6/97/d9/bf/mulher-apalpando-a-lateral-da-mama-para-identificar-alguma-alteracao-mamaria-spotlight_videos_m-1.jpg" class="img-fluid" alt="Mulher apalpando a lateral da mama para identificar alguma altera&ccedil;&atilde;o mam&aacute;ria" loading="lazy"/></picture>    </div>
+    <div
+        class="cat-4-bg-after card-video-content"
+    >
+        <span
+            class="cat-4-color card-video-category"
+        >Saúde</span>
+        <a class="card-video-title" href="/materias/materia-22588">Câncer de mama: prevenção que vai além do autoexame</a>
+    </div>
+</div>
+                </div>
+    
+                <div class="is-12 is-4-desk">
+                                            <div class="card-video">
+    <div class="card-video-picture">
+        <svg class="u-icon u-icon-youtube " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-youtube"></use></svg>        <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/8f/6a/58/0a/mulher-com-dificuldade-para-respirar-card_video-1.jpg"><img src="https://static1.minhavida.com.br/articles/8f/6a/58/0a/mulher-com-dificuldade-para-respirar-card_video_m-1.jpg" class="img-fluid" alt="Mulher com dificuldade para respirar" loading="lazy"/></picture>    </div>
+    <div
+        class="cat-4-bg-after card-video-content"
+    >
+        <span
+            class="cat-4-color card-video-category"
+        >Saúde</span>
+        <a class="card-video-title" href="/materias/materia-22202">Fraqueza muscular e dificuldade respiratória podem indicar doença de Pompe</a>
+    </div>
+</div>
+                                            <div class="card-video">
+    <div class="card-video-picture">
+        <svg class="u-icon u-icon-youtube " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-youtube"></use></svg>        <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/e1/15/17/9b/mulher-observando-o-rosto-no-espelho-card_video-1.jpg"><img src="https://static1.minhavida.com.br/articles/e1/15/17/9b/mulher-observando-o-rosto-no-espelho-card_video_m-1.jpg" class="img-fluid" alt="Mulher observando o rosto no espelho" loading="lazy"/></picture>    </div>
+    <div
+        class="cat-4-bg-after card-video-content"
+    >
+        <span
+            class="cat-4-color card-video-category"
+        >Saúde</span>
+        <a class="card-video-title" href="/materias/materia-22171">Para que serve o colágeno? Conheça todos os benefícios</a>
+    </div>
+</div>
+                                            <div class="card-video">
+    <div class="card-video-picture">
+        <svg class="u-icon u-icon-youtube " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-youtube"></use></svg>        <picture><source media="(min-width: 1024px)" srcset="https://static1.minhavida.com.br/articles/a6/06/c2/e5/melanoma-como-venci-essa-jornada-ok-card_video-1.jpg"><img src="https://static1.minhavida.com.br/articles/a6/06/c2/e5/melanoma-como-venci-essa-jornada-ok-card_video_m-1.jpg" class="img-fluid" alt="Melanoma: como venci essa jornada - Ana Paula" loading="lazy"/></picture>    </div>
+    <div
+        class="cat-4-bg-after card-video-content"
+    >
+        <span
+            class="cat-4-color card-video-category"
+        >Saúde</span>
+        <a class="card-video-title" href="/materias/materia-18380">Melanoma: como venci essa jornada - Ana Paula</a>
+    </div>
+</div>
+                                    </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+        </main>
+
+        <footer class="footer">
+            <section class="section ">
+        <div class="container is-gapless is-grey">
+            <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-bottom">
+            <div class="mvn-announcement__default">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>
+        </div>
+    
+    <div class="mvn-announcement__container">
+                    <div class="mvn-announcement__placeholder">
+                Publicidade
+            </div>
+        
+        <div class="mvn-announcement__content"
+             id="dfp-bottom-01"
+             data-position="footer"
+             data-device="all"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+        </div>
+    </section>
+
+    <section id="section-newsletter" class="container">
+    <header class="heading ">
+    <span class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Newsletter Minha Vida
+        </div>
+            </span>
+
+        <div class="heading-subtext">
+        Preencha os campos para receber novidades.
+    </div>
+    </header>
+
+    <div class="mvn-newsletter">
+        <mvn-newsletter
+            label-name="Nome"
+            label-email="E-mail"
+            label-gender="Sexo"
+            error-msg-name="Preencha o seu nome"
+            error-msg-email="Precisamos de um e-mail válido"
+            error-msg-gender="Selecione o sexo"
+            wording-success="Cadastro do e-mail feito com sucesso!"
+            wording-confirm="Em breve, você receberá nossas novidades."
+            submit="Quero receber"
+        >
+            <p class="is-12 u-align-center u-margin-bottom">
+                Ao concluir o cadastro, você aceita a nossa <span class="hrl 1F424FC1C04FC14ACB46C44F1FC04F4846CB46424A u-link">Política de Privacidade</span> e receber dicas e novidades do Minha Vida e seus parceiros!
+            </p>
+        </mvn-newsletter>
+    </div>
+</section>
+
+<section class="container footer-social u-align-center">
+    <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-text">
+            <svg class="u-icon u-icon-flower " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-flower"></use></svg>            Siga a gente nas redes sociais
+        </div>
+            </h2>
+
+    </header>
+
+    <div class="social-sharing is-large">
+                                    <div class="social-sharing-item">
+                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC19444A4243414F4F4719424F4E1F4E4649454AC4464B4A social-sharing-item-link" target="_blank" rel="noopener" title="Facebook de Minha Vida" aria-label="Facebook de Minha Vida">
+                        <svg class="u-icon u-icon-facebook " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-facebook"></use></svg>                    </span>
+                </div>
+                                                <div class="social-sharing-item">
+                    <span class="hrl 45CBCBC0C22D1F1FCBCC46CBCB43C119424F4E1F4E4649454AC4464B4A social-sharing-item-link" target="_blank" rel="noopener" title="Twitter de Minha Vida" aria-label="Twitter de Minha Vida">
+                        <svg class="u-icon u-icon-twitter " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-twitter"></use></svg>                    </span>
+                </div>
+                                                <div class="social-sharing-item">
+                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC19C64FC3CBC3414319424F4E1FCBC44E4649454AC4464B4A social-sharing-item-link" target="_blank" rel="noopener" title="Youtube de Minha Vida" aria-label="Youtube de Minha Vida">
+                        <svg class="u-icon u-icon-youtube " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-youtube"></use></svg>                    </span>
+                </div>
+                                                <div class="social-sharing-item">
+                    <span class="hrl 45CBCBC0C22D1F1FC04649CB43C143C2CB19424F4E1F4E4649454AC4464B4A social-sharing-item-link" target="_blank" rel="noopener" title="Pinterest de Minha Vida" aria-label="Pinterest de Minha Vida">
+                        <svg class="u-icon u-icon-pinterest " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-pinterest"></use></svg>                    </span>
+                </div>
+                                                <div class="social-sharing-item">
+                    <span class="hrl 45CBCBC0C22D1F1F4649C2CB4A4CC14A4E19424F4E1F4E4649454AC4464B4A4F444642464A48 social-sharing-item-link" target="_blank" rel="noopener" title="Instagram de Minha Vida" aria-label="Instagram de Minha Vida">
+                        <svg class="u-icon u-icon-instagram " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-instagram"></use></svg>                    </span>
+                </div>
+                                                <div class="social-sharing-item">
+                    <span class="hrl 45CBCBC0C22D1F1FCCCCCC19CB4647CB4F4719424F4E1FB04E4649454AC4464B4A4F444642464A48 social-sharing-item-link" target="_blank" rel="noopener" title="Tiktok de Minha Vida" aria-label="Tiktok de Minha Vida">
+                        <svg class="u-icon u-icon-tiktok " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-tiktok"></use></svg>                    </span>
+                </div>
+                        </div>
+</section>
+<section class="container footer-links">
+    <header class="heading ">
+    <h2 class="heading-title">
+                <div class="heading-logo" aria-label="Logo Minhavida">
+            <svg class="u-icon u-icon-logo-black " viewbox="0 0 248.571 54.115" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-black"></use></svg>        </div>
+            </h2>
+
+    </header>
+
+    <ul class="footer-links-primary">
+        
+                    <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1FCAC3434E1EC24F4E4FC2">
+                Quem somos
+            </span>
+        </li>
+                                <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1F43CAC346C043">
+                Equipe Editorial e Especialistas
+            </span>
+        </li>
+                    <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1FCBC14A414A4845431E424F494FC2424F">
+                Trabalhe conosco
+            </span>
+        </li>
+
+        <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1F444A48431E424F494FC2424F">
+                Fale conosco
+            </span>
+        </li>
+
+        <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1F4A49C3494246431E4ACAC346">
+                Anuncie
+            </span>
+        </li>
+    </ul>
+
+    <ul class="footer-links-secondary">
+                    <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1F4AC446C24F1E48434C4A48">
+                Aviso Legal
+            </span>
+        </li>
+                                <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1FC04F4846CB46424A">
+                Política de Privacidade
+            </span>
+        </li>
+                                <li>
+            <span class="hrl 1F424FC1C04FC14ACB46C44F1FC3C24F1E4B431E4B4A4B4FC2">
+                Uso de Dados
+            </span>
+        </li>
+                </ul>
+</section>
+<section class="container u-align-center footer-links">
+    <p class="u-margin-top u-margin-bottom u-padding-bottom">
+        “As informações e sugestões contidas neste site têm caráter meramente informativo. Elas não substituem o aconselhamento e acompanhamentos de médicos, nutricionistas, psicólogos, profissionais de educação física e outros especialistas.”
+        <br><br>
+        Copyright © 2006/2026 Minha Vida. Todos os direitos reservados.
+        <br><br>
+        <strong class="u-bold">O Minha Vida faz parte do Grupo Webedia.</strong>
+    </p>
+</section>
+<section class="footer-affiliates">
+    <header class="footer-affiliates-logo__wrap u-align-center">
+        <span class="footer-affiliates-logo" aria-label="Logo Webedia">
+            <svg class="u-icon u-icon-logo-webedia-new " viewbox="0 0 149.438 27.896" role="img"><use xlink:href="/assets/svg/icons.svg#icon-logo-webedia-new"></use></svg>        </span>
+    </header>
+    <div class="footer-affiliates-list">
+        <ul>
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1FCCCCCC194A4B4FC14F424649434E4A19424F4E1F" target="_blank">
+                    AdoroCinema
+                </span>
+            </li>
+
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1F41C14AC2464819414A41C6424349CB43C119424F4E1F" target="_blank">
+                    BabyCenter Brasil
+                </span>
+            </li>
+
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1FCCCCCC19C54ACB4A474A19424F4E1941C11F" target="_blank">
+                    Xataka
+                </span>
+            </li>
+
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1F41C119464C4919424F4E1F" target="_blank">
+                    IGN Brasil
+                </span>
+            </li>
+
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1FCCCCCC194E4649454AC4464B4A19424F4E1941C11F" target="_blank">
+                    MinhaVida
+                </span>
+            </li>
+
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1FCCCCCC19C0C3C143C0434FC0484319424F4E1941C11F" target="_blank">
+                    Purepeople
+                </span>
+            </li>
+
+            <li>
+                <span class="hrl 45CBCBC0C22D1F1FCCCCCC19CBC34B4F4C4FC2CB4FC24F19424F4E1941C11F" target="_blank">
+                    TudoGostoso
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-affiliates__info">
+        <div class="footer-affiliates--social">
+            <span class="hrl 45CBCBC0C22D1F1FCCCCCC1948464947434B464919424F4E1F424F4EC04A49C61FCC4341434B464A" target="_blank">
+                <span class="footer-affiliates--social-icon">
+                    <svg class="u-icon u-icon-linkedin-footer " viewbox="0 0 24 24" role="img"><use xlink:href="/assets/svg/icons.svg#icon-linkedin-footer"></use></svg>                </span>
+            </span>
+        </div>
+        <div class="footer-affiliates--copyright">
+            <span class="footer-affiliates--copyright-item">
+                Copyright 2024 Webedia Brasil</br>Todos os direitos reservados
+            </span>
+        </div>
+    </div>
+</section>
+
+            </footer>
+
+                <div class="u-hidden-desk">
+            <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-pulse">
+    
+    <div class="mvn-announcement__container">
+        
+        <div class="mvn-announcement__content"
+             id="dfp-pulse-01"
+             data-position="pulse"
+             data-device="all"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+        </div>
+
+                    <!-- Ad Format - start -->
+<div class="mvn-announcement mvn-announcement--position-interstitial">
+    
+    <div class="mvn-announcement__container">
+        
+        <div class="mvn-announcement__content"
+             id="dfp-interstitial-01"
+             data-position="interstitial"
+             data-device="all"
+             data-keywords="%5B%5D">
+        </div>
+    </div>
+</div>
+<!-- Ad Format - end -->
+                
+        <script src="https://static1.minhavida.com.br/assets/js/app.js?id=ef6da248160e05161841" async></script>
+<script src="https://static1.minhavida.com.br/assets/js/jad.js?id=90c186228fe1397abfe3"></script>
+
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({flush: true});
+</script>
+
+        <div id="fb-root"></div>
+    
+        <div class='mvn-cookie-notice'>
+            <mvn-cookie-notice />
+        </div>
+    </body>
+</html>

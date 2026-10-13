@@ -1,0 +1,30 @@
+404 1 https://consultaremedios.com.br/aspmol-500mg/bula
+404 2 https://consultaremedios.com.br/aspmol-750mg/bula
+404 3 https://consultaremedios.com.br/aspmol/p
+200 4 https://consultaremedios.com.br/busca?termo=aspmol
+200 5 https://consultaremedios.com.br/aspdip/p
+404 6 https://consultaremedios.com.br/aspdip-gotas/bula
+200 7 https://consultaremedios.com.br/busca?termo=aspdip
+200 8 https://consultaremedios.com.br/aspdip/bula/contraindicacao
+404 9 https://www.bulas.med.br/busca?termo=aspmol
+404 10 https://www.bulas.med.br/busca?termo=aspdip
+200 11 https://www.minhavida.com.br/saude/bulas/busca?q=aspmol
+403 12 https://www.drogasil.com.br/search?w=aspmol
+403 13 https://www.drogaraia.com.br/search?w=aspmol
+403 14 https://www.drogasil.com.br/search?w=aspdip
+200 15 https://www.precopopular.com.br/busca?q=aspmol
+200 16 https://www.precopopular.com.br/busca?q=aspdip
+200 17 https://www.paguemenos.com.br/aspmol
+200 18 https://www.drogariasaopaulo.com.br/aspmol
+200 19 https://www.drogariaspacheco.com.br/aspmol
+200 20 https://www.drogariaspacheco.com.br/aspdip
+403 21 https://www.araujo.com.br/busca?q=aspmol
+403 22 https://www.panvel.com/panvel/buscarProduto.do?termoPesquisa=aspmol
+curl: (28) Connection timed out after 40002 milliseconds
+000 23 https://www.bulario.com/busca?q=aspmol
+curl: (6) Could not resolve host: www.medicinanet.com.br
+000 24 https://www.medicinanet.com.br/busca?q=aspmol
+202 25 https://duckduckgo.com/html/?q=aspmol+bula+paracetamol+bayer
+200 26 https://www.google.com/search?q=aspmol+bula+pdf
+500 27 https://search.yahoo.com/search?p=aspmol+bula+paracetamol+bayer
+500 28 https://search.yahoo.com/search?p=aspdip+bula+contraindica%C3%A7%C3%A3o
