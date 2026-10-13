@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,800;1,300;1,500;1,700;1,800&family=Jost:wght@600;700&family=Marcellus&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
   <script>
     // Tema salvo antes da pintura, para não piscar
     try { const t = localStorage.getItem('asp-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -33,14 +33,19 @@
 
   <!-- ================= HEADER ================= -->
   <header class="topbar">
-    <a href="#inicio" class="brand" data-go="inicio" aria-label="Família Asp, início">
+    <a href="#inicio" class="brand" data-go="inicio" aria-label="AspDip e AspMol, Bayer, início">
       <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M20 4v32M4 20h32" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="20" cy="20" r="4.5" fill="currentColor"/>
+        <circle cx="20" cy="20" r="18.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <g fill="currentColor" font-family="Jost, Futura, sans-serif" font-weight="700" font-size="6.6" text-anchor="middle">
+          <text x="20" y="9.4">B</text><text x="20" y="15.9">A</text><text x="20" y="22.4">Y</text><text x="20" y="28.9">E</text><text x="20" y="35.4">R</text>
+          <text x="7" y="22.4">B</text><text x="13.5" y="22.4">A</text><text x="26.5" y="22.4">E</text><text x="33" y="22.4">R</text>
+        </g>
       </svg>
-      <span class="brand__word">Asp<span class="brand__dot">.</span></span>
-      <span class="brand__by">Bayer</span>
+      <span class="brand__logos">
+        <span class="logo-asp">ASP<b class="is-dip">DIP</b></span>
+        <i class="brand__sep" aria-hidden="true"></i>
+        <span class="logo-asp">ASP<b class="is-mol">MOL</b></span>
+      </span>
     </a>
 
     <nav class="tabs" role="tablist" aria-label="Seções">
@@ -198,6 +203,18 @@
         </div>
       </div>
 
+      <div class="wrap section section--bula">
+        <div class="bula reveal" id="bula">
+          <header class="bula__head">
+            <span class="eyebrow">Informações da bula</span>
+            <h2 class="h2 bula__title"></h2>
+          </header>
+          <div class="bula__tabs" role="tablist" aria-label="Seções da bula"></div>
+          <div class="bula__body" aria-live="polite"></div>
+          <p class="bula__note"></p>
+        </div>
+      </div>
+
       <!-- Matriz comparativa -->
       <div class="wrap section">
         <header class="section__head reveal">
@@ -280,6 +297,18 @@
             </div>
           </div>
           <aside class="sheet" id="sheet2" aria-live="polite"></aside>
+        </div>
+      </div>
+
+      <div class="wrap section section--bula">
+        <div class="bula reveal" id="bula2">
+          <header class="bula__head">
+            <span class="eyebrow">Informações da bula</span>
+            <h2 class="h2 bula__title"></h2>
+          </header>
+          <div class="bula__tabs" role="tablist" aria-label="Seções da bula"></div>
+          <div class="bula__body" aria-live="polite"></div>
+          <p class="bula__note"></p>
         </div>
       </div>
 
@@ -374,7 +403,7 @@
     <div class="wrap">
       <p class="footer__warn"><strong>AspDip e AspMol são medicamentos.</strong> Leia a bula. Seu uso pode trazer riscos. Procure o médico e o farmacêutico. Se persistirem os sintomas, o médico deverá ser consultado.</p>
       <div class="footer__row">
-        <span class="footer__big" aria-hidden="true">Asp<span class="brand__dot">.</span></span>
+        <span class="footer__big" aria-hidden="true"><span class="logo-asp">ASP<b class="is-dip">DIP</b></span> <span class="logo-asp">ASP<b class="is-mol">MOL</b></span></span>
         <nav class="footer__nav" aria-label="Rodapé">
           <a href="#inicio" data-go="inicio">Início</a>
           <a href="#lancamentos" data-go="lancamentos">Lançamentos</a>
@@ -406,15 +435,16 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="catalog.js"></script>
+  <script src="catalog.js?v=2"></script>
+  <script src="bula.js?v=2"></script>
   <script>
     // Os produtos 3D (WebGL) chegam por módulo; se falhar, o app usa a versão em CSS
     window.ASP3D = new Promise(r => { window.__asp3d = r; setTimeout(() => r(null), 9000); });
   </script>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
   <script type="module">
     try {
-      const m = await import('./scene3d.js');
+      const m = await import('./scene3d.js?v=2');
       window.__asp3d(await m.create({ lite: document.documentElement.classList.contains('lite') }));
     } catch (e) { console.warn('WebGL indisponível, usando CSS 3D', e); window.__asp3d(null); }
   </script>

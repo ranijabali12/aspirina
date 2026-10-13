@@ -1,7 +1,7 @@
 /* =========================================================
    Catálogo da família Asp + desenho vetorial das embalagens
    Cores e layout copiados das embalagens reais (fotos Bayer).
-   O site não traz indicação, posologia nem recomendação de uso:
+   O site não traz posologia nem recomendação de uso (bula resumida em bula.js):
    só o que identifica cada produto e a embalagem.
    ========================================================= */
 window.ASP = (() => {

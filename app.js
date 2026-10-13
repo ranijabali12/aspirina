@@ -469,6 +469,7 @@
     sku = s;
     $$('#skuList .sku').forEach(b => { const on = b.dataset.id === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     renderSheet(s);
+    renderBula('', s.fam === 'mol' ? 'aspmol' : 'aspdip', s.fam === 'mol' ? 'AspMol · paracetamol' : 'AspDip · dipirona');
     if (!changed) return;
     if (GL) {
       GL.viewer.setProduct(s, instant || reduced);
@@ -487,6 +488,28 @@
     viewerObj.firstElementChild && viewerObj.firstElementChild.style.setProperty('--vy', (rvy + 120).toFixed(1) + 'deg');
   }
 
+
+  /* ---------- Bula: indicação, contraindicações, advertências e reações ---------- */
+  const BULA_T = [['indicacao', 'Indicação'], ['contra', 'Contraindicações'], ['adv', 'Advertências'], ['reacoes', 'Reações adversas']];
+  const bulaTab = { '': 'indicacao', '2': 'indicacao' }, bulaCur = {};
+  const escB = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  function renderBula(n, key, title, color) {
+    const root = $('#bula' + n), B = (window.ASP_BULA || {})[key];
+    if (!root || !B) { root && (root.parentElement.hidden = true); return; }
+    root.parentElement.hidden = false;
+    bulaCur[n] = { key, title, color };
+    if (color) root.style.setProperty('--fam', color), root.style.setProperty('--fam-band', color);
+    root.querySelector('.bula__title').textContent = title;
+    const t = bulaTab[n];
+    root.querySelector('.bula__tabs').innerHTML = BULA_T.map(([k, l]) => `<button class="bula__tab${k === t ? ' is-on' : ''}" role="tab" aria-selected="${k === t}" data-k="${k}">${l}</button>`).join('');
+    const head = t === 'contra' ? '<p class="bula__lead">Não use este medicamento em caso de:</p>' : '';
+    root.querySelector('.bula__body').innerHTML = head + `<ul class="bula__list">${(B[t] || []).map((x, i) => `<li style="--i:${i}">${escB(x)}</li>`).join('')}</ul>`;
+    root.querySelector('.bula__note').innerHTML = `Resumo da bula do paciente${B.fonte ? ` (<a href="${escB(B.fonte)}" target="_blank" rel="noopener">fonte</a>)` : ''}. Leia a bula completa na embalagem ou no Bulário Eletrônico da Anvisa. SAC Bayer 0800 723 1010.`;
+  }
+  ['', '2'].forEach(n => { const r = $('#bula' + n); r && r.addEventListener('click', e => {
+    const b = e.target.closest('.bula__tab'); if (!b) return; bulaTab[n] = b.dataset.k; const c = bulaCur[n]; renderBula(n, c.key, c.title, c.color);
+  }); });
+
   function renderSheet(s) {
     const f = FAMILIES[s.fam];
     const rows = [
@@ -494,7 +517,7 @@
       ['Concentração', s.dose],
       ['Apresentação', `${s.form} · ${s.qtyLabel}`],
       ['Detalhe', s.extra],
-      ['Bula', 'Leia a bula antes de usar']
+      ['Bula', 'Resumo logo abaixo']
     ];
     $('#sheet').innerHTML = `
       <div class="sheet__head">
@@ -629,7 +652,8 @@
     cls = c;
     $$('#skuList2 .sku').forEach(b => { const on = b.dataset.cid === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     $('#classica').style.setProperty('--fam', c.main);
-    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', 'Leia a bula antes de usar']];
+    renderBula('2', { 'aspirina-500': 'aspirina', 'aspirina-c': 'aspirinac', cafiaspirina: 'cafi' }[c.id], c.name, c.main);
+    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', 'Resumo logo abaixo']];
     $('#sheet2').innerHTML = `
       <div class="sheet__head">
         <span class="eyebrow">Ficha do produto</span>

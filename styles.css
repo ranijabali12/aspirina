@@ -146,7 +146,15 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 
 .brand { display: inline-flex; align-items: center; gap: var(--s-1); justify-self: start; }
 .brand__mark { width: 32px; height: 32px; color: var(--ink); transition: transform var(--t-slow) var(--ease); }
-.brand:hover .brand__mark { transform: rotate(90deg); }
+.brand:hover .brand__mark { transform: scale(1.06); }
+.brand__logos { display: inline-flex; align-items: center; gap: var(--s-1); }
+.logo-asp { font-family: var(--f-word); font-weight: 600; font-size: 22px; letter-spacing: -.02em; line-height: 1; color: var(--ink); white-space: nowrap; }
+.logo-asp b { font-weight: 600; }
+.logo-asp .is-dip { color: #1FA48B; }
+.logo-asp .is-mol { color: #DC1F2A; }
+.brand__sep { width: 1px; height: 24px; background: var(--line-2); }
+.footer__big .logo-asp { font-size: inherit; letter-spacing: -.03em; }
+@media (max-width: 420px) { .logo-asp { font-size: 17px; } .brand__mark { width: 28px; height: 28px; } }
 .brand__word { font-family: var(--f-word); font-weight: 700; font-size: var(--t-24); letter-spacing: -.03em; line-height: 1; }
 .brand__dot { color: var(--teal); }
 .brand__by { font-family: var(--f-mono); font-size: 11px; color: var(--muted); padding: 2px 8px; border-radius: var(--r-pill); box-shadow: inset 0 0 0 1px var(--line-2); }
@@ -760,7 +768,7 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .footer { padding-block: var(--s-10) var(--s-4); background: var(--surface); border-top: 1px solid var(--line); }
 .footer__warn { padding: var(--s-3); border-radius: var(--r-2); background: var(--bg); font-size: var(--t-14); color: var(--ink-2); margin-bottom: var(--s-8); }
 .footer__row { display: flex; justify-content: space-between; align-items: end; gap: var(--s-4); flex-wrap: wrap; }
-.footer__big { font-family: var(--f-word); font-weight: 700; font-size: clamp(5rem, 16vw, 13rem); line-height: .8; letter-spacing: -.06em; }
+.footer__big { font-family: var(--f-word); font-weight: 700; font-size: clamp(3rem, 8vw, 7rem); line-height: .8; letter-spacing: -.06em; }
 .footer__nav { display: flex; flex-wrap: wrap; gap: var(--s-3); }
 .footer__nav a { position: relative; font-weight: 600; }
 .footer__nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--teal); transform: scaleX(0); transform-origin: right; transition: transform var(--t-slow) var(--ease); }
@@ -944,3 +952,20 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .launch--classic .sheet::before { background: linear-gradient(90deg, var(--fam), var(--teal)); }
 .launch--classic .sheet__name { color: var(--ink); }
 .card { cursor: pointer; }
+
+/* ---------- Bula ---------- */
+.section--bula { padding-top: 0; }
+.bula { display: grid; gap: var(--s-3); padding: var(--s-5); border-radius: var(--r-4); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); position: relative; overflow: hidden; }
+.bula::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg, var(--fam), var(--fam-band)); transition: background var(--t-mid) var(--ease); }
+.bula__head { display: grid; gap: var(--s-1); }
+.bula__tabs { display: flex; flex-wrap: wrap; gap: var(--s-1); }
+.bula__tab { height: 40px; padding: 0 var(--s-2); border-radius: var(--r-pill); font-size: var(--t-14); font-weight: 600; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-2); transition: background var(--t-mid) var(--ease), color var(--t-mid) var(--ease), box-shadow var(--t-mid) var(--ease); }
+.bula__tab:hover { box-shadow: inset 0 0 0 1px var(--ink); }
+.bula__tab.is-on { background: var(--fam); color: #fff; box-shadow: none; }
+.bula__lead { margin: 0 0 var(--s-1); color: var(--muted); font-weight: 600; }
+.bula__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 80ch; }
+.bula__list li { position: relative; padding: 12px 0 12px var(--s-4); border-bottom: 1px solid var(--line); color: var(--ink-2); animation: rowIn var(--t-slow) var(--ease) both; animation-delay: calc(min(var(--i), 12) * 32ms); }
+.bula__list li::before { content: ""; position: absolute; left: 6px; top: 20px; width: 8px; height: 8px; border-radius: 50%; background: var(--fam); box-shadow: 0 0 0 3px color-mix(in srgb, var(--fam) 25%, transparent); }
+.bula__note { margin: 0; font-size: var(--t-12); color: var(--muted); font-family: var(--f-mono); }
+.bula__note a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .bula { padding: var(--s-3); } }
