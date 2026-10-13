@@ -11,6 +11,7 @@
   <meta property="og:locale" content="pt_BR" />
   <meta name="theme-color" content="#F2F5F7" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0A1E2B" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%2300A785'/%3E%3Cpath d='M20 6v28M6 20h28' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,800;1,300;1,500;1,700;1,800&family=Jost:wght@600;700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -96,7 +97,7 @@
             <span class="line"><span>A dor mudou.</span></span>
             <span class="line"><span>A <b class="wm">ASP</b> também.</span></span>
           </h1>
-          <p class="hero__lead">Dipirona e paracetamol com a assinatura de quem trata a dor desde 1897.</p>
+          <p class="hero__lead">Dipirona e paracetamol com a assinatura da Bayer, a mesma da Aspirina desde 1897.</p>
         </div>
 
         <!-- Órbita 3D com os cinco lançamentos -->
@@ -185,37 +186,8 @@
         </div>
       </div>
 
-      <!-- Guia -->
-      <div class="wrap section">
-        <div class="guide reveal" id="guide">
-          <header class="guide__head">
-            <span class="eyebrow">Guia rápido</span>
-            <h2 class="h2">Qual Asp é para você?</h2>
-            <p>Responda duas perguntas e veja os lançamentos indicados para o seu caso, conforme as informações da Bayer.</p>
-          </header>
-          <div class="guide__q">
-            <span class="guide__label" id="qAge">Quem vai usar?</span>
-            <div class="seg" role="radiogroup" aria-labelledby="qAge">
-              <button class="seg__btn" role="radio" aria-checked="false" data-age="crianca">Bebê ou criança<small>a partir de 3 meses</small></button>
-              <button class="seg__btn" role="radio" aria-checked="false" data-age="teen">Adolescente<small>12 a 15 anos</small></button>
-              <button class="seg__btn is-on" role="radio" aria-checked="true" data-age="adulto">Adulto<small>acima de 15 anos</small></button>
-            </div>
-          </div>
-          <div class="guide__q">
-            <span class="guide__label" id="qNeed">O que você sente?</span>
-            <div class="seg" role="radiogroup" aria-labelledby="qNeed">
-              <button class="seg__btn" role="radio" aria-checked="false" data-need="leve">Dor leve a moderada</button>
-              <button class="seg__btn" role="radio" aria-checked="false" data-need="intensa">Dor moderada a intensa</button>
-              <button class="seg__btn is-on" role="radio" aria-checked="true" data-need="febre">Febre</button>
-            </div>
-          </div>
-          <div class="guide__out" id="guideOut" aria-live="polite"></div>
-          <p class="guide__note">Este guia resume as indicações divulgadas e não substitui a bula nem a orientação do farmacêutico ou do médico.</p>
-        </div>
-      </div>
-
       <!-- Matriz comparativa -->
-      <div class="wrap section section--flush">
+      <div class="wrap section">
         <header class="section__head reveal">
           <span class="eyebrow">Comparativo</span>
           <h2 class="h2">Os cinco, lado a lado.</h2>
@@ -226,7 +198,7 @@
       </div>
 
       <!-- Campanha -->
-      <div class="wrap section">
+      <div class="wrap section section--tight">
         <div class="campaign reveal">
           <div class="campaign__copy">
             <span class="eyebrow">Campanha 2026</span>
@@ -262,11 +234,9 @@
           <div class="filters" role="group" aria-label="Filtrar produtos">
             <button class="chip is-active" data-filter="all">Todos <span class="chip__n"></span></button>
             <button class="chip" data-filter="novo">Lançamentos <span class="chip__n"></span></button>
-            <button class="chip" data-filter="dor">Dor e febre <span class="chip__n"></span></button>
-            <button class="chip" data-filter="infantil">Infantil <span class="chip__n"></span></button>
-            <button class="chip" data-filter="gripe">Gripe <span class="chip__n"></span></button>
-            <button class="chip" data-filter="enxaqueca">Enxaqueca <span class="chip__n"></span></button>
-            <button class="chip" data-filter="coracao">Coração <span class="chip__n"></span></button>
+            <button class="chip" data-filter="dip">AspDip <span class="chip__n"></span></button>
+            <button class="chip" data-filter="mol">AspMol <span class="chip__n"></span></button>
+            <button class="chip" data-filter="classico">Clássicos <span class="chip__n"></span></button>
           </div>
         </header>
         <figure class="lineup reveal">
@@ -277,7 +247,7 @@
           </figcaption>
         </figure>
         <div class="cards" id="cards"></div>
-        <p class="note">Apresentações conforme divulgação da Bayer e de farmácias. Confira sempre a embalagem e a bula.</p>
+        <p class="note">Apresentações conforme divulgação da Bayer e de farmácias. Leia sempre a bula.</p>
       </div>
     </section>
 

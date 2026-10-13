@@ -1,6 +1,6 @@
 /* Família Asp · interações */
 (() => {
-  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, byId } = window.ASP;
+  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, byId } = window.ASP;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -16,6 +16,8 @@
   const fullName = s => s.drops ? `AspDip Gotas ${s.dose}` : `${s.name} ${s.dose}`;
 
   $('#year').textContent = new Date().getFullYear();
+  // Rótulo do frasco 3D: desenhado depois que as fontes carregam
+  (document.fonts?.ready || Promise.resolve()).then(() => { try { makeBottleLabel(); } catch (e) {} });
 
   /* ---------- Toast ---------- */
   let toastT;
@@ -171,7 +173,8 @@
       cursor.classList.toggle('is-label', !!t);
       if (t) $('.cursor__label', cursor).textContent = t.dataset.cursor;
     });
-    document.addEventListener('pointerleave', () => cursor.classList.remove('is-on'));
+    document.documentElement.addEventListener('mouseleave', () => cursor.classList.remove('is-on'));
+    addEventListener('blur', () => cursor.classList.remove('is-on'));
     (function loop() {
       cx = lerp(cx, mx, .22); cy = lerp(cy, my, .22);
       cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
@@ -248,10 +251,10 @@
   stage.innerHTML = SKUS.map((s, i) => `
     <div class="orbit__item" data-i="${i}" role="group" aria-label="${fullName(s)}">
       <div class="orbit__shadow" style="--delay:${-i * .8}s"></div>
-      <div class="float" style="--delay:${-i * .8}s">${product3D(s)}</div>
+      <div class="float" style="--delay:${-i * .8}s"><div class="pose" style="--sway:${-i * 1.3}s">${product3D(s)}</div></div>
     </div>`).join('');
   const items = $$('.orbit__item', stage);
-  let angle = 0, targetIdx = 0, oDrag = false, oLastX = 0, oMoved = 0, hoverPause = false, autoT0 = performance.now(), oRAF = null, frontIdx = -1;
+  let angle = -1.2, targetIdx = 0, introT0 = performance.now(), hoverIdx = -1, oDrag = false, oLastX = 0, oMoved = 0, hoverPause = false, autoT0 = performance.now(), oRAF = null, frontIdx = -1;
   const AUTO = 3800;
   const geo = () => {
     const w = orbitEl.clientWidth;
@@ -270,7 +273,7 @@
       $('#hudIdx').textContent = pad(i + 1);
       $('#hudFam').textContent = `${f.name} · ${f.ativo}`;
       $('#hudName').textContent = fullName(s);
-      $('#hudMeta').textContent = `${s.qtyLabel} · ${s.indic}`;
+      $('#hudMeta').textContent = `${s.form} · ${s.qtyLabel}`;
       hud.classList.remove('is-swap');
     }, reduced ? 0 : 160);
   }
@@ -283,13 +286,17 @@
     }
     const p = hoverPause || oDrag ? 0 : clamp((now - autoT0) / AUTO, 0, 1);
     $('#hudBar').style.transform = `scaleX(${p})`;
+    // Entrada: os produtos sobem e se abrem em leque no primeiro segundo e meio
+    const ip = reduced ? 1 : clamp((now - introT0) / 1500, 0, 1);
+    const ie = 1 - Math.pow(1 - ip, 3);
     items.forEach((el, i) => {
       const th = angle + i * step;
       const c = Math.cos(th), sn = Math.sin(th);
       const depth = (c + 1) / 2;
-      const x = sn * G.rx, z = c * G.rz, y = -c * 10 - (1 - depth) * 40;
-      const sc = (.5 + .5 * depth) * G.k;
-      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${(sn * 32).toFixed(2)}deg) scale(${sc.toFixed(3)})`;
+      const x = sn * G.rx * ie, z = c * G.rz, y = -c * 10 - (1 - depth) * 40 + (1 - ie) * 180;
+      const lift = i === hoverIdx ? 1.06 : 1;
+      const sc = (.5 + .5 * depth) * G.k * (.7 + .3 * ie) * lift;
+      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${(sn * 28).toFixed(2)}deg) scale(${sc.toFixed(3)})`;
       el.style.setProperty('--fog', ((1 - depth) * .55).toFixed(3));
       el.style.zIndex = Math.round(depth * 100);
     });
@@ -303,10 +310,14 @@
   $('#orbitNext').addEventListener('click', () => nudge(1));
   $('#hudOpen').addEventListener('click', () => { selectSku(SKUS[frontIdx].id, true); go('lancamentos', { hash: SKUS[frontIdx].id }); });
   orbitEl.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hoverPause = true; });
-  orbitEl.addEventListener('pointerleave', () => { hoverPause = false; autoT0 = performance.now(); });
+  orbitEl.addEventListener('pointerleave', () => { hoverPause = false; hoverIdx = -1; autoT0 = performance.now(); });
   orbitEl.addEventListener('pointerdown', e => { oDrag = true; oLastX = e.clientX; oMoved = 0; orbitEl.setPointerCapture(e.pointerId); });
   orbitEl.addEventListener('pointermove', e => {
-    if (!oDrag) return;
+    if (!oDrag) {
+      const hit = e.target.closest && e.target.closest('.orbit__item');
+      hoverIdx = hit ? +hit.dataset.i : -1;
+      return;
+    }
     const dx = e.clientX - oLastX;
     oMoved += Math.abs(dx);
     angle += dx * .006;
@@ -401,17 +412,17 @@
     if (instant || reduced || !viewerObj.firstElementChild) return put();
     viewerObj.classList.add('is-swap');
     setTimeout(put, 200);
+    viewerObj.firstElementChild && viewerObj.firstElementChild.style.setProperty('--vy', (rvy + 120).toFixed(1) + 'deg');
   }
 
   function renderSheet(s) {
     const f = FAMILIES[s.fam];
     const rows = [
       ['Princípio ativo', s.ativo],
+      ['Concentração', s.dose],
       ['Apresentação', `${s.form} · ${s.qtyLabel}`],
-      ['Indicação', s.indic],
-      ['Uso', s.idade],
-      ['Posologia', s.poso],
-      ['Destaque', s.extra]
+      ['Detalhe', s.extra],
+      ['Bula', 'Leia a bula antes de usar']
     ];
     $('#sheet').innerHTML = `
       <div class="sheet__head">
@@ -420,7 +431,7 @@
         <span class="sheet__formula">${s.formula}</span>
       </div>
       <dl>${rows.map(([k, v], i) => `<div class="sheet__row" style="--i:${i}"><dt>${k}</dt><dd>${v}</dd></div>`).join('')}
-      ${s.ean ? `<div class="sheet__row" style="--i:6"><dt>EAN</dt><dd>${ean13(s.ean)}</dd></div>` : ''}</dl>`;
+      ${s.ean ? `<div class="sheet__row" style="--i:5"><dt>EAN</dt><dd>${ean13(s.ean)}</dd></div>` : ''}</dl>`;
   }
 
   $$('.switch__btn').forEach(b => b.addEventListener('click', () => {
@@ -464,24 +475,6 @@
     vRAF = requestAnimationFrame(viewerLoop);
   }
 
-  /* ---------- Guia ---------- */
-  let gAge = 'adulto', gNeed = 'febre';
-  function guide() {
-    const out = SKUS.filter(s => s.age.includes(gAge) && s.need.includes(gNeed));
-    $('#guideOut').innerHTML = out.length
-      ? out.map((s, i) => `<button class="match" style="--i:${i}" data-go="lancamentos" data-sku="${s.id}" data-scroll="viewer">${flat(s)}<div><b>${fullName(s)}</b><span>${s.indic} · ${s.idade}</span></div></button>`).join('')
-      : `<div class="empty"><b>Nenhum lançamento indicado para essa combinação.</b><span>Converse com o farmacêutico ou com o médico.</span></div>`;
-  }
-  $$('.seg').forEach(seg => seg.addEventListener('click', e => {
-    const b = e.target.closest('.seg__btn');
-    if (!b) return;
-    $$('.seg__btn', seg).forEach(x => { const on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-checked', on); });
-    if (b.dataset.age) gAge = b.dataset.age;
-    if (b.dataset.need) gNeed = b.dataset.need;
-    guide();
-  }));
-  guide();
-
   /* ---------- Matriz ---------- */
   (function matrix() {
     const rows = [
@@ -489,10 +482,7 @@
       ['Concentração', s => s.dose],
       ['Forma', s => s.form],
       ['Embalagem', s => s.qtyLabel],
-      ['Indicação', s => s.indic],
-      ['Uso', s => s.idade],
-      ['Posologia', s => s.poso],
-      ['Destaque', s => s.extra]
+      ['Detalhe', s => s.extra]
     ];
     const head = `<thead><tr><th scope="col"><span class="sr-only">Atributo</span></th>${SKUS.map((s, i) => `<th scope="col" data-col="${i}">${flat(s)}<b>${fullName(s)}</b></th>`).join('')}</tr></thead>`;
     const body = `<tbody>${rows.map(([k, fn]) => `<tr><th scope="row">${k}</th>${SKUS.map((s, i) => `<td data-col="${i}">${fn(s)}</td>`).join('')}</tr>`).join('')}</tbody>`;
@@ -508,11 +498,10 @@
 
   /* ---------- Campanha ---------- */
   const qa = [
-    ['Dor de cabeça no meio da reunião. Toma o quê?', 'Uma Asp.'],
-    ['Febre no pequeno de madrugada?', 'AspDip gotas.'],
-    ['Dor no corpo depois do treino?', 'AspMol.'],
-    ['Aquela dor forte que não passa?', 'AspDip 1 g.'],
-    ['E por que confiar?', 'É Bayer, é bom.']
+    ['Como você pede dipirona na farmácia?', 'AspDip.'],
+    ['E paracetamol?', 'AspMol.'],
+    ['Quem criou os dois?', 'Os criadores da Aspirina.'],
+    ['Resumindo?', 'É Bayer, é bom.']
   ];
   let typing = null, qi = 0, recT = null, recS = 0;
   function typeLoop() {
@@ -544,7 +533,7 @@
       return `<button class="card" data-tags="${p.tags.join(' ')}" data-go="lancamentos" data-sku="${s.id}" style="--c:${FAMILIES[s.fam].band}" data-cursor="abrir">
         <span class="card__badge">Novo</span>
         <div class="card__art">${flat(s)}</div>
-        <div class="card__body"><h3>${fullName(s)}</h3><p class="card__ing">${s.ativo} · ${s.qtyLabel}</p><p>${s.indic}. ${s.idade}.</p></div>
+        <div class="card__body"><h3>${fullName(s)}</h3><p class="card__ing">${s.ativo} · ${s.qtyLabel}</p><p>${s.extra}.</p></div>
       </button>`;
     }
     return `<article class="card" data-tags="${p.tags.join(' ')}" style="--c:${p.color}">
@@ -693,6 +682,7 @@
   }
   // Redesenha ao trocar de tema
   new MutationObserver(() => $$('.mol.in').forEach(drawMol)).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => $$('.mol.in').forEach(drawMol));
 
   /* ---------- FAQ ---------- */
   $('#faq').innerHTML = FAQ.map(([q, a], i) => `
@@ -723,7 +713,7 @@
   const pal = $('#palette'), pin = $('#paletteInput'), plist = $('#paletteList');
   const tabNames = { inicio: 'Início', lancamentos: 'Lançamentos', produtos: 'Linha completa', historia: 'História', duvidas: 'Dúvidas e onde comprar' };
   const index = [
-    ...SKUS.map(s => ({ kind: 'sku', title: fullName(s), sub: `${s.ativo} · ${s.qtyLabel}`, text: `${fullName(s)} ${s.ativo} ${s.indic} ${s.idade} ${s.extra} ${s.fam === 'dip' ? 'dipirona' : 'paracetamol'}`, run: () => { selectSku(s.id, true); go('lancamentos', { hash: s.id }); }, s })),
+    ...SKUS.map(s => ({ kind: 'sku', title: fullName(s), sub: `${s.ativo} · ${s.qtyLabel}`, text: `${fullName(s)} ${s.ativo} ${s.dose} ${s.form} ${s.extra} ${s.fam === 'dip' ? 'dipirona' : 'paracetamol'}`, run: () => { selectSku(s.id, true); go('lancamentos', { hash: s.id }); }, s })),
     ...order.map(id => ({ kind: 'tab', title: tabNames[id], sub: 'Ir para a aba', text: tabNames[id], run: () => go(id) })),
     ...LINE.filter(p => !p.sku).map(p => ({ kind: 'line', title: p.name, sub: p.ativo, text: `${p.name} ${p.ativo} ${p.desc}`, run: () => go('produtos') })),
     ...FAQ.map(([q, a], i) => ({ kind: 'faq', title: q, sub: 'Dúvida frequente', text: `${q} ${a}`, run: () => openFaq(i) }))

@@ -32,8 +32,10 @@ O site fica em `https://ranijabali12.github.io/aspirina/`. Cada push nesta branc
 
 ## Abas
 - **Início**: os 5 lançamentos em caixas 3D girando em órbita no centro da tela (arraste, setas ou clique), com painel do produto em destaque.
-- **Lançamentos**: troca entre AspDip e AspMol, escolha da apresentação, caixa 3D que gira ao arrastar (frente, lateral e verso, com código de barras EAN real no AspMol), ficha técnica, guia "Qual Asp é para você?", comparativo dos 5 e a campanha #ASPergunta.
-- **Linha**: portfólio completo com filtros.
+- **Lançamentos**: troca entre AspDip e AspMol, escolha da apresentação, caixa 3D que gira ao arrastar (frente, lateral e verso, com código de barras EAN real no AspMol), ficha do produto, comparativo dos 5 e a campanha #ASPergunta.
+
+O site não traz indicação, posologia nem recomendação de uso por idade ou sintoma: só identifica os produtos e remete à bula.
+- **Linha**: portfólio completo, filtrado por família.
 - **História**: linha do tempo de 1897 a 2026 e as três moléculas desenhadas.
 - **Dúvidas**: perguntas frequentes e busca de farmácias por CEP.
 
