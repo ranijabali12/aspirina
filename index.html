@@ -371,6 +371,16 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="catalog.js"></script>
+  <script>
+    // Os produtos 3D (WebGL) chegam por módulo; se falhar, o app usa a versão em CSS
+    window.ASP3D = new Promise(r => { window.__asp3d = r; setTimeout(() => r(null), 9000); });
+  </script>
   <script src="app.js"></script>
+  <script type="module">
+    try {
+      const m = await import('./scene3d.js');
+      window.__asp3d(await m.create({ lite: document.documentElement.classList.contains('lite') }));
+    } catch (e) { console.warn('WebGL indisponível, usando CSS 3D', e); window.__asp3d(null); }
+  </script>
 </body>
 </html>

@@ -269,17 +269,33 @@
   const stage = $('#orbitStage');
   const orbitEl = $('#orbit');
   const N = SKUS.length, step = (Math.PI * 2) / N;
-  stage.innerHTML = SKUS.map((s, i) => `
+  // Produtos 3D: WebGL quando disponível (fluido em tablets e celulares); CSS como reserva
+  let GL = null, items = [];
+  function buildCssOrbit() {
+    stage.innerHTML = SKUS.map((s, i) => `
     <div class="orbit__item" data-i="${i}" role="group" aria-label="${fullName(s)}">
       <div class="orbit__shadow" style="--delay:${-i * .8}s"></div>
       <div class="float" style="--delay:${-i * .8}s"><div class="pose" style="--sway:${-i * 1.3}s">${product3D(s)}</div></div>
     </div>`).join('');
-  const items = $$('.orbit__item', stage);
+    items = $$('.orbit__item', stage);
+  }
+  (window.ASP3D || Promise.resolve(null)).then(api => {
+    if (api) {
+      GL = api;
+      document.documentElement.classList.add('gl-on');
+      GL.viewer.setProduct(sku, true);
+    } else {
+      buildCssOrbit();
+      if (sku) { viewerObj.innerHTML = product3D(sku); }
+    }
+    introT0 = performance.now();
+    orbitEl.classList.add('is-ready');
+  });
   let angle = -1.2, targetIdx = 0, introT0 = performance.now(), hoverIdx = -1, oDrag = false, oLastX = 0, oMoved = 0, hoverPause = false, autoT0 = performance.now(), oRAF = null, frontIdx = -1;
   const AUTO = 3800;
   const geo = () => {
     const w = orbitEl.clientWidth;
-    return { rx: w < 640 ? w * .56 : clamp(w * .36, 240, 540), rz: clamp(w * .18, 120, 260), k: w < 640 ? .74 : w < 1000 ? 1 : 1.3 };
+    return { rx: w < 640 ? w * .56 : clamp(w * .36, 240, 540), rz: clamp(w * .18, 120, 260), k: w < 640 ? .7 : w < 1000 ? .95 : 1.15 };
   };
   let G = geo();
   addEventListener('resize', () => { G = geo(); });
@@ -312,6 +328,25 @@
     // Entrada: os produtos sobem e se abrem em leque no primeiro segundo e meio
     const ip = reduced ? 1 : clamp((now - introT0) / 1500, 0, 1);
     const ie = 1 - Math.pow(1 - ip, 3);
+    if (GL) {
+      for (let i = 0; i < N; i++) {
+        const th = angle + i * step;
+        const c = Math.cos(th), sn = Math.sin(th);
+        const depth = (c + 1) / 2;
+        const lift = i === hoverIdx ? 1.06 : 1;
+        GL.orbit.set(i, {
+          x: sn * G.rx * ie,
+          y: -c * 10 - (1 - depth) * 40 + (1 - ie) * 180 + Math.sin(now / 900 + i * 1.7) * 7,
+          z: c * G.rz,
+          ry: -sn * 20,
+          scale: (.5 + .5 * depth) * G.k * (.7 + .3 * ie) * lift,
+          tilt: 14,
+          yaw: -28 + Math.sin(now / 1300 + i * 1.3) * 7,
+          fog: Math.round((1 - depth) * 8) / 25
+        });
+      }
+      GL.orbit.render();
+    }
     items.forEach((el, i) => {
       const th = angle + i * step;
       const c = Math.cos(th), sn = Math.sin(th);
@@ -339,8 +374,9 @@
   orbitEl.addEventListener('pointerdown', e => { oDrag = true; oLastX = e.clientX; oMoved = 0; orbitEl.setPointerCapture(e.pointerId); });
   orbitEl.addEventListener('pointermove', e => {
     if (!oDrag) {
-      const hit = e.target.closest && e.target.closest('.orbit__item');
-      hoverIdx = hit ? +hit.dataset.i : -1;
+      if (e.pointerType !== 'mouse') return;
+      if (GL) hoverIdx = GL.orbit.pick(e.clientX, e.clientY);
+      else { const hit = e.target.closest && e.target.closest('.orbit__item'); hoverIdx = hit ? +hit.dataset.i : -1; }
       return;
     }
     const dx = e.clientX - oLastX;
@@ -355,9 +391,10 @@
     autoT0 = performance.now();
     if (oMoved < 6) {
       // Clique: abre o da frente ou gira até o clicado
-      const hit = document.elementsFromPoint(e.clientX, e.clientY).map(n => n.closest && n.closest('.orbit__item')).find(Boolean);
-      if (hit) {
-        const i = +hit.dataset.i;
+      let i = -1;
+      if (GL) i = GL.orbit.pick(e.clientX, e.clientY);
+      else { const hit = document.elementsFromPoint(e.clientX, e.clientY).map(n => n.closest && n.closest('.orbit__item')).find(Boolean); if (hit) i = +hit.dataset.i; }
+      if (i >= 0) {
         if (i === frontIdx) { selectSku(SKUS[i].id, true); go('lancamentos', { hash: SKUS[i].id }); }
         else {
           let d = (i - frontIdx + N) % N; if (d > N / 2) d -= N;
@@ -424,11 +461,17 @@
     const s = byId(id);
     if (!s) return;
     if (s.fam !== fam) setFamily(s.fam, true);
-    const changed = s !== sku || !viewerObj.firstElementChild;
+    const changed = s !== sku || (!GL && !viewerObj.firstElementChild);
     sku = s;
     $$('.sku').forEach(b => { const on = b.dataset.id === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     renderSheet(s);
     if (!changed) return;
+    if (GL) {
+      GL.viewer.setProduct(s, instant || reduced);
+      vy = -24 + Math.round((vy + 24) / 360) * 360 + (instant || reduced ? 0 : 360);
+      return;
+    }
+    if (!items.length && !viewerObj.firstElementChild && window.ASP3D) return; // aguardando o WebGL
     const put = () => {
       viewerObj.innerHTML = product3D(s);
       vy = -24 + Math.round((vy + 24) / 360) * 360 + (instant || reduced ? 0 : 360);
@@ -484,7 +527,7 @@
     vy = base + map[b.dataset.viewAngle];
     vx = -8; idle = 0; lockAngle = 240;
   }));
-  function viewerLoop() {
+  function viewerLoop(now = performance.now()) {
     if (!vDrag) {
       idle++;
       if (lockAngle > 0) lockAngle--;
@@ -495,6 +538,12 @@
       vx = lerp(vx, -10, .02);
     }
     rvx = lerp(rvx, vx, .1); rvy = lerp(rvy, vy, .1);
+    if (GL) {
+      const w = viewer.clientWidth;
+      GL.viewer.frame(now, rvx, rvy, Math.sin(now / 800) * 7, w < 420 ? .95 : w < 640 ? 1.05 : 1.35);
+      vRAF = requestAnimationFrame(viewerLoop);
+      return;
+    }
     const pk = viewerObj.firstElementChild;
     if (pk) {
       pk.style.setProperty('--vx', rvx.toFixed(2) + 'deg'); pk.style.setProperty('--vy', rvy.toFixed(2) + 'deg');

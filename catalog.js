@@ -472,6 +472,31 @@ window.ASP = (() => {
 
   /* ---------- Faces laterais: as mesmas faixas da borda vizinha ----------
      Lateral direita = borda direita da frente; esquerda = borda esquerda. */
+  function sideStops(s, edge) {
+    let H, top, bot, sT, sB, band, teal;
+    if (s.drops) {
+      const G = GOTAS;
+      H = G.H;
+      top = edge === 'right' ? G.top - G.riseTop : G.top;
+      bot = edge === 'right' ? G.bot - G.riseBot : G.bot;
+      sT = G.silverTop; sB = G.silverBot;
+      band = edge === 'right' ? C.lime2 : C.lime1;
+    } else {
+      const k = s.vb / 436;
+      H = s.vb;
+      top = (edge === 'right' ? GEO.top - GEO.riseTop : GEO.top) * k;
+      bot = (edge === 'right' ? GEO.bot - GEO.riseBot : GEO.bot) * k;
+      sT = { off: GEO.silverTop.off * k, w: GEO.silverTop.w * k };
+      sB = { off: GEO.silverBot.off * k, w: GEO.silverBot.w * k };
+      band = edge === 'right' ? s.band[1] : s.band[0];
+    }
+    teal = edge === 'right' ? C.teal3 : C.teal1;
+    const f = v => v / H;
+    const s1a = top + sT.off - sT.w / 2, s1b = top + sT.off + sT.w / 2;
+    const s2a = bot + sB.off - sB.w / 2, s2b = bot + sB.off + sB.w / 2;
+    return [['#FFFFFF', 0, f(s1a)], [C.silver, f(s1a), f(s1b)], ['#FFFFFF', f(s1b), f(top)], [band, f(top), f(s2a)], [C.silver, f(s2a), f(s2b)], [teal, f(s2b), 1]];
+  }
+
   function sideBg(s, edge) {
     let H, top, bot, sT, sB, band, teal;
     if (s.drops) {
@@ -525,5 +550,5 @@ window.ASP = (() => {
     return `<div class="flat" style="aspect-ratio:${1000 / s.vb}">${frontSVG(s)}</div>`;
   }
 
-  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, byId: id => SKUS.find(s => s.id === id) };
+  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, frontSVG, backSVG, gotasBoxSVG, gotasBackSVG, sideStops, byId: id => SKUS.find(s => s.id === id) };
 })();
