@@ -506,6 +506,7 @@
     root.querySelector('.bula__body').innerHTML = head + `<ul class="bula__list">${(B[t] || []).map((x, i) => `<li style="--i:${i}">${escB(x)}</li>`).join('')}</ul>`;
     root.querySelector('.bula__note').innerHTML = `Resumo da bula do paciente${B.fonte ? ` (<a href="${escB(B.fonte)}" target="_blank" rel="noopener">fonte</a>)` : ''}. Leia a bula completa na embalagem ou no Bulário Eletrônico da Anvisa. SAC Bayer 0800 723 1010.`;
   }
+  document.addEventListener('click', e => { const a = e.target.closest('[data-bula]'); if (!a) return; e.preventDefault(); $('#bula' + a.dataset.bula).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
   ['', '2'].forEach(n => { const r = $('#bula' + n); r && r.addEventListener('click', e => {
     const b = e.target.closest('.bula__tab'); if (!b) return; bulaTab[n] = b.dataset.k; const c = bulaCur[n]; renderBula(n, c.key, c.title, c.color);
   }); });
@@ -517,7 +518,7 @@
       ['Concentração', s.dose],
       ['Apresentação', `${s.form} · ${s.qtyLabel}`],
       ['Detalhe', s.extra],
-      ['Bula', 'Resumo logo abaixo']
+      ['Bula', '<a class="sheet__bula" href="#bula" data-bula="">Ver resumo da bula ↓</a>']
     ];
     $('#sheet').innerHTML = `
       <div class="sheet__head">
@@ -653,7 +654,7 @@
     $$('#skuList2 .sku').forEach(b => { const on = b.dataset.cid === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     $('#classica').style.setProperty('--fam', c.main);
     renderBula('2', { 'aspirina-500': 'aspirina', 'aspirina-c': 'aspirinac', cafiaspirina: 'cafi' }[c.id], c.name, c.main);
-    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', 'Resumo logo abaixo']];
+    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', '<a class="sheet__bula" href="#bula2" data-bula="2">Ver resumo da bula ↓</a>']];
     $('#sheet2').innerHTML = `
       <div class="sheet__head">
         <span class="eyebrow">Ficha do produto</span>
