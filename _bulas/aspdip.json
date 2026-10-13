@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloqueado · Ray ID a4a01279ccd286db · IP 64.236.153.91</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#eef2f5;color:#1f2933;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{background:#fff;max-width:640px;width:100%;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.08);overflow:hidden}
+  .banner{background:#b91c1c;color:#fff;padding:22px 28px;display:flex;align-items:center;gap:16px}
+  .banner .icon{width:44px;height:44px;border-radius:50%;background:#fff;color:#b91c1c;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;flex-shrink:0}
+  .banner h1{font-size:20px}
+  .banner p{font-size:13px;opacity:.9;margin-top:2px}
+  .ticket{margin:20px 28px 0;border:2px dashed #cbd5e1;border-radius:10px;padding:16px 18px;background:#f8fafc;position:relative}
+  .ticket .tag{position:absolute;top:-11px;left:14px;background:#fff;padding:0 8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#64748b}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid #e2e8f0;gap:12px}
+  .row:last-child{border-bottom:0}
+  .row span{font-size:13px;color:#64748b}
+  .row code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:18px;font-weight:700;color:#0f172a;word-break:break-all;text-align:right}
+  .row.ray code{color:#b91c1c;font-size:20px}
+  .row.wide{flex-direction:column;align-items:flex-start;gap:3px}
+  .row.wide code{font-size:12px;font-weight:400;text-align:left;color:#334155}
+  .btns{display:flex;gap:10px;padding:16px 28px;flex-wrap:wrap;align-items:center}
+  button{background:#0f172a;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-weight:600;font-size:14px;cursor:pointer}
+  button.sec{background:#e2e8f0;color:#0f172a}
+  #msg{font-size:13px;color:#64748b}
+  .txt{padding:0 28px 22px;font-size:14px;color:#475569;line-height:1.55}
+  .txt b{color:#1f2933}
+  @media(max-width:480px){.row{flex-direction:column;align-items:flex-start}.row code{text-align:left}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="banner">
+    <div class="icon">✕</div>
+    <div><h1>Sua solicitação foi bloqueada por uma regra de segurança</h1><p>HTTP 403</p></div>
+  </div>
+  <div class="ticket">
+    <span class="tag">Dados para o chamado</span>
+    <div class="row ray"><span>Ray ID</span><code>a4a01279ccd286db</code></div>
+    <div class="row"><span>Seu IP</span><code>64.236.153.91</code></div>
+    <div class="row"><span>País/região</span><code>US</code></div>
+    <div class="row"><span>Host</span><code id="host"></code></div>
+    <div class="row"><span>Path</span><code id="path"></code></div>
+    <div class="row"><span>Data/hora</span><code id="ts"></code></div>
+    <div class="row wide"><span>Referer</span><code id="ref"></code></div>
+    <div class="row wide"><span>User-Agent</span><code id="ua"></code></div>
+  </div>
+  <div class="btns">
+    <button type="button" onclick="copiar()">Copiar dados</button>
+    <button type="button" class="sec" onclick="window.print()">Salvar em PDF</button>
+    <span id="msg"></span>
+  </div>
+  <div class="txt">
+    As informações acima auxiliam na rastreabilidade e análise desta ocorrência.
+  </div>
+</div>
+<script>
+  var ts = new Date().toLocaleString('pt-BR');
+  document.getElementById('ts').textContent = ts;
+  document.getElementById('host').textContent = location.hostname || '-';
+  document.getElementById('path').textContent = (location.pathname + location.search) || '/';
+  var ref = document.referrer || '(acesso direto)';
+  document.getElementById('ref').textContent = ref;
+  document.getElementById('ua').textContent = navigator.userAgent;
+  function copiar(){
+    var t = 'Ray ID: a4a01279ccd286db\nIP: 64.236.153.91\nPaís: US\nHost: ' + location.hostname + '\nPath: ' + location.pathname + location.search + '\nData/hora: ' + ts + '\nReferer: ' + ref + '\nUser-Agent: ' + navigator.userAgent;
+    var done = function(){ document.getElementById('msg').textContent = 'Copiado. Cole no chamado.'; };
+    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done, function(){ fallback(t, done); }); } else { fallback(t, done); }
+  }
+  function fallback(t, done){
+    var ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {} document.body.removeChild(ta);
+  }
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4a01279ccd286db',t:'MTc5MTkxMjYyNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

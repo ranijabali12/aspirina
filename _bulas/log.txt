@@ -1,0 +1,31 @@
+ASPDIP busca 403
+ASPMOL busca 403
+ASPIRINA busca 403
+ASPIRINA C busca 403
+CAFIASPIRINA busca 403
+curl: (28) Connection timed out after 60002 milliseconds
+bayer aspdip-comp 000
+curl: (28) Connection timed out after 60002 milliseconds
+bayer aspdip-gotas 000
+curl: (28) Connection timed out after 60002 milliseconds
+bayer aspmol 000
+curl: (28) Connection timed out after 60002 milliseconds
+bayer aspirina 000
+curl: (28) Connection timed out after 60002 milliseconds
+bayer aspirina-c 000
+curl: (28) Connection timed out after 60002 milliseconds
+bayer cafiaspirina 000
+total 72
+drwxr-xr-x 2 runner runner 4096 Oct 13 17:30 .
+drwxr-xr-x 6 runner runner 4096 Oct 13 17:30 ..
+-rw-r--r-- 1 runner runner   48 Oct 13 17:30 aspdip.ids
+-rw-r--r-- 1 runner runner 5631 Oct 13 17:30 aspdip.json
+-rw-r--r-- 1 runner runner   48 Oct 13 17:30 aspirina-c.ids
+-rw-r--r-- 1 runner runner 5631 Oct 13 17:30 aspirina-c.json
+-rw-r--r-- 1 runner runner   48 Oct 13 17:30 aspirina.ids
+-rw-r--r-- 1 runner runner 5631 Oct 13 17:30 aspirina.json
+-rw-r--r-- 1 runner runner   48 Oct 13 17:30 aspmol.ids
+-rw-r--r-- 1 runner runner 5631 Oct 13 17:30 aspmol.json
+-rw-r--r-- 1 runner runner   48 Oct 13 17:30 cafiaspirina.ids
+-rw-r--r-- 1 runner runner 5631 Oct 13 17:30 cafiaspirina.json
+-rw-r--r-- 1 runner runner  564 Oct 13 17:36 log.txt
