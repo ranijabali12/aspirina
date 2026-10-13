@@ -519,7 +519,8 @@
       ['Concentração', s.dose],
       ['Apresentação', `${s.form} · ${s.qtyLabel}`],
       ['Detalhe', s.extra],
-      ['Bula', '<a class="sheet__bula" href="#bula" data-bula="">Ver resumo da bula ↓</a>']
+      ['Bula', '<a class="sheet__bula" href="#bula" data-bula="">Ver resumo da bula ↓</a>'],
+      ...(window.LOJAS && LOJAS.chips(s.id) ? [['Comprar', LOJAS.chips(s.id)]] : [])
     ];
     $('#sheet').innerHTML = `
       <div class="sheet__head">
@@ -655,7 +656,7 @@
     $$('#skuList2 .sku').forEach(b => { const on = b.dataset.cid === id; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
     $('#classica').style.setProperty('--fam', c.main);
     renderBula('2', { 'aspirina-500': 'aspirina', 'aspirina-c': 'aspirinac', cafiaspirina: 'cafi' }[c.id], c.name, c.main);
-    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', '<a class="sheet__bula" href="#bula2" data-bula="2">Ver resumo da bula ↓</a>']];
+    const rows = [['Princípio ativo', c.principio], ['Concentração', c.dose], ['Apresentação', `${c.form} · ${c.qtyLabel}`], ['Detalhe', c.extra], ...(c.since ? [['História', c.since]] : []), ['Bula', '<a class="sheet__bula" href="#bula2" data-bula="2">Ver resumo da bula ↓</a>'], ...(window.LOJAS && LOJAS.chips(c.id) ? [['Comprar', LOJAS.chips(c.id)]] : [])];
     $('#sheet2').innerHTML = `
       <div class="sheet__head">
         <span class="eyebrow">Ficha do produto</span>
@@ -883,6 +884,22 @@
     msg.innerHTML = `Farmácias perto de ${cep.value}: <a href="${url}" target="_blank" rel="noopener">abrir no mapa ↗</a>`;
     window.open(url, '_blank', 'noopener');
   });
+
+  /* ---------- Farmácias perto de mim e compra on-line ---------- */
+  $('#geoBtn').addEventListener('click', () => {
+    const open = url => { msg.innerHTML = `Farmácias perto de você: <a href="${url}" target="_blank" rel="noopener">abrir no mapa ↗</a>`; window.open(url, '_blank', 'noopener'); };
+    if (!navigator.geolocation) return open('https://www.google.com/maps/search/farm%C3%A1cia');
+    msg.textContent = 'Procurando sua localização…';
+    navigator.geolocation.getCurrentPosition(
+      p => open(`https://www.google.com/maps/search/farm%C3%A1cia/@${p.coords.latitude.toFixed(5)},${p.coords.longitude.toFixed(5)},15z`),
+      () => { msg.textContent = 'Não foi possível usar sua localização. Digite seu CEP acima.'; cep.focus(); },
+      { timeout: 8000, maximumAge: 300000 });
+  });
+  const BUY_ITEMS = [...SKUS.map(s => [s.id, fullName(s), s.qtyLabel]), ...CLASSICS.map(c => [c.id, c.name, c.qtyLabel])];
+  if (window.LOJAS) $('#buyRows').innerHTML = BUY_ITEMS.map(([id, nome, sub], i) => {
+    const c = LOJAS.chips(id); if (!c) return '';
+    return `<div class="buylist__row" style="--i:${i}"><div class="buylist__name"><b>${nome}</b><span>${sub}</span></div>${c}</div>`;
+  }).join('');
 
   /* ---------- Busca (Ctrl K) ---------- */
   const pal = $('#palette'), pin = $('#paletteInput'), plist = $('#paletteList');
