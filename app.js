@@ -502,9 +502,10 @@
     root.querySelector('.bula__title').textContent = title;
     const t = bulaTab[n];
     root.querySelector('.bula__tabs').innerHTML = BULA_T.map(([k, l]) => `<button class="bula__tab${k === t ? ' is-on' : ''}" role="tab" aria-selected="${k === t}" data-k="${k}">${l}</button>`).join('');
-    const head = t === 'contra' ? '<p class="bula__lead">Não use este medicamento em caso de:</p>' : '';
-    root.querySelector('.bula__body').innerHTML = head + `<ul class="bula__list">${(B[t] || []).map((x, i) => `<li style="--i:${i}">${escB(x)}</li>`).join('')}</ul>`;
-    root.querySelector('.bula__note').innerHTML = `Resumo da bula do paciente${B.fonte ? ` (<a href="${escB(B.fonte)}" target="_blank" rel="noopener">fonte</a>)` : ''}. Leia a bula completa na embalagem ou no Bulário Eletrônico da Anvisa. SAC Bayer 0800 723 1010.`;
+    const nota = B.notas && B.notas[t] ? `<p class="bula__lead">${escB(B.notas[t])}</p>` : '';
+    const li = (B[t] || []).map((x, i) => x.startsWith('## ') ? `<li class="bula__sub" style="--i:${i}">${escB(x.slice(3))}</li>` : `<li style="--i:${i}">${escB(x)}</li>`).join('');
+    root.querySelector('.bula__body').innerHTML = nota + `<ul class="bula__list">${li}</ul>`;
+    root.querySelector('.bula__note').innerHTML = `${escB(B.origem || '')}${B.fonte ? ` <a href="${escB(B.fonte)}" target="_blank" rel="noopener">Ver página</a>.` : ''} Notifique suspeita de reação adversa ao SAC Bayer 0800 723 1010.`;
   }
   document.addEventListener('click', e => { const a = e.target.closest('[data-bula]'); if (!a) return; e.preventDefault(); $('#bula' + a.dataset.bula).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
   ['', '2'].forEach(n => { const r = $('#bula' + n); r && r.addEventListener('click', e => {

@@ -979,3 +979,6 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .sheet__bula { color: var(--fam); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: opacity var(--t-mid) var(--ease); }
 .sheet__bula:hover { opacity: .75; }
 .bula { scroll-margin-top: 96px; }
+.bula__list li.bula__sub { padding: var(--s-2) 0 8px; color: var(--ink); font-weight: 700; border-bottom: 0; }
+.bula__list li.bula__sub::before { display: none; }
+.bula__body { max-height: 640px; overflow-y: auto; padding-right: var(--s-1); }
