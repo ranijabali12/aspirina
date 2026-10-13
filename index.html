@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self' blob:; manifest-src 'self'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Família Asp · Bayer</title>
   <meta name="description" content="AspDip e AspMol, os lançamentos da família Aspirina: dipirona em comprimidos de 500 mg e 1 g e gotas 500 mg/mL, e paracetamol 500 mg e 750 mg." />
@@ -17,12 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,800;1,300;1,500;1,700;1,800&family=Jost:wght@600;700&family=Marcellus&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8b" />
-  <script>
-    // Tema salvo antes da pintura, para não piscar
-    try { const t = localStorage.getItem('asp-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-    document.documentElement.classList.add('js');
-  </script>
+  <link rel="stylesheet" href="styles.css?v=30" />
+  <script src="boot.js?v=30"></script>
 </head>
 <body>
 
@@ -450,19 +448,10 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="catalog.js?v=7"></script>
-  <script src="bula.js?v=7"></script>
-  <script src="lojas.js?v=8"></script>
-  <script>
-    // Os produtos 3D (WebGL) chegam por módulo; se falhar, o app usa a versão em CSS
-    window.ASP3D = new Promise(r => { window.__asp3d = r; setTimeout(() => r(null), 9000); });
-  </script>
-  <script src="app.js?v=8"></script>
-  <script type="module">
-    try {
-      const m = await import('./scene3d.js?v=7');
-      window.__asp3d(await m.create({ lite: document.documentElement.classList.contains('lite') }));
-    } catch (e) { console.warn('WebGL indisponível, usando CSS 3D', e); window.__asp3d(null); }
-  </script>
+  <script src="catalog.js?v=30"></script>
+  <script src="bula.js?v=30"></script>
+  <script src="lojas.js?v=30"></script>
+  <script src="app.js?v=30"></script>
+  <script type="module" src="boot3d.js?v=30"></script>
 </body>
 </html>

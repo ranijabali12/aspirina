@@ -14,7 +14,7 @@
   --surface: #FFFFFF;
   --ink: #0C2421;
   --ink-2: #33504B;
-  --muted: #617873;
+  --muted: #4E6661;
   --line: rgba(12, 36, 33, .10);
   --line-2: rgba(12, 36, 33, .18);
   --glass: rgba(255, 255, 255, .72);
@@ -60,7 +60,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #061A18; --bg-2: #0A2421; --surface: #0D2A27;
-    --ink: #E6F1EE; --ink-2: #B5CAC5; --muted: #85A09A;
+    --ink: #E6F1EE; --ink-2: #B5CAC5; --muted: #9DB6B0;
     --line: rgba(230, 241, 238, .10); --line-2: rgba(230, 241, 238, .18);
     --glass: rgba(13, 42, 39, .72);
     --shadow: 0 24px 48px -28px rgba(0, 0, 0, .7);
@@ -69,7 +69,7 @@
 }
 :root[data-theme="dark"] {
   --bg: #061A18; --bg-2: #0A2421; --surface: #0D2A27;
-  --ink: #E6F1EE; --ink-2: #B5CAC5; --muted: #85A09A;
+  --ink: #E6F1EE; --ink-2: #B5CAC5; --muted: #9DB6B0;
   --line: rgba(230, 241, 238, .10); --line-2: rgba(230, 241, 238, .18);
   --glass: rgba(13, 42, 39, .72);
   --shadow: 0 24px 48px -28px rgba(0, 0, 0, .7);
@@ -315,7 +315,7 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .hero__particles { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__sweep { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 44%; }
 .sweep-line { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: sweepDraw 1400ms var(--ease) 300ms forwards; }
-.sweep-teal { transform-origin: 50% 100%; animation: sweepUp 900ms cubic-bezier(.22, 1, .36, 1) 150ms both; }
+.sweep-teal { transform-origin: 50% 100%; animation: sweepUp 300ms var(--ease) 150ms both; }
 @keyframes sweepDraw { to { stroke-dashoffset: 0; } }
 @keyframes sweepUp { from { transform: scaleY(.6); opacity: 0; } to { transform: none; opacity: 1; } }
 
@@ -333,15 +333,15 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
   letter-spacing: -.015em;
 }
 .hero__title .line { display: block; overflow: hidden; padding-right: .08em; }
-.hero__title .line > span { display: inline-block; transform: translateY(105%); animation: lineUp 900ms cubic-bezier(.65, 0, .35, 1) forwards; }
+.hero__title .line > span { display: inline-block; transform: translateY(105%); animation: lineUp 300ms var(--ease) forwards; }
 .hero__title .line:nth-child(2) > span { animation-delay: 120ms; }
 @keyframes lineUp { to { transform: none; } }
 .wm { font-family: var(--f-word); font-style: normal; font-weight: 700; letter-spacing: -.04em; color: var(--teal); font-size: .9em; }
 .hero__lead { max-width: 40ch; color: var(--ink-2); font-size: var(--t-18); }
 .hero__copy .eyebrow, .hero__lead { animation: fadeUp 300ms var(--ease) both; }
 .hero__copy .eyebrow { animation-delay: 100ms; }
-.hero__lead { animation-delay: 450ms; }
-.hud { animation: fadeUp 300ms var(--ease) 900ms both; }
+.hero__lead { animation-delay: 300ms; }
+.hud { animation: fadeUp 300ms var(--ease) 450ms both; }
 @keyframes fadeUp { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
 
 /* ---------- Órbita ---------- */
@@ -1014,3 +1014,13 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .finder__buy:hover { transform: translateY(-2px); background: var(--buy-hover-bg); color: var(--buy-hover-ink); }
 @media (max-width: 1100px) { .finder__form { grid-template-columns: 1fr; } .finder__form .btn { width: 100%; } }
 .buylist { scroll-margin-top: 96px; }
+
+/* ---------- QA: contraste, barra de abas e movimento ---------- */
+.switch__thumb { background: color-mix(in srgb, var(--fam) 70%, #000); }
+@media (max-width: 400px) { .tabs__btn { padding: 0 8px; font-size: 11px; } .tabs__btn .dot { display: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+:root[data-theme="dark"] .era:not(.era--hot) .era__f { color: var(--lime); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .era:not(.era--hot) .era__f { color: var(--lime); } }
+.era--hot p { color: rgba(255, 255, 255, .94); }
+.era--hot .era__f { color: #E6F4B0; }
+.finder > p { opacity: 1; color: rgba(255, 255, 255, .94); }

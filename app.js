@@ -3,6 +3,7 @@
   const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, CLASSICS, classicFlat, byId } = window.ASP;
   const clsById = id => CLASSICS.find(c => c.id === id);
   const $ = (s, el = document) => el.querySelector(s);
+  const escHTML = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(pointer: fine)').matches;
@@ -127,6 +128,7 @@
   function routeFromHash(push) {
     const h = location.hash.slice(1);
     if (byId(h)) { selectSku(h, true); go('lancamentos', { push }); }
+    else if (clsById(h)) { selectClassic(h, true); go('produtos', { push, hash: h, scrollTo: 'classica' }); }
     else go(h || 'inicio', { push });
   }
 
@@ -155,9 +157,9 @@
     if (el.dataset.done) return;
     el.dataset.done = 1;
     const target = +el.dataset.count;
-    if (reduced) { el.textContent = target; return; }
+    if (reduced || target > 1000) { el.textContent = target; return; }
     const start = target > 1000 ? target - 100 : 0;
-    const t0 = performance.now(), dur = 1200;
+    const t0 = performance.now(), dur = 800;
     const tick = now => {
       const p = Math.min((now - t0) / dur, 1);
       const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
@@ -647,7 +649,7 @@
     <button class="sku" role="option" data-cid="${c.id}" style="--i:${i}" aria-selected="false">
       ${classicFlat(c)}<div><b>${c.name}</b><span>${c.qtyLabel}</span></div>
     </button>`).join('');
-  $$('#skuList2 .sku').forEach(b => b.addEventListener('click', () => selectClassic(b.dataset.cid)));
+  $$('#skuList2 .sku').forEach(b => b.addEventListener('click', () => { selectClassic(b.dataset.cid); history.replaceState(null, '', '#' + b.dataset.cid); }));
   function selectClassic(id, instant) {
     const c = clsById(id);
     if (!c) return;
@@ -881,7 +883,7 @@
     const d = cep.value.replace(/\D/g, '');
     if (d.length !== 8) { msg.textContent = 'Digite o CEP com 8 números, por exemplo 01310-100.'; cep.focus(); return; }
     const url = `https://www.google.com/maps/search/farm%C3%A1cia+${d}`;
-    msg.innerHTML = `Farmácias perto de ${cep.value}: <a href="${url}" target="_blank" rel="noopener">abrir no mapa ↗</a>`;
+    msg.innerHTML = `Farmácias perto de ${d.slice(0, 5)}-${d.slice(5)}: <a href="${url}" target="_blank" rel="noopener">abrir no mapa ↗</a>`;
     window.open(url, '_blank', 'noopener');
   });
 
@@ -908,7 +910,7 @@
   const index = [
     ...SKUS.map(s => ({ kind: 'sku', title: fullName(s), sub: `${s.ativo} · ${s.qtyLabel}`, text: `${fullName(s)} ${s.ativo} ${s.dose} ${s.form} ${s.extra} ${s.fam === 'dip' ? 'dipirona' : 'paracetamol'}`, run: () => { selectSku(s.id, true); go('lancamentos', { hash: s.id }); }, s })),
     ...order.map(id => ({ kind: 'tab', title: tabNames[id], sub: 'Ir para a aba', text: tabNames[id], run: () => go(id) })),
-    ...CLASSICS.map(c => ({ kind: 'line', title: c.name, sub: c.ativo, text: `${c.name} ${c.ativo} ${c.desc} ${c.form}`, cls: c, run: () => { selectClassic(c.id); go('produtos', { scrollTo: 'classica' }); } })),
+    ...CLASSICS.map(c => ({ kind: 'line', title: c.name, sub: c.ativo, text: `${c.name} ${c.ativo} ${c.desc} ${c.form}`, cls: c, run: () => { selectClassic(c.id); go('produtos', { scrollTo: 'classica', hash: c.id }); } })),
     ...FAQ.map(([q, a], i) => ({ kind: 'faq', title: q, sub: 'Dúvida frequente', text: `${q} ${a}`, run: () => openFaq(i) }))
   ];
   let results = [], sel = 0;
@@ -925,7 +927,7 @@
       <li class="palette__item${i === 0 ? ' is-sel' : ''}" role="option" data-i="${i}" aria-selected="${i === 0}">
         ${it.s ? flat(it.s) : it.cls ? classicFlat(it.cls) : `<span class="palette__ic">${{ tab: 'aba', line: 'AAS', faq: '?' }[it.kind]}</span>`}
         <div><b>${it.title}</b><span>${it.sub}</span></div><kbd>Enter</kbd>
-      </li>`).join('') : `<li class="palette__empty">Nada encontrado para “${pin.value}”. Tente “gotas”, “750” ou “febre”.</li>`;
+      </li>`).join('') : `<li class="palette__empty">Nada encontrado para “${escHTML(pin.value)}”. Tente “gotas”, “750” ou “febre”.</li>`;
   }
   function moveSel(d) {
     const els = $$('.palette__item', plist);
@@ -976,8 +978,9 @@
   /* ---------- Início ---------- */
   setFamily('dip');
   const h = location.hash.slice(1);
-  const startTab = byId(h) ? 'lancamentos' : (order.includes(h) ? h : 'inicio');
+  const startTab = byId(h) ? 'lancamentos' : clsById(h) ? 'produtos' : (order.includes(h) ? h : 'inicio');
   if (byId(h)) selectSku(h, true);
+  if (clsById(h)) { selectClassic(h, true); setTimeout(() => $('#classica').scrollIntoView({ block: 'start' }), 60); }
   if (startTab !== 'inicio') {
     $('.view.is-active').classList.remove('is-active');
     current = startTab;
