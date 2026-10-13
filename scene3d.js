@@ -135,96 +135,138 @@ async function buildBox(s, renderer) {
 }
 
 /* ---------- Frasco das gotas ----------
-   Perfil (raio, altura) em px, medido da foto: corpo com ombro arredondado,
-   colar, tampa alta afunilada com estrias. */
+   Medidas tiradas da foto da embalagem (raio do corpo = 41,6):
+   corpo reto com ombro arredondado, rótulo de 17 a 120 de altura,
+   tampa conta-gotas com anel liso, saia estriada e bico cônico. */
+const BODY_R = 41.6, LABEL_R = 41.75, LABEL_Y0 = 17.3, LABEL_H = 102.4;
+
 function bottleLabel() {
-  const R = 41.8, H = 116, k = 4;
-  const W = Math.round(2 * Math.PI * R);
+  const W = 2 * Math.PI * LABEL_R, H = LABEL_H, k = 6;
   const cv = document.createElement('canvas');
-  cv.width = W * k; cv.height = H * k;
+  cv.width = Math.round(W * k); cv.height = Math.round(H * k);
   const x = cv.getContext('2d');
   x.scale(k, k);
   const cx = W / 2;
-  const band0 = H * .36, band1 = H * .55;
-  x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, W, band0);
-  const lime = x.createLinearGradient(0, 0, W, 0);
-  lime.addColorStop(0, C.lime1); lime.addColorStop(.5, C.lime2); lime.addColorStop(1, C.lime1);
-  x.fillStyle = lime; x.fillRect(0, band0, W, band1 - band0);
-  x.fillStyle = C.silver; x.fillRect(0, band1, W, 1.4);
-  x.fillStyle = C.teal2; x.fillRect(0, band1 + 1.4, W, H - band1);
-  // cruz Bayer + ASPDIP
-  const by = band0 * .55;
-  x.strokeStyle = C.ink; x.lineWidth = .9;
-  x.beginPath(); x.arc(cx - 35, by, 7, 0, Math.PI * 2); x.stroke();
-  x.fillStyle = C.ink; x.textAlign = 'center'; x.textBaseline = 'middle';
-  x.font = '700 3.2px Jost, sans-serif';
-  'BAYER'.split('').forEach((ch, i) => { x.fillText(ch, cx - 35, by + (i - 2) * 2.6); if (i !== 2) x.fillText(ch, cx - 35 + (i - 2) * 2.6, by); });
+  // arco no rótulo a partir de uma posição vista de frente (fração do raio)
+  const arc = f => Math.asin(Math.max(-1, Math.min(1, f))) * LABEL_R;
+  const L = cx + arc(-0.9);                         // margem esquerda do texto
+  // faixas
+  x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, W, H);
+  x.fillStyle = '#C9CED0'; x.fillRect(0, 29.6, W, .9);
+  const lime = x.createLinearGradient(0, 30.5, 0, 54);
+  lime.addColorStop(0, '#B4D334'); lime.addColorStop(1, '#9CC73A');
+  x.fillStyle = lime; x.fillRect(0, 30.5, W, 23.7);
+  x.fillStyle = '#C9CED0'; x.fillRect(0, 54.2, W, 1.6);
+  const teal = x.createLinearGradient(0, 55.8, 0, H);
+  teal.addColorStop(0, '#0B9C7D'); teal.addColorStop(1, '#078F72');
+  x.fillStyle = teal; x.fillRect(0, 55.8, W, H - 55.8);
+  // cruz Bayer
+  const bx = cx + arc(-0.795), by = 16.6, br = 5;
+  x.strokeStyle = '#1A1A1A'; x.lineWidth = .55;
+  x.beginPath(); x.arc(bx, by, br, 0, Math.PI * 2); x.stroke();
+  x.fillStyle = '#1A1A1A'; x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.font = '700 2.2px Jost, sans-serif';
+  'BAYER'.split('').forEach((ch, i) => { x.fillText(ch, bx, by + (i - 2) * 1.75); if (i !== 2) x.fillText(ch, bx + (i - 2) * 1.75, by); });
+  // ASPDIP ajustado à largura medida
   x.textAlign = 'left'; x.textBaseline = 'alphabetic';
-  x.font = '600 21px Jost, Futura, sans-serif';
-  x.fillText('ASP', cx - 25, by + 7.5);
+  const x0 = cx + arc(-0.644), x1 = cx + arc(0.87);
+  x.font = '600 20px Jost, Futura, sans-serif';
+  const fs = 20 * (x1 - x0) / x.measureText('ASPDIP').width;
+  x.font = `600 ${fs.toFixed(2)}px Jost, Futura, sans-serif`;
+  x.fillStyle = '#1A1A1A'; x.fillText('ASP', x0, 23.6);
   const aw = x.measureText('ASP').width;
-  x.fillStyle = C.dipWord; x.fillText('DIP', cx - 25 + aw - .5, by + 7.5);
+  x.fillStyle = '#1FA48B'; x.fillText('DIP', x0 + aw, 23.6);
+  // dipirona 500mg/mL (sans regular, branco)
   x.fillStyle = '#FFFFFF';
-  x.font = '500 12.5px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('dipirona', cx - 35, band0 + 10.5);
-  x.fillText('500mg/mL', cx - 35, band0 + 20.5);
-  x.font = 'italic 800 11px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('DOR', cx - 35, band1 + 13);
-  x.font = 'italic 300 11px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('&', cx - 35 + 19, band1 + 13);
-  x.font = 'italic 800 11px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('FEBRE', cx - 35 + 26, band1 + 13);
-  x.fillStyle = C.lime2; x.font = '700 9px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('GOTAS', cx - 35, band1 + 24);
-  x.fillStyle = 'rgba(255,255,255,.9)'; x.font = '500 6px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('Conteúdo 20 mL', cx - 35, band1 + 33);
-  x.fillText('SOLUÇÃO ORAL. USO ORAL.', cx - 35, band1 + 40);
+  x.font = '600 11.2px Geist, "Helvetica Neue", Arial, sans-serif';
+  x.fillText('dipirona', L, 40.2);
+  x.fillText('500mg/mL', L, 50.6);
+  // bloco verde
+  x.font = 'italic 800 8.4px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('DOR', L, 65.5);
+  let w = x.measureText('DOR ').width;
+  x.font = 'italic 300 8.4px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('&', L + w, 65.5);
+  w += x.measureText('& ').width;
+  x.font = 'italic 800 8.4px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('FEBRE', L + w, 65.5);
+  x.fillStyle = '#C3DD48';
+  x.font = '700 4.6px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('GOTAS', L, 71.6);
+  x.font = '500 3px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('SABOR ABACAXI', L + 12, 71.4);
+  x.fillStyle = '#FFFFFF';
+  x.font = '500 3px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('CONTEÚDO', L, 79.2);
+  x.font = '600 7px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('20mL', L + 12.5, 79.6);
+  x.font = '500 5.6px "Barlow Condensed", "Arial Narrow", sans-serif';
+  x.fillText('SOLUÇÃO ORAL.  USO ORAL.', L, 88);
   // gota dourada
-  const gx = cx + 22, gy = band1 + 30, gr = 5.5;
-  const gd = x.createRadialGradient(gx - 2, gy - 2, .5, gx, gy, gr + 1);
-  gd.addColorStop(0, '#F8EBA8'); gd.addColorStop(.6, C.gold); gd.addColorStop(1, '#8E7A2A');
-  x.fillStyle = gd; x.beginPath(); x.moveTo(gx, gy - gr * 2.1);
-  x.bezierCurveTo(gx, gy - gr * 2.1, gx - gr, gy - gr * .5, gx - gr, gy); x.arc(gx, gy, gr, Math.PI, 0, true);
-  x.bezierCurveTo(gx + gr, gy - gr * .5, gx, gy - gr * 2.1, gx, gy - gr * 2.1); x.fill();
+  const gx = cx + arc(0.583), gy = 75.6, gr = 4.7;
+  const gd = x.createRadialGradient(gx - 1.6, gy - 1.6, .3, gx, gy, gr + .6);
+  gd.addColorStop(0, '#FBF1B8'); gd.addColorStop(.55, '#D6BC55'); gd.addColorStop(1, '#9C8530');
+  x.fillStyle = gd; x.beginPath(); x.moveTo(gx, gy - gr * 2.6);
+  x.bezierCurveTo(gx, gy - gr * 2.6, gx - gr, gy - gr * .6, gx - gr, gy); x.arc(gx, gy, gr, Math.PI, 0, true);
+  x.bezierCurveTo(gx + gr, gy - gr * .6, gx, gy - gr * 2.6, gx, gy - gr * 2.6); x.fill();
+  x.fillStyle = 'rgba(255,255,255,.55)'; x.beginPath(); x.ellipse(gx - 1.6, gy - 1, .9, 1.8, -.3, 0, Math.PI * 2); x.fill();
   // verso
-  x.fillStyle = 'rgba(255,255,255,.88)'; x.font = '500 6.5px "Barlow Condensed", "Arial Narrow", sans-serif';
-  x.fillText('Dos mesmos criadores da Aspirina.', 10, band1 + 14);
-  x.fillText('Leia a bula. Sabor abacaxi.', 10, band1 + 22);
+  x.fillStyle = 'rgba(255,255,255,.9)';
+  x.font = '500 4.4px "Barlow Condensed", "Arial Narrow", sans-serif';
+  const bk = cx + Math.PI * LABEL_R - 26;
+  ['Dos mesmos criadores', 'da Aspirina.', 'Leia a bula.'].forEach((t, i) => x.fillText(t, bk, 66 + i * 6));
   return cv;
 }
 
-function ridgeCanvas() {
-  const cv = document.createElement('canvas'); cv.width = 256; cv.height = 8;
+// Estrias verticais da saia da tampa (relevo)
+function ribCanvas() {
+  const cv = document.createElement('canvas'); cv.width = 512; cv.height = 4;
   const x = cv.getContext('2d');
-  for (let i = 0; i < 256; i += 8) { x.fillStyle = '#FFFFFF'; x.fillRect(i, 0, 5, 8); x.fillStyle = '#9AA0A2'; x.fillRect(i + 5, 0, 3, 8); }
+  const n = 56, wd = 512 / n;
+  for (let i = 0; i < n; i++) {
+    const g = x.createLinearGradient(i * wd, 0, (i + 1) * wd, 0);
+    g.addColorStop(0, '#606060'); g.addColorStop(.5, '#FFFFFF'); g.addColorStop(1, '#606060');
+    x.fillStyle = g; x.fillRect(i * wd, 0, wd, 4);
+  }
   return cv;
+}
+
+function lathe(points, seg = 72) {
+  return new THREE.LatheGeometry(points.map(([r, y]) => new THREE.Vector2(r, y)), seg);
 }
 
 function buildBottle(renderer) {
   const g = new THREE.Group();
-  const plastic = new THREE.MeshPhysicalMaterial({ color: 0xFBFCFC, roughness: .32, metalness: 0, clearcoat: .6, clearcoatRoughness: .25 });
-  const pts = [[0, 0], [37, 0], [40.8, 2.5], [41.6, 7], [41.6, 126], [41, 131], [38.5, 136], [33, 140.5], [26, 143.5], [22.5, 145], [22.5, 151]]
-    .map(([r, y]) => new THREE.Vector2(r, y));
-  const body = new THREE.Mesh(new THREE.LatheGeometry(pts, 64), plastic);
+  // Mesmo material para frasco e rótulo: o branco do rótulo bate com o do plástico
+  const props = { roughness: .3, metalness: 0, clearcoat: .55, clearcoatRoughness: .22, envMapIntensity: .75 };
+  const plastic = new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, ...props });
+  const body = new THREE.Mesh(lathe([
+    [0, 0], [36, 0], [39.6, .8], [41.2, 3], [BODY_R, 6.3], [BODY_R, 128], [41.2, 133], [39.6, 138],
+    [36.6, 142.5], [32.8, 146.4], [29.6, 149.2], [28.3, 150.8]
+  ]), plastic);
   g.add(body);
-  // rótulo enrolado (cilindro aberto um pouco maior que o corpo)
-  const lt = canvasTex(bottleLabel(), renderer);
-  const labelMat = new THREE.MeshStandardMaterial({ map: lt, roughness: .38, metalness: 0, envMapIntensity: .6 });
-  const label = new THREE.Mesh(new THREE.CylinderGeometry(41.9, 41.9, 116, 64, 1, true, -Math.PI, Math.PI * 2), labelMat);
-  label.position.y = 8 + 58;
+  const labelMat = new THREE.MeshPhysicalMaterial({ map: canvasTex(bottleLabel(), renderer), ...props });
+  const label = new THREE.Mesh(new THREE.CylinderGeometry(LABEL_R, LABEL_R, LABEL_H, 96, 1, true, -Math.PI, Math.PI * 2), labelMat);
+  label.position.y = LABEL_Y0 + LABEL_H / 2;
   g.add(label);
-  // colar estriado e tampa alta afunilada
-  const ridge = new THREE.CanvasTexture(ridgeCanvas());
-  ridge.wrapS = THREE.RepeatWrapping; ridge.repeat.set(6, 1);
-  const capMat = new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, roughness: .45, clearcoat: .4, bumpMap: ridge, bumpScale: 1.2 });
-  const collar = new THREE.Mesh(new THREE.CylinderGeometry(25.5, 25.5, 9, 48), capMat);
-  collar.position.y = 151 + 4.5;
-  g.add(collar);
-  const capPts = [[25, 0], [24.5, 30], [22.5, 46], [20.5, 54], [17, 59], [9, 61], [0, 61.5]].map(([r, y]) => new THREE.Vector2(r, y));
-  const cap = new THREE.Mesh(new THREE.LatheGeometry(capPts, 48), new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, roughness: .4, clearcoat: .5 }));
-  cap.position.y = 160;
-  g.add(cap);
-  g.userData.mats = [plastic, labelMat, capMat, cap.material];
+  // tampa: anel liso com friso, saia estriada, transição e bico cônico
+  const capMat = new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, ...props, roughness: .38 });
+  const band = new THREE.Mesh(lathe([
+    [28.3, 150.4], [30.9, 150.6], [30.9, 154.3], [30.1, 154.8], [30.9, 155.3], [30.9, 159.2], [30.2, 159.4]
+  ], 64), capMat);
+  g.add(band);
+  const rib = new THREE.CanvasTexture(ribCanvas());
+  rib.wrapS = THREE.RepeatWrapping;
+  const skirtMat = new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, ...props, roughness: .42, bumpMap: rib, bumpScale: 2.2 });
+  const skirt = new THREE.Mesh(new THREE.CylinderGeometry(30.2, 30.2, 33.6, 96, 1, true), skirtMat);
+  skirt.position.y = 159.2 + 16.8;
+  g.add(skirt);
+  const nozzle = new THREE.Mesh(lathe([
+    [30.2, 192.8], [29.4, 194.6], [26.5, 196.8], [22, 198.6], [19.6, 200], [18.6, 202.5],
+    [16.2, 210], [14, 216.5], [12.6, 219.3], [10, 220.9], [5, 221.5], [0, 221.6]
+  ], 64), capMat);
+  g.add(nozzle);
+  g.userData.mats = [plastic, labelMat, capMat, skirtMat];
   return g;
 }
 
@@ -292,7 +334,8 @@ async function buildProduct(s, renderer, idx) {
     mesh.position.set(-58, 0, 0);
     pose.add(mesh);
     const b = buildBottle(renderer);
-    const sc = s.box.h / 246;
+    // altura do frasco = 77% da caixa, como na foto
+    const sc = (s.box.h * .77) / 221.6;
     b.scale.setScalar(sc);
     b.position.set(56, -s.box.h / 2, 26);
     b.rotation.y = 24 * DEG; // rótulo de frente para quem olha, como na foto
@@ -318,6 +361,10 @@ function setFog(group, fog) {
 
 /* ---------- API para o app.js ---------- */
 export async function create({ lite }) {
+  // Fontes usadas nos rótulos desenhados em canvas precisam estar prontas antes
+  await loadFontCSS();
+  await Promise.all(['600 12px Geist', '600 20px Jost', 'italic 800 10px "Barlow Condensed"', 'italic 300 10px "Barlow Condensed"',
+    '500 10px "Barlow Condensed"', '600 10px "Barlow Condensed"', '700 10px "Barlow Condensed"'].map(f => document.fonts.load(f).catch(() => {})));
   // Hero: órbita
   const orbitHost = document.getElementById('orbit');
   const orbit = new Stage(orbitHost, { perspective: 1800, lite });
