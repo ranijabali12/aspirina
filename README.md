@@ -14,6 +14,15 @@ São 5 produtos:
 
 Site estático, sem build: abra `index.html` ou sirva a pasta (`python3 -m http.server`).
 
+## Publicar no GitHub Pages
+O repositório já vem pronto (`.nojekyll` e o fluxo `.github/workflows/pages.yml`). Falta um ajuste único no GitHub:
+
+1. Abra **Settings → Pages** no repositório.
+2. Em **Build and deployment → Source**, escolha **GitHub Actions**.
+3. Abra **Actions → Publicar no GitHub Pages → Run workflow** (ou faça qualquer push na branch).
+
+O site fica em `https://ranijabali12.github.io/aspirina/`. Cada push nesta branch ou na `main` publica de novo.
+
 ## Arquivos
 - `index.html`: estrutura e abas.
 - `catalog.js`: dados dos produtos e o desenho vetorial (SVG) das embalagens, copiado das embalagens reais: topo branco com a cruz Bayer, faixa da família, base verde-azulada "Dor & Febre" e arco prateado. As cores ficam no objeto `C`.
