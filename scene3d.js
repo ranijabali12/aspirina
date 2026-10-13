@@ -133,18 +133,19 @@ async function buildClassicBox(s, renderer) {
 async function buildBox(s, renderer) {
   if (s.classic) return buildClassicBox(s, renderer);
   const { w, h, d } = s.box;
-  const fw = s.drops ? 420 : 1000, fh = s.drops ? 994 : s.vb;
+  const fw = s.drops ? 420 : 1000, fh = s.drops ? 1000 : s.vb;
   const scale = s.drops ? 1.2 : 1.1;
-  const [front, back] = await Promise.all([
+  const [front, back, dropSide] = await Promise.all([
     svgToCanvas(s.drops ? ASP.gotasBoxSVG() : ASP.frontSVG(s), Math.round(fw * scale), Math.round(fh * scale)),
-    svgToCanvas(s.drops ? ASP.gotasBackSVG() : ASP.backSVG(s), Math.round(fw * scale * .7), Math.round(fh * scale * .7))
+    svgToCanvas(s.drops ? ASP.gotasBackSVG() : ASP.backSVG(s), Math.round(fw * scale * .7), Math.round(fh * scale * .7)),
+    s.drops ? svgToCanvas(ASP.gotasSideSVG(), Math.round(fw * scale), Math.round(fh * scale)) : null
   ]);
   const f = ASP.FAMILIES[s.fam];
   const mat = (cv, rough = .55) => new THREE.MeshStandardMaterial({ map: canvasTex(cv, renderer), roughness: rough, metalness: 0, envMapIntensity: .55 });
   // ordem do BoxGeometry: +x direita, -x esquerda, +y topo, -y base, +z frente, -z verso
   const mats = [
-    mat(sideCanvas(s, 'right', `ASP${f.word} ${s.doseShort}`)),
-    mat(sideCanvas(s, 'left')),
+    mat(dropSide || sideCanvas(s, 'right', `ASP${f.word} ${s.doseShort}`)),
+    mat(dropSide || sideCanvas(s, 'left')),
     mat(flatCanvas('#FFFFFF', '#EEF1F1')),
     mat(flatCanvas(C.teal3, C.teal3)),
     mat(front, .42),

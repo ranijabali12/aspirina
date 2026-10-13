@@ -145,8 +145,15 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
 .topbar.is-scrolled::before { opacity: 1; }
 
 .brand { display: inline-flex; align-items: center; gap: var(--s-1); justify-self: start; }
-.brand__mark { width: 32px; height: 32px; color: var(--ink); transition: transform var(--t-slow) var(--ease); }
+.brand__mark { width: 36px; height: 36px; color: var(--ink); transition: transform var(--t-slow) var(--ease); }
 .brand:hover .brand__mark { transform: scale(1.06); }
+.brand__letters { fill: #10384F; }
+:root[data-theme="dark"] .brand__letters { fill: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand__letters { fill: #fff; } }
+.logo-aspirina { font-family: "Marcellus", Optima, serif; font-size: 24px; letter-spacing: .06em; line-height: 1; color: var(--ink); -webkit-text-stroke: .6px currentColor; white-space: nowrap; }
+.logo-aspirina sup { font-size: .4em; margin-left: 2px; -webkit-text-stroke: 0; vertical-align: super; }
+.footer__big .logo-aspirina { font-size: inherit; letter-spacing: .04em; -webkit-text-stroke: 1.5px currentColor; }
+@media (max-width: 420px) { .logo-aspirina { font-size: 19px; } }
 .brand__logos { display: inline-flex; align-items: center; gap: var(--s-1); }
 .logo-asp { font-family: var(--f-word); font-weight: 600; font-size: 22px; letter-spacing: -.02em; line-height: 1; color: var(--ink); white-space: nowrap; }
 .logo-asp b { font-weight: 600; }
