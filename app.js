@@ -1,6 +1,7 @@
 /* Família Asp · interações */
 (() => {
-  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, byId } = window.ASP;
+  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, CLASSICS, classicFlat, byId } = window.ASP;
+  const clsById = id => CLASSICS.find(c => c.id === id);
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -318,7 +319,7 @@
 
   function orbitFrame(now) {
     oRAF = requestAnimationFrame(orbitFrame);
-    if (!heroVisible) { autoT0 = now - Math.min(now - autoT0, AUTO); return; }
+    if (!heroVisible) { autoT0 = now - Math.min(now - autoT0, AUTO); if (GL) GL.classics.frame(now, clsHover); return; }
     if (!oDrag) {
       if (!hoverPause && !reduced && now - autoT0 > AUTO) { targetIdx++; autoT0 = now; }
       angle = lerp(angle, -targetIdx * step, reduced ? 1 : .07);
@@ -346,6 +347,7 @@
         });
       }
       GL.orbit.render();
+      GL.classics.frame(now, clsHover);
     }
     items.forEach((el, i) => {
       const th = angle + i * step;
@@ -604,15 +606,18 @@
   }
 
   /* ---------- Clássicos no início ---------- */
-  $('#classics').innerHTML = LINE.filter(p => p.img).map((p, i) => `
-    <button class="classic-item reveal" data-go="produtos" data-cursor="ver" style="--c:${p.color};--i:${i}">
-      <span class="classic-item__stage"><img src="${p.img}" width="${p.w}" height="${p.h}" alt="Embalagem de ${p.name}" loading="lazy" decoding="async" /></span>
+  $('#classics').innerHTML = CLASSICS.map((p, i) => `
+    <button class="classic-item reveal" data-go="produtos" data-cursor="ver" style="--c:${p.main};--i:${i}" data-ci="${i}">
+      <span class="classic-item__stage" data-cls="${p.id}">${classicFlat(p)}</span>
       <span class="classic-item__name">${p.name}</span>
       <span class="classic-item__ativo">${p.ativo}</span>
     </button>`).join('');
 
+  let clsHover = -1;
+  $('#classics').addEventListener('pointerover', e => { const b = e.target.closest('.classic-item'); clsHover = b ? +b.dataset.ci : -1; });
+  $('#classics').addEventListener('pointerleave', () => { clsHover = -1; });
+
   /* ---------- Linha completa ---------- */
-  const classicCard = p => `<div class="classic" style="--c:${p.color}"><b>${p.name.replace(/ \d.*$/, '')}</b><span>${p.ativo}</span></div>`;
   $('#cards').innerHTML = LINE.map(p => {
     if (p.sku) {
       const s = byId(p.sku);
@@ -622,9 +627,10 @@
         <div class="card__body"><h3>${fullName(s)}</h3><p class="card__ing">${s.ativo} · ${s.qtyLabel}</p><p>${s.extra}.</p></div>
       </button>`;
     }
-    return `<article class="card" data-tags="${p.tags.join(' ')}" style="--c:${p.color}">
-      <div class="card__art">${p.img ? `<img class="card__photo" src="${p.img}" width="${p.w}" height="${p.h}" alt="Embalagem de ${p.name}" loading="lazy" decoding="async" />` : classicCard(p)}</div>
-      <div class="card__body"><h3>${p.name}</h3><p class="card__ing">${p.ativo}</p><p>${p.desc}</p></div>
+    const c = clsById(p.cls);
+    return `<article class="card" data-tags="${p.tags.join(' ')}" style="--c:${c.main}">
+      <div class="card__art">${classicFlat(c)}</div>
+      <div class="card__body"><h3>${c.name}</h3><p class="card__ing">${c.ativo} · ${c.qtyLabel}</p><p>${c.desc}</p></div>
     </article>`;
   }).join('');
   const cards = $$('.card');
@@ -801,7 +807,7 @@
   const index = [
     ...SKUS.map(s => ({ kind: 'sku', title: fullName(s), sub: `${s.ativo} · ${s.qtyLabel}`, text: `${fullName(s)} ${s.ativo} ${s.dose} ${s.form} ${s.extra} ${s.fam === 'dip' ? 'dipirona' : 'paracetamol'}`, run: () => { selectSku(s.id, true); go('lancamentos', { hash: s.id }); }, s })),
     ...order.map(id => ({ kind: 'tab', title: tabNames[id], sub: 'Ir para a aba', text: tabNames[id], run: () => go(id) })),
-    ...LINE.filter(p => !p.sku).map(p => ({ kind: 'line', title: p.name, sub: p.ativo, text: `${p.name} ${p.ativo} ${p.desc}`, img: p.img, run: () => go('produtos') })),
+    ...CLASSICS.map(c => ({ kind: 'line', title: c.name, sub: c.ativo, text: `${c.name} ${c.ativo} ${c.desc}`, cls: c, run: () => go('produtos') })),
     ...FAQ.map(([q, a], i) => ({ kind: 'faq', title: q, sub: 'Dúvida frequente', text: `${q} ${a}`, run: () => openFaq(i) }))
   ];
   let results = [], sel = 0;
@@ -816,7 +822,7 @@
     sel = 0;
     plist.innerHTML = results.length ? results.slice(0, 12).map((it, i) => `
       <li class="palette__item${i === 0 ? ' is-sel' : ''}" role="option" data-i="${i}" aria-selected="${i === 0}">
-        ${it.s ? flat(it.s) : it.img ? `<img class="palette__img" src="${it.img}" alt="" />` : `<span class="palette__ic">${{ tab: 'aba', line: 'AAS', faq: '?' }[it.kind]}</span>`}
+        ${it.s ? flat(it.s) : it.cls ? classicFlat(it.cls) : `<span class="palette__ic">${{ tab: 'aba', line: 'AAS', faq: '?' }[it.kind]}</span>`}
         <div><b>${it.title}</b><span>${it.sub}</span></div><kbd>Enter</kbd>
       </li>`).join('') : `<li class="palette__empty">Nada encontrado para “${pin.value}”. Tente “gotas”, “750” ou “febre”.</li>`;
   }

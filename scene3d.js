@@ -18,7 +18,7 @@ const FONT_FILES = [
   ['Barlow Condensed', 'italic', 300, 'BarlowCondensed-300i'], ['Barlow Condensed', 'italic', 500, 'BarlowCondensed-500i'],
   ['Barlow Condensed', 'italic', 800, 'BarlowCondensed-800i'], ['Barlow Condensed', 'normal', 500, 'BarlowCondensed-500'],
   ['Barlow Condensed', 'normal', 600, 'BarlowCondensed-600'], ['Barlow Condensed', 'normal', 700, 'BarlowCondensed-700'],
-  ['Barlow Condensed', 'normal', 800, 'BarlowCondensed-800'], ['Jost', 'normal', 600, 'Jost-600'], ['Jost', 'normal', 700, 'Jost-700']
+  ['Barlow Condensed', 'normal', 800, 'BarlowCondensed-800'], ['Jost', 'normal', 600, 'Jost-600'], ['Jost', 'normal', 700, 'Jost-700'], ['Marcellus', 'normal', 400, 'Marcellus-400']
 ];
 let fontCSS = null;
 async function loadFontCSS() {
@@ -111,7 +111,27 @@ function contactShadow(w, d) {
 }
 
 /* ---------- Caixa ---------- */
+function stopsCanvas(stops) {
+  const H = 512, cv = document.createElement('canvas');
+  cv.width = 64; cv.height = H;
+  const x = cv.getContext('2d');
+  stops.forEach(([col, a, b]) => { x.fillStyle = col; x.fillRect(0, Math.floor(a * H), 64, Math.ceil((b - a) * H) + 1); });
+  return cv;
+}
+
+async function buildClassicBox(s, renderer) {
+  const { w, h, d } = s.box;
+  const [front, back] = await Promise.all([
+    svgToCanvas(s.front(), 1100, Math.round(s.vb * 1.1)),
+    svgToCanvas(s.back(), 700, Math.round(s.vb * .7))
+  ]);
+  const mat = (cv, rough = .5) => new THREE.MeshStandardMaterial({ map: canvasTex(cv, renderer), roughness: rough, metalness: 0, envMapIntensity: .55 });
+  const mats = [mat(stopsCanvas(s.sides.right)), mat(stopsCanvas(s.sides.left)), mat(flatCanvas(s.top[0], s.top[1])), mat(flatCanvas(s.bottom, s.bottom)), mat(front, .4), mat(back)];
+  return { mesh: new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mats), mats };
+}
+
 async function buildBox(s, renderer) {
+  if (s.classic) return buildClassicBox(s, renderer);
   const { w, h, d } = s.box;
   const fw = s.drops ? 420 : 1000, fh = s.drops ? 994 : s.vb;
   const scale = s.drops ? 1.2 : 1.1;
@@ -348,6 +368,8 @@ async function buildProduct(s, renderer, idx) {
   sh.position.y = -s.box.h / 2 - 22;
   outer.add(sh);
   outer.userData.mats = allMats;
+  outer.userData.w = s.drops ? 260 : s.box.w;
+  outer.userData.h = s.box.h;
   outer.userData.shadow = sh;
   return outer;
 }
@@ -416,7 +438,32 @@ export async function create({ lite }) {
       viewer.render();
     }
   };
-  return { orbit: orbitApi, viewer: viewerApi };
+  // Clássicos do início: uma cena por cartão, renderizada só quando visível
+  const classics = [];
+  for (const host of document.querySelectorAll('.classic-item__stage[data-cls]')) {
+    const c = ASP.CLASSICS.find(k => k.id === host.dataset.cls);
+    if (!c) continue;
+    const st = new Stage(host, { perspective: 900, lite });
+    const g = await buildProduct(c, st.renderer, 0);
+    st.scene.add(g);
+    const item = { st, g, visible: false, i: classics.length };
+    new IntersectionObserver(([en]) => { item.visible = en.isIntersecting; }).observe(host);
+    host.classList.add('is-gl');
+    classics.push(item);
+  }
+  const classicsApi = {
+    frame(now, hover) {
+      classics.forEach(({ st, g, visible, i }) => {
+        if (!visible || !st.w) return;
+        const k = Math.min(st.w / (g.userData.w * 1.12), st.h / (g.userData.h * 1.7));
+        g.scale.setScalar(k * (hover === i ? 1.05 : 1));
+        g.position.set(0, Math.sin(now / 1100 + i * 2) * 6 + st.h * .04, 0);
+        g.children[0].rotation.set(12 * DEG, (-26 + Math.sin(now / 1500 + i * 1.6) * 9) * DEG, 0, 'XYZ');
+        st.render();
+      });
+    }
+  };
+  return { orbit: orbitApi, viewer: viewerApi, classics: classicsApi };
 }
 
 const easeIO = t => (t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);

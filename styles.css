@@ -928,3 +928,11 @@ kbd { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radi
   .classic-item__stage { height: 170px; }
 }
 .section__head--row > .btn { justify-self: start; }
+
+/* Clássicos em 3D: a arte plana fica como reserva até o WebGL carregar */
+.classic-item__stage { position: relative; overflow: hidden; }
+.classic-item__stage > .flat { width: 78%; transform: rotate(-3deg); }
+.classic-item__stage > canvas.gl { position: absolute; inset: 0; width: 100%; height: 100%; }
+.classic-item__stage.is-gl > .flat { visibility: hidden; }
+.card__art > .flat { width: min(270px, 88%); transform: rotate(-3deg); transition: transform var(--t-slow) var(--ease); }
+.card:hover .card__art > .flat { transform: translateY(-8px) rotate(0); }

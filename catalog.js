@@ -80,9 +80,9 @@ window.ASP = (() => {
   // Linha completa (lançamentos + clássicos), filtrada por família, nunca por sintoma
   const LINE = [
     ...SKUS.map(s => ({ sku: s.id, tags: ['novo', s.fam] })),
-    { id: 'aspirina-500', name: 'Aspirina 500 mg', ativo: 'Ácido acetilsalicílico 500 mg', desc: 'O clássico, em comprimidos de 500 mg desde 1900. Caixa com 20 comprimidos.', tags: ['classico'], color: '#0E8F72', img: 'assets/produtos/aspirina-500.webp', w: 558, h: 319 },
-    { id: 'aspirina-c', name: 'Aspirina C', ativo: 'AAS 400 mg + ácido ascórbico 240 mg', desc: 'Comprimido efervescente sabor limão. Caixa com 10 comprimidos.', tags: ['classico'], color: '#E8C21A', img: 'assets/produtos/aspirina-c.webp', w: 900, h: 673 },
-    { id: 'cafiaspirina', name: 'CafiAspirina', ativo: 'Ácido acetilsalicílico + cafeína', desc: 'Ácido acetilsalicílico com cafeína, em comprimidos. Caixa com 20 comprimidos.', tags: ['classico'], color: '#D7262F', img: 'assets/produtos/cafiaspirina.webp', w: 419, h: 254 }
+    { cls: 'aspirina-500', tags: ['classico'] },
+    { cls: 'aspirina-c', tags: ['classico'] },
+    { cls: 'cafiaspirina', tags: ['classico'] }
   ];
 
   const FAQ = [
@@ -521,6 +521,148 @@ window.ASP = (() => {
     return `linear-gradient(180deg,#fff 0 ${p(s1a)},${C.silver} ${p(s1a)} ${p(s1b)},#fff ${p(s1b)} ${p(top)},${band} ${p(top)} ${p(s2a)},${C.silver} ${p(s2a)} ${p(s2b)},${teal} ${p(s2b)} 100%)`;
   }
 
+  /* =========================================================
+     Clássicos: Aspirina 500 mg, Aspirina C e CafiAspirina
+     Medidas tiradas das fotos das embalagens (frente = 1000 de largura).
+     ========================================================= */
+  const SERIF = 'Marcellus, Optima, Candara, serif';
+  // texto com largura exata (não depende da fonte carregada) e peso simulado por contorno
+  const T = (txt, x, y, size, len, fill, opts = {}) =>
+    `<text x="${x}" y="${y}" font-family="${opts.font || SERIF}" font-size="${size}" ${len ? `textLength="${len}" lengthAdjust="spacingAndGlyphs"` : ''} fill="${fill}"` +
+    `${opts.bold ? ` stroke="${opts.stroke || fill}" stroke-width="${opts.bold}" paint-order="stroke" stroke-linejoin="round"` : ''}` +
+    `${opts.italic ? ' font-style="italic"' : ''}${opts.anchor ? ` text-anchor="${opts.anchor}"` : ''}${opts.rotate ? ` transform="rotate(${opts.rotate} ${x} ${y})"` : ''}>${txt}</text>`;
+
+  function discPill(cx, cy, r, id) {
+    return `<g><defs><radialGradient id="${id}" cx=".4" cy=".35"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".75" stop-color="#F1F3F3"/><stop offset="1" stop-color="#C9CED0"/></radialGradient></defs>` +
+      `<ellipse cx="${cx + 4}" cy="${cy + r * .55}" rx="${r}" ry="${r * .62}" fill="#000" opacity=".22"/>` +
+      `<ellipse cx="${cx}" cy="${cy + r * .22}" rx="${r}" ry="${r * .62}" fill="#D3D8DA"/>` +
+      `<ellipse cx="${cx}" cy="${cy}" rx="${r}" ry="${r * .62}" fill="url(#${id})"/>` +
+      `<path d="M${cx - r * .5} ${cy} h${r}" stroke="#C4C9CB" stroke-width="2"/><path d="M${cx} ${cy - r * .32} v${r * .64}" stroke="#C4C9CB" stroke-width="2"/></g>`;
+  }
+
+  function aspirinaFrontSVG() {
+    const H = 450, id = uid('a5');
+    return `<svg class="art" viewBox="0 0 1000 ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="${id}t" x1="0" x2="1"><stop offset="0" stop-color="#11937A"/><stop offset="1" stop-color="#0B7D67"/></linearGradient>
+        <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#C8CDCF"/><stop offset=".5" stop-color="#7E878A"/><stop offset="1" stop-color="#5C6467"/></linearGradient>
+      </defs>
+      <rect width="1000" height="${H}" fill="#FFFFFF"/>
+      <rect width="1000" height="34" fill="url(#${id}t)"/>
+      <path d="M0 150 C40 172 90 196 180 202 L1000 210" fill="none" stroke="url(#${id}g)" stroke-width="5"/>
+      <path d="M0 150 C40 172 90 196 180 202 L1000 210" transform="translate(0 9)" fill="none" stroke="#D5D9DB" stroke-width="3"/>
+      <path d="M0 290 C30 304 70 316 140 318 L1000 312 V${H} H0 Z" fill="url(#${id}t)"/>
+      <path d="M0 278 C30 292 70 304 140 306 L1000 300" fill="none" stroke="#A7AEB1" stroke-width="4"/>
+      <path d="M30 150 C48 190 58 230 60 268" fill="none" stroke="#9AA2A5" stroke-width="2" stroke-dasharray="6 5"/>
+      ${T('ABRIR AQUI', 22, 262, 17, 100, '#7C8588', { rotate: -90 })}
+      ${bayerCross(100, 100, 54, '#0E8C72')}
+      ${T('ASPIRINA', 171, 186, 132, 482, '#111111', { bold: 3 })}
+      ${T('®', 660, 104, 34, 0, '#111111')}
+      ${T('500 mg', 693, 190, 74, 231, '#111111', { bold: 1.2 })}
+      ${T('ácido acetilsalicílico', 175, 280, 96, 745, '#1B1B1B', { bold: 1.2 })}
+      ${T('Dor de cabeça, Dor nas costas e Febre', 96, 346, 33, 516, '#FFFFFF', { bold: .8 })}
+      ${T('USO ADULTO E PEDIÁTRICO ACIMA DE 12 ANOS', 96, 382, 22, 426, '#FFFFFF')}
+      ${T('CONTÉM 20 COMPRIMIDOS', 96, 414, 26, 296, '#FFFFFF')}
+      ${T('Uso oral', 622, 426, 24, 88, '#FFFFFF')}
+      ${discPill(800, 392, 44, id + 'p1')}${discPill(878, 372, 41, id + 'p2')}
+    </svg>`;
+  }
+
+  function aspirinaCFrontSVG() {
+    const H = 667, id = uid('ac');
+    let bubbles = '';
+    for (let i = 0; i < 70; i++) {
+      const bx = 700 + ((i * 53) % 290), by = 270 + ((i * 97) % 250), br = 1.5 + (i % 5) * .9;
+      bubbles += `<circle cx="${bx}" cy="${by}" r="${br}" fill="none" stroke="#B9C3C5" stroke-width="1"/>`;
+    }
+    return `<svg class="art" viewBox="0 0 1000 ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="${id}t" x1="0" x2="1"><stop offset="0" stop-color="#13957B"/><stop offset="1" stop-color="#0A7C66"/></linearGradient>
+        <linearGradient id="${id}y" x1="0" x2="1"><stop offset="0" stop-color="#F0CF1E"/><stop offset=".45" stop-color="#F6E06A"/><stop offset=".8" stop-color="#FBF3C4"/><stop offset="1" stop-color="#F6E06A"/></linearGradient>
+        <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#D0D4D6"/><stop offset=".4" stop-color="#9EA6A9"/><stop offset="1" stop-color="#4E5659"/></linearGradient>
+      </defs>
+      <rect width="1000" height="${H}" fill="#FFFFFF"/>
+      <rect width="1000" height="25" fill="url(#${id}t)"/>
+      <path d="M0 40 C30 120 80 200 220 214 L1000 226" fill="none" stroke="#D9DDDF" stroke-width="5"/>
+      <path d="M440 222 L1000 230" fill="none" stroke="url(#${id}g)" stroke-width="7"/>
+      <path d="M0 360 C40 372 120 378 260 378 L1000 366 L1000 486 C700 488 300 498 0 502 Z" fill="url(#${id}y)"/>
+      <path d="M0 360 C40 372 120 378 260 378 L1000 366" fill="none" stroke="url(#${id}g)" stroke-width="7"/>
+      <path d="M0 502 C300 498 700 488 1000 486 V${H} H0 Z" fill="url(#${id}t)"/>
+      <path d="M0 502 C300 498 700 488 1000 486" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+      ${bubbles}
+      ${bayerCross(61, 80, 45, '#0E8C72')}
+      ${T('ASPIRINA', 104, 188, 156, 448, '#121212', { bold: 3 })}
+      ${T('®', 556, 92, 30, 0, '#121212')}
+      ${T('C', 631, 188, 156, 74, '#121212', { bold: 2.5 })}
+      <rect x="761" y="44" width="239" height="34" fill="url(#${id}t)"/>
+      ${T('Efervescente', 880, 71, 30, 190, '#FFFFFF', { italic: true, anchor: 'middle', font: 'Barlow Condensed, Arial Narrow, sans-serif', bold: .6 })}
+      ${T('ácido acetilsalicílico 400 mg', 73, 274, 80, 892, '#1B1B1B', { bold: 1.2 })}
+      ${T('ácido ascórbico 240 mg', 73, 352, 80, 731, '#1B1B1B', { bold: 1.2 })}
+      ${T('Uso oral', 121, 412, 31, 112, '#1F5A3C')}
+      ${T('USO ADULTO E PEDIÁTRICO', 121, 448, 30, 386, '#1F5A3C', { bold: .5 })}
+      ${T('ACIMA DE 10 ANOS', 121, 478, 30, 234, '#1F5A3C', { bold: .5 })}
+      ${T('Dor e Febre causadas por', 112, 545, 31, 324, '#FFFFFF')}
+      ${T('Gripes e Resfriados', 112, 577, 31, 242, '#FFFFFF')}
+      ${T('CONTÉM 10', 505, 612, 38, 232, '#FFFFFF', { bold: .6 })}
+      ${T('COMPRIMIDOS EFERVESCENTES', 133, 652, 38, 604, '#FFFFFF', { bold: .6 })}
+      <path d="M760 ${H} L1000 515 V${H} Z" fill="#FFFFFF"/>
+      <path d="M778 ${H} L1000 528 V${H} Z" fill="#F3D21F"/>
+      ${T('Sabor Limão', 905, 622, 30, 150, '#1F5A3C', { italic: true, anchor: 'middle', rotate: -31, font: 'Barlow Condensed, Arial Narrow, sans-serif', bold: .5 })}
+      ${discPill(880, 455, 66, id + 'p1')}${discPill(790, 505, 70, id + 'p2')}
+    </svg>`;
+  }
+
+  function cafiFrontSVG() {
+    const H = 400, id = uid('cf');
+    return `<svg class="art" viewBox="0 0 1000 ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="${id}r" x1="0" x2="1"><stop offset="0" stop-color="#E5232F"/><stop offset="1" stop-color="#D21E2A"/></linearGradient>
+        <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#C9CED0"/><stop offset=".5" stop-color="#8B9396"/><stop offset="1" stop-color="#5E666A"/></linearGradient>
+      </defs>
+      <rect width="1000" height="${H}" fill="#FFFFFF"/>
+      <path d="M0 150 C20 178 60 190 140 190 L1000 178 V${H} H0 Z" fill="url(#${id}r)"/>
+      <path d="M0 140 C20 168 60 180 140 180 L1000 168" fill="none" stroke="url(#${id}g)" stroke-width="7"/>
+      <path d="M0 252 C30 254 90 254 160 252 L1000 238" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+      <path d="M0 262 C30 264 90 264 160 262 L1000 248" fill="none" stroke="#B0161F" stroke-width="2"/>
+      <circle cx="104" cy="74" r="62" fill="#FFFFFF"/>
+      ${bayerCross(104, 74, 53, '#14A04B')}
+      ${T('CAFI', 251, 147, 96, 238, '#C9CED0', { bold: 3 })}
+      ${T('CAFI', 245, 143, 96, 238, '#E2222D', { bold: 3 })}
+      ${T('ASPIRINA', 488, 140, 96, 405, '#2B2B2B', { bold: 2.4 })}
+      ${T('®', 900, 84, 28, 0, '#2B2B2B')}
+      ${T('comprimidos', 245, 222, 38, 222, '#FFFFFF', { bold: 1.2 })}
+      ${T('Ácido acetilsalicílico', 248, 290, 27, 274, '#FFFFFF')}
+      ${T('Cafeína', 248, 322, 27, 85, '#FFFFFF')}
+      ${T('20 comprimidos', 248, 376, 40, 261, '#FFFFFF', { bold: 1.2 })}
+      ${discPill(888, 182, 50, id + 'p')}
+    </svg>`;
+  }
+
+  // Verso simples: marca sobre a cor principal
+  function classicBackSVG(c) {
+    const H = c.vb;
+    return `<svg class="art" viewBox="0 0 1000 ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1000" height="${H}" fill="${c.main}"/>
+      <rect y="${H * .18}" width="1000" height="${H * .46}" fill="#FFFFFF"/>
+      ${T(c.word, 500, H * .5, H * .22, 0, '#1A1A1A', { anchor: 'middle', bold: 2 })}
+      ${T('Leia a bula. Bayer S.A.', 500, H * .82, H * .07, 0, '#FFFFFF', { anchor: 'middle' })}
+    </svg>`;
+  }
+
+  const CLASSICS = [
+    { id: 'aspirina-500', name: 'Aspirina 500 mg', word: 'ASPIRINA', ativo: 'Ácido acetilsalicílico 500 mg', qtyLabel: '20 comprimidos', main: '#0E8C72',
+      desc: 'O clássico, em comprimidos de 500 mg desde 1900.', box: { w: 300, h: 135, d: 68 }, vb: 450, front: aspirinaFrontSVG,
+      sides: { right: [['#0E8C72', 0, 1]], left: [['#11937A', 0, .08], ['#FFFFFF', .08, .7], ['#11937A', .7, 1]] }, top: ['#0F8F76', '#0B7D67'], bottom: '#0B7D67' },
+    { id: 'aspirina-c', name: 'Aspirina C', word: 'ASPIRINA C', ativo: 'AAS 400 mg + ácido ascórbico 240 mg', qtyLabel: '10 comprimidos efervescentes', main: '#0E8C72',
+      desc: 'Comprimido efervescente sabor limão.', box: { w: 270, h: 180, d: 78 }, vb: 667, front: aspirinaCFrontSVG,
+      sides: { right: [['#0C8069', 0, 1]], left: [['#13957B', 0, .05], ['#FFFFFF', .05, .55], ['#F0CF1E', .55, .75], ['#13957B', .75, 1]] }, top: ['#0F8F76', '#0A7C66'], bottom: '#0A7C66' },
+    { id: 'cafiaspirina', name: 'CafiAspirina', word: 'CAFIASPIRINA', ativo: 'Ácido acetilsalicílico + cafeína', qtyLabel: '20 comprimidos', main: '#DC2130',
+      desc: 'Ácido acetilsalicílico com cafeína, em comprimidos.', box: { w: 320, h: 128, d: 62 }, vb: 400, front: cafiFrontSVG,
+      sides: { right: [['#FFFFFF', 0, .42], ['#8B9396', .42, .45], ['#DC2130', .45, 1]], left: [['#FFFFFF', 0, .4], ['#8B9396', .4, .43], ['#E2232F', .43, 1]] }, top: ['#F4F5F5', '#DADDDE'], bottom: '#C81C28' }
+  ];
+  CLASSICS.forEach(c => { c.classic = true; c.back = () => classicBackSVG(c); });
+  const classicFlat = c => `<div class="flat" style="aspect-ratio:${1000 / c.vb}">${c.front()}</div>`;
+
   /* ---------- Caixa 3D completa ---------- */
   function box3D(s) {
     const { w, h, d } = s.box;
@@ -549,5 +691,5 @@ window.ASP = (() => {
     return `<div class="flat" style="aspect-ratio:${1000 / s.vb}">${frontSVG(s)}</div>`;
   }
 
-  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, frontSVG, backSVG, gotasBoxSVG, gotasBackSVG, sideStops, byId: id => SKUS.find(s => s.id === id) };
+  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, frontSVG, backSVG, gotasBoxSVG, gotasBackSVG, sideStops, CLASSICS, classicFlat, byId: id => SKUS.find(s => s.id === id) };
 })();
