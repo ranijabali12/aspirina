@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aspirina · AspDip & AspMol</title>
+  <meta name="description" content="Dos mesmos criadores da Aspirina: AspDip (dipirona) e AspMol (paracetamol). Alívio de dores moderadas a intensas e controle da febre." />
+  <meta name="theme-color" content="#F4F2EE" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-tab="inicio">
+
+  <!-- Progresso de rolagem -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="topbar">
+    <a href="#inicio" class="brand" data-go="inicio" aria-label="Aspirina — início">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 6v28M6 20h28" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="4" fill="currentColor"/>
+      </svg>
+      <span class="brand__word">Aspirina<sup>®</sup></span>
+    </a>
+
+    <nav class="tabs" role="tablist" aria-label="Seções">
+      <span class="tabs__pill" aria-hidden="true"></span>
+      <button class="tabs__btn is-active" role="tab" data-go="inicio" aria-selected="true">Início</button>
+      <button class="tabs__btn" role="tab" data-go="lancamentos" aria-selected="false">Lançamentos <i class="dot"></i></button>
+      <button class="tabs__btn" role="tab" data-go="produtos" aria-selected="false">Produtos</button>
+      <button class="tabs__btn" role="tab" data-go="historia" aria-selected="false">História</button>
+      <button class="tabs__btn" role="tab" data-go="duvidas" aria-selected="false">Dúvidas</button>
+    </nav>
+
+    <a class="btn btn--ghost btn--sm topbar__cta" href="#duvidas" data-go="duvidas" data-scroll="onde">Onde encontrar</a>
+  </header>
+
+  <main id="app">
+
+    <!-- ================================================= -->
+    <!-- ======================= INÍCIO ================== -->
+    <!-- ================================================= -->
+    <section class="view is-active" id="view-inicio" data-view="inicio" role="tabpanel">
+
+      <div class="hero" id="hero">
+        <!-- Camada de fundo: grade + molécula -->
+        <div class="hero__bg" aria-hidden="true">
+          <div class="grid-lines"></div>
+          <svg class="molecule" viewBox="0 0 600 600">
+            <g class="molecule__bonds" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M300 160 L380 206 L380 298 L300 344 L220 298 L220 206 Z"/>
+              <path d="M300 172 L370 212 M370 292 L300 332 M230 292 L230 212" opacity=".5"/>
+              <path d="M380 206 L460 160 L460 80 M460 160 L530 200"/>
+              <path d="M300 344 L300 430 L380 476 M300 430 L220 476 L220 556"/>
+            </g>
+            <g class="molecule__atoms">
+              <circle cx="460" cy="80" r="9"/><text x="476" y="74">O</text>
+              <circle cx="530" cy="200" r="9"/><text x="546" y="206">OH</text>
+              <circle cx="300" cy="430" r="9"/><text x="250" y="436">O</text>
+              <circle cx="380" cy="476" r="9"/><text x="396" y="482">O</text>
+              <circle cx="220" cy="556" r="6"/><text x="146" y="562">CH₃</text>
+            </g>
+          </svg>
+          <div class="hero__glow"></div>
+        </div>
+
+        <!-- Tipografia gigante atrás dos produtos -->
+        <h1 class="hero__mega" aria-label="Dor? Asp.">
+          <span class="hero__mega-line" data-split>Alívio</span>
+          <span class="hero__mega-line hero__mega-line--serif" data-split>evoluído.</span>
+        </h1>
+
+        <!-- Palco 3D: produtos flutuando no centro -->
+        <div class="stage" id="stage" aria-label="Embalagens AspDip e AspMol">
+          <div class="stage__inner" id="stageInner">
+
+            <!-- AspDip -->
+            <button class="product product--dip" data-go="lancamentos" data-product="dip" aria-label="Conhecer AspDip">
+              <div class="float">
+                <div class="box box--dip">
+                  <div class="box__face box__front">
+                    <div class="pack">
+                      <div class="pack__top"><span class="pack__brand">Bayer</span><span class="pack__tag">NOVO</span></div>
+                      <div class="pack__name">Asp<b>Dip</b></div>
+                      <div class="pack__sub">dipirona monoidratada</div>
+                      <div class="pack__dose">1 g</div>
+                      <div class="pack__waves"></div>
+                      <div class="pack__foot"><span>10 comprimidos</span><span>Dor e febre</span></div>
+                    </div>
+                  </div>
+                  <div class="box__face box__back"><div class="pack pack--back"><span>Dos mesmos criadores da Aspirina</span></div></div>
+                  <div class="box__face box__right"><div class="pack pack--side">AspDip · 1 g</div></div>
+                  <div class="box__face box__left"><div class="pack pack--side">Bayer</div></div>
+                  <div class="box__face box__top"></div>
+                  <div class="box__face box__bottom"></div>
+                </div>
+              </div>
+              <div class="shadow"></div>
+              <span class="product__label"><i>01</i> AspDip <em>dipirona</em></span>
+            </button>
+
+            <!-- AspMol -->
+            <button class="product product--mol" data-go="lancamentos" data-product="mol" aria-label="Conhecer AspMol">
+              <div class="float float--b">
+                <div class="box box--mol">
+                  <div class="box__face box__front">
+                    <div class="pack">
+                      <div class="pack__top"><span class="pack__brand">Bayer</span><span class="pack__tag">NOVO</span></div>
+                      <div class="pack__name">Asp<b>Mol</b></div>
+                      <div class="pack__sub">paracetamol</div>
+                      <div class="pack__dose">500 mg</div>
+                      <div class="pack__waves"></div>
+                      <div class="pack__foot"><span>20 comprimidos</span><span>Dor e febre</span></div>
+                    </div>
+                  </div>
+                  <div class="box__face box__back"><div class="pack pack--back"><span>Dos mesmos criadores da Aspirina</span></div></div>
+                  <div class="box__face box__right"><div class="pack pack--side">AspMol · 500 mg</div></div>
+                  <div class="box__face box__left"><div class="pack pack--side">Bayer</div></div>
+                  <div class="box__face box__top"></div>
+                  <div class="box__face box__bottom"></div>
+                </div>
+              </div>
+              <div class="shadow"></div>
+              <span class="product__label"><i>02</i> AspMol <em>paracetamol</em></span>
+            </button>
+
+            <!-- Comprimidos flutuantes -->
+            <div class="pill pill--1" data-depth="0.9"><span></span></div>
+            <div class="pill pill--2" data-depth="0.5"><span></span></div>
+            <div class="pill pill--3" data-depth="1.2"><span></span></div>
+            <div class="pill pill--4" data-depth="0.7"><span></span></div>
+            <div class="pill pill--5" data-depth="1.4"><span></span></div>
+          </div>
+        </div>
+
+        <!-- Rodapé do hero -->
+        <div class="hero__foot">
+          <div class="hero__intro reveal">
+            <span class="eyebrow"><i class="live"></i> Lançamentos Bayer</span>
+            <p>Dipirona e paracetamol com a expertise de quem trata a dor <strong>desde 1897</strong>. Conheça <strong>AspDip</strong> e <strong>AspMol</strong>.</p>
+          </div>
+          <div class="hero__actions reveal">
+            <a href="#lancamentos" class="btn btn--primary magnetic" data-go="lancamentos"><span>Ver lançamentos</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+            <a href="#produtos" class="btn btn--ghost magnetic" data-go="produtos"><span>Linha completa</span></a>
+          </div>
+          <div class="hero__scroll" aria-hidden="true"><span>role</span><i></i></div>
+        </div>
+      </div>
+
+      <!-- Faixa de ticker -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>AspDip · dipirona</span><b>✦</b><span>AspMol · paracetamol</span><b>✦</b><span>É Bayer, é bom</span><b>✦</b><span>125+ anos de ciência</span><b>✦</b><span>#ASPergunta</span><b>✦</b>
+          <span>AspDip · dipirona</span><b>✦</b><span>AspMol · paracetamol</span><b>✦</b><span>É Bayer, é bom</span><b>✦</b><span>125+ anos de ciência</span><b>✦</b><span>#ASPergunta</span><b>✦</b>
+        </div>
+      </div>
+
+      <!-- Bento -->
+      <div class="wrap section">
+        <header class="section__head reveal">
+          <span class="eyebrow">Por que Asp</span>
+          <h2 class="h2">Uma marca centenária,<br><em>uma nova linguagem.</em></h2>
+        </header>
+
+        <div class="bento">
+          <article class="tile tile--big tile--dip reveal" data-go="lancamentos" data-product="dip" tabindex="0">
+            <span class="tile__k">01 · Lançamento</span>
+            <h3>AspDip</h3>
+            <p>Dipirona em comprimidos de 500 mg e 1 g, e gotas 500 mg/mL.</p>
+            <div class="tile__orb"></div>
+            <span class="tile__go">Explorar →</span>
+          </article>
+          <article class="tile tile--big tile--mol reveal" data-go="lancamentos" data-product="mol" tabindex="0">
+            <span class="tile__k">02 · Lançamento</span>
+            <h3>AspMol</h3>
+            <p>Paracetamol 500 mg. Analgésico e antitérmico.</p>
+            <div class="tile__orb"></div>
+            <span class="tile__go">Explorar →</span>
+          </article>
+          <article class="tile tile--stat reveal">
+            <span class="counter" data-count="125" data-suffix="+">0</span>
+            <p>anos desde a síntese do ácido acetilsalicílico, em 1897</p>
+          </article>
+          <article class="tile tile--stat reveal">
+            <span class="counter" data-count="1901">0</span>
+            <p>primeiro registro de venda de Aspirina no Brasil</p>
+          </article>
+          <article class="tile tile--quote reveal">
+            <p>“Dos mesmos criadores da Aspirina.”</p>
+            <span>É Bayer, é bom.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ==================== LANÇAMENTOS ================ -->
+    <!-- ================================================= -->
+    <section class="view" id="view-lancamentos" data-view="lancamentos" role="tabpanel" data-active-product="dip">
+
+      <div class="launch">
+        <div class="launch__bg" aria-hidden="true">
+          <span class="launch__word" id="launchWord">DIP</span>
+        </div>
+
+        <div class="wrap launch__grid">
+          <div class="launch__copy">
+            <span class="eyebrow"><i class="live"></i> Novidade · fim de 2025</span>
+
+            <div class="switch" role="tablist" aria-label="Escolha o lançamento">
+              <span class="switch__thumb" aria-hidden="true"></span>
+              <button class="switch__btn is-active" data-product="dip" role="tab" aria-selected="true">AspDip</button>
+              <button class="switch__btn" data-product="mol" role="tab" aria-selected="false">AspMol</button>
+            </div>
+
+            <div class="swap" data-for="dip">
+              <h2 class="launch__title">Asp<em>Dip</em></h2>
+              <p class="launch__active">Dipirona monoidratada</p>
+              <p class="launch__lead">Analgésico indicado para o alívio de dores moderadas a intensas e potente antitérmico para o controle da febre. Com a expertise de Aspirina, uma das pioneiras no tratamento da dor.</p>
+            </div>
+            <div class="swap" data-for="mol" hidden>
+              <h2 class="launch__title">Asp<em>Mol</em></h2>
+              <p class="launch__active">Paracetamol</p>
+              <p class="launch__lead">Analgésico indicado para o alívio de dores moderadas a intensas e antitérmico para o controle da febre. A confiança Bayer em um dos princípios ativos mais usados no mundo.</p>
+            </div>
+
+            <div class="presets" data-for="dip">
+              <span class="presets__label">Apresentações</span>
+              <div class="chips">
+                <button class="chip is-active" data-dose="1 g" data-qty="10 comprimidos">1 g · 10 comp.</button>
+                <button class="chip" data-dose="500 mg" data-qty="30 comprimidos">500 mg · 30 comp.</button>
+                <button class="chip" data-dose="500 mg/mL" data-qty="Gotas · 20 mL" data-form="drops">Gotas · 20 mL</button>
+              </div>
+            </div>
+            <div class="presets" data-for="mol" hidden>
+              <span class="presets__label">Apresentação</span>
+              <div class="chips">
+                <button class="chip is-active" data-dose="500 mg" data-qty="20 comprimidos">500 mg · 20 comp.</button>
+              </div>
+            </div>
+
+            <div class="launch__cta">
+              <a href="#duvidas" class="btn btn--primary magnetic" data-go="duvidas" data-scroll="onde"><span>Onde encontrar</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+              <a href="#duvidas" class="btn btn--ghost" data-go="duvidas"><span>Dúvidas frequentes</span></a>
+            </div>
+          </div>
+
+          <!-- Visualizador 3D -->
+          <div class="viewer" id="viewer">
+            <div class="viewer__ring" aria-hidden="true"></div>
+            <div class="viewer__ring viewer__ring--2" aria-hidden="true"></div>
+            <div class="viewer__obj" id="viewerObj">
+              <div class="box box--xl box--dip" id="viewerBox">
+                <div class="box__face box__front">
+                  <div class="pack">
+                    <div class="pack__top"><span class="pack__brand">Bayer</span><span class="pack__tag">NOVO</span></div>
+                    <div class="pack__name" id="vName">Asp<b>Dip</b></div>
+                    <div class="pack__sub" id="vSub">dipirona monoidratada</div>
+                    <div class="pack__dose" id="vDose">1 g</div>
+                    <div class="pack__waves"></div>
+                    <div class="pack__foot"><span id="vQty">10 comprimidos</span><span>Dor e febre</span></div>
+                  </div>
+                </div>
+                <div class="box__face box__back"><div class="pack pack--back"><span>Dos mesmos criadores da Aspirina</span></div></div>
+                <div class="box__face box__right"><div class="pack pack--side" id="vSide">AspDip</div></div>
+                <div class="box__face box__left"><div class="pack pack--side">Bayer</div></div>
+                <div class="box__face box__top"></div>
+                <div class="box__face box__bottom"></div>
+              </div>
+              <!-- Frasco de gotas -->
+              <div class="bottle" id="bottle" aria-hidden="true">
+                <div class="bottle__cap"></div>
+                <div class="bottle__neck"></div>
+                <div class="bottle__body"><span>Asp<b>Dip</b></span><small>gotas 500 mg/mL</small><i class="bottle__liquid"></i></div>
+                <div class="drop"></div>
+              </div>
+            </div>
+            <div class="viewer__shadow" aria-hidden="true"></div>
+            <p class="viewer__hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M18 3v4h-4M6 21v-4h4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Arraste para girar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specs -->
+      <div class="wrap section section--tight">
+        <div class="specs">
+          <div class="spec reveal"><span class="spec__k">Indicação</span><span class="spec__v">Dores moderadas a intensas</span></div>
+          <div class="spec reveal"><span class="spec__k">Ação</span><span class="spec__v">Analgésica e antitérmica</span></div>
+          <div class="spec reveal"><span class="spec__k">Fabricante</span><span class="spec__v">Bayer Consumer Health</span></div>
+          <div class="spec reveal"><span class="spec__k">Venda</span><span class="spec__v">Isento de prescrição</span></div>
+        </div>
+      </div>
+
+      <!-- Comparativo -->
+      <div class="wrap section">
+        <header class="section__head reveal">
+          <span class="eyebrow">Lado a lado</span>
+          <h2 class="h2">Dois lançamentos,<br><em>a mesma confiança.</em></h2>
+        </header>
+
+        <div class="compare reveal">
+          <div class="compare__col compare__col--dip">
+            <div class="compare__head"><span class="compare__swatch"></span><h3>AspDip</h3><p>dipirona</p></div>
+            <ul>
+              <li><span>Comprimidos</span><b>500 mg · 30 un.</b></li>
+              <li><span>Comprimidos</span><b>1 g · 10 un.</b></li>
+              <li><span>Gotas</span><b>500 mg/mL · 20 mL</b></li>
+              <li><span>Para</span><b>Dor e febre</b></li>
+            </ul>
+          </div>
+          <div class="compare__vs" aria-hidden="true">vs</div>
+          <div class="compare__col compare__col--mol">
+            <div class="compare__head"><span class="compare__swatch"></span><h3>AspMol</h3><p>paracetamol</p></div>
+            <ul>
+              <li><span>Comprimidos</span><b>500 mg · 20 un.</b></li>
+              <li><span>Formato</span><b>Caixa</b></li>
+              <li><span>Assinatura</span><b>Bayer</b></li>
+              <li><span>Para</span><b>Dor e febre</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campanha ASPergunta -->
+      <div class="wrap section">
+        <div class="campaign reveal">
+          <div class="campaign__copy">
+            <span class="eyebrow">Campanha 2026</span>
+            <h2 class="h2">#ASPergunta</h2>
+            <p>Dani Calabresa vira uma repórter que invade momentos do dia a dia — o computador que trava, a consulta no dentista — para fazer a pergunta que todo mundo responde do seu jeito.</p>
+            <ul class="campaign__facts">
+              <li><b>Estrela</b> Dani Calabresa</li>
+              <li><b>Mídia</b> TV aberta, redes sociais e creators</li>
+              <li><b>Assinatura</b> “É Bayer, é bom.”</li>
+            </ul>
+          </div>
+          <div class="campaign__screen" aria-hidden="true">
+            <div class="mic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+            <div class="bubble"><span class="typed" id="typed"></span><i class="caret"></i></div>
+            <div class="bubble bubble--reply"><span id="typedReply"></span></div>
+            <div class="rec"><i></i> REC</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ===================== PRODUTOS ================== -->
+    <!-- ================================================= -->
+    <section class="view" id="view-produtos" data-view="produtos" role="tabpanel">
+      <div class="wrap section section--first">
+        <header class="section__head section__head--row reveal">
+          <div>
+            <span class="eyebrow">Portfólio</span>
+            <h2 class="h2">A linha<br><em>completa.</em></h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrar produtos">
+            <button class="filter is-active" data-filter="all">Todos</button>
+            <button class="filter" data-filter="dor">Dor & febre</button>
+            <button class="filter" data-filter="gripe">Gripe</button>
+            <button class="filter" data-filter="coracao">Coração</button>
+          </div>
+        </header>
+
+        <div class="cards">
+          <article class="card card--dip reveal" data-cat="dor">
+            <span class="card__badge">Novo</span>
+            <div class="card__art"><div class="mini-box"><b>Asp</b>Dip</div></div>
+            <div class="card__body">
+              <h3>AspDip</h3>
+              <p class="card__ing">Dipirona</p>
+              <p>Dores moderadas a intensas e febre. Comprimidos 500 mg e 1 g, gotas 500 mg/mL.</p>
+            </div>
+          </article>
+          <article class="card card--mol reveal" data-cat="dor">
+            <span class="card__badge">Novo</span>
+            <div class="card__art"><div class="mini-box"><b>Asp</b>Mol</div></div>
+            <div class="card__body">
+              <h3>AspMol</h3>
+              <p class="card__ing">Paracetamol</p>
+              <p>Dores moderadas a intensas e febre. Comprimidos 500 mg, caixa com 20.</p>
+            </div>
+          </article>
+          <article class="card card--classic reveal" data-cat="dor">
+            <div class="card__art"><div class="mini-box"><b>Aspirina</b>500</div></div>
+            <div class="card__body">
+              <h3>Aspirina 500 mg</h3>
+              <p class="card__ing">Ácido acetilsalicílico</p>
+              <p>O clássico. Alívio de dores leves a moderadas, como dor de cabeça, de garganta e muscular.</p>
+            </div>
+          </article>
+          <article class="card card--c reveal" data-cat="gripe dor">
+            <div class="card__art"><div class="mini-tab"><span>C</span></div></div>
+            <div class="card__body">
+              <h3>Aspirina C</h3>
+              <p class="card__ing">AAS 400 mg + vitamina C 240 mg</p>
+              <p>Comprimido efervescente para dor e febre de gripes e resfriados, dor de cabeça e dores musculares.</p>
+            </div>
+          </article>
+          <article class="card card--prevent reveal" data-cat="coracao">
+            <div class="card__art"><div class="mini-heart"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M0 16h18l4-10 6 20 6-14 4 4h26" fill="none" stroke="currentColor" stroke-width="2"/></svg></div></div>
+            <div class="card__body">
+              <h3>Aspirina Prevent</h3>
+              <p class="card__ing">AAS 100 mg e 300 mg</p>
+              <p>Ação antiagregante plaquetária para prevenção cardiovascular. Uso sob orientação médica.</p>
+            </div>
+          </article>
+        </div>
+        <p class="note reveal">Informações de apresentações conforme divulgação pública. Sempre confira a embalagem e a bula.</p>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ===================== HISTÓRIA ================== -->
+    <!-- ================================================= -->
+    <section class="view" id="view-historia" data-view="historia" role="tabpanel">
+      <div class="wrap section section--first">
+        <header class="section__head reveal">
+          <span class="eyebrow">Linha do tempo</span>
+          <h2 class="h2">De 1897<br><em>até agora.</em></h2>
+          <p class="section__sub">Um dos medicamentos mais estudados do mundo. Arraste ou role para atravessar mais de um século.</p>
+        </header>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <div class="timeline__rail"><span id="timelineBar"></span></div>
+        <ol class="timeline__track" id="timelineTrack">
+          <li class="era"><span class="era__year">1897</span><h3>A síntese</h3><p>Nos laboratórios da Bayer, na Alemanha, o químico Felix Hoffmann sintetiza o ácido acetilsalicílico em forma pura e estável.</p></li>
+          <li class="era"><span class="era__year">1899</span><h3>Nasce a marca</h3><p>Aspirina é registrada como marca em Berlim. A comercialização começa em pó, em frascos de vidro.</p></li>
+          <li class="era"><span class="era__year">1900</span><h3>O comprimido</h3><p>Para facilitar o uso, surge o formato em comprimido de 500 mg — um dos primeiros medicamentos do mundo nesse formato.</p></li>
+          <li class="era"><span class="era__year">1901</span><h3>Chega ao Brasil</h3><p>Primeiro registro de venda de Aspirina no país, começando uma relação de mais de um século com os brasileiros.</p></li>
+          <li class="era"><span class="era__year">1998</span><h3>Aspirina Prevent</h3><p>Baseada na ação antiagregante plaquetária do AAS, a marca entra na prevenção de eventos cardiovasculares.</p></li>
+          <li class="era"><span class="era__year">2022</span><h3>125 anos</h3><p>A marca celebra 125 anos de inovação como um dos medicamentos mais estudados da história.</p></li>
+          <li class="era era--hot"><span class="era__year">2025</span><h3>AspDip & AspMol</h3><p>A Bayer amplia a família Aspirina com dipirona e paracetamol, para dores moderadas a intensas e febre.</p></li>
+          <li class="era era--hot"><span class="era__year">2026</span><h3>#ASPergunta</h3><p>Com Dani Calabresa, a campanha leva os lançamentos para a TV aberta, as redes e o dia a dia.</p></li>
+        </ol>
+      </div>
+
+      <div class="wrap section">
+        <div class="facts">
+          <div class="fact reveal"><span class="fact__n">C₉H₈O₄</span><p>Fórmula do ácido acetilsalicílico, a molécula que deu origem à marca.</p></div>
+          <div class="fact reveal"><span class="fact__n">500 mg</span><p>A dose do primeiro comprimido, em 1900 — a mesma do clássico até hoje.</p></div>
+          <div class="fact reveal"><span class="fact__n">3</span><p>princípios ativos na família Asp: AAS, dipirona e paracetamol.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ====================== DÚVIDAS ================== -->
+    <!-- ================================================= -->
+    <section class="view" id="view-duvidas" data-view="duvidas" role="tabpanel">
+      <div class="wrap section section--first">
+        <header class="section__head reveal">
+          <span class="eyebrow">Dúvidas</span>
+          <h2 class="h2">Perguntas<br><em>frequentes.</em></h2>
+        </header>
+
+        <div class="faq-grid">
+          <div class="faq">
+            <details class="faq__item reveal" open>
+              <summary>O que são AspDip e AspMol?<i></i></summary>
+              <div class="faq__a"><p>São os novos analgésicos da Bayer na família Aspirina. AspDip tem dipirona como princípio ativo e AspMol tem paracetamol. Ambos são indicados para o alívio de dores moderadas a intensas e para o controle da febre.</p></div>
+            </details>
+            <details class="faq__item reveal">
+              <summary>Qual a diferença para a Aspirina tradicional?<i></i></summary>
+              <div class="faq__a"><p>A Aspirina tradicional tem ácido acetilsalicílico (AAS). AspDip e AspMol trazem outros princípios ativos — dipirona e paracetamol — com a mesma assinatura Bayer.</p></div>
+            </details>
+            <details class="faq__item reveal">
+              <summary>Quais as apresentações do AspDip?<i></i></summary>
+              <div class="faq__a"><p>Comprimidos de 500 mg (caixa com 30) e de 1 g (caixa com 10), além de gotas 500 mg/mL em frasco de 20 mL.</p></div>
+            </details>
+            <details class="faq__item reveal">
+              <summary>Quais as apresentações do AspMol?<i></i></summary>
+              <div class="faq__a"><p>Comprimidos de 500 mg, em caixa com 20 unidades.</p></div>
+            </details>
+            <details class="faq__item reveal">
+              <summary>Preciso de receita?<i></i></summary>
+              <div class="faq__a"><p>São medicamentos isentos de prescrição, mas isso não dispensa cuidado: leia a bula, respeite a dose e converse com um farmacêutico ou médico em caso de dúvida.</p></div>
+            </details>
+            <details class="faq__item reveal">
+              <summary>O que é a #ASPergunta?<i></i></summary>
+              <div class="faq__a"><p>É a campanha de 2026 estrelada por Dani Calabresa, que apresenta AspDip e AspMol com a mensagem “Dos mesmos criadores da Aspirina — é Bayer, é bom”.</p></div>
+            </details>
+          </div>
+
+          <aside class="finder reveal" id="onde">
+            <span class="eyebrow">Onde encontrar</span>
+            <h3>Nas farmácias de todo o Brasil.</h3>
+            <p>Procure AspDip e AspMol na sua farmácia de confiança ou nas principais redes e e-commerces.</p>
+            <form class="finder__form" onsubmit="return false">
+              <label for="cep" class="sr-only">Seu CEP</label>
+              <input id="cep" inputmode="numeric" maxlength="9" placeholder="Digite seu CEP" autocomplete="postal-code" />
+              <button class="btn btn--primary" type="submit" id="cepBtn"><span>Buscar</span></button>
+            </form>
+            <p class="finder__msg" id="cepMsg" aria-live="polite"></p>
+            <div class="sac">
+              <span>SAC Bayer</span>
+              <b>Telefone na embalagem</b>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__warn">
+        <p><strong>AspDip e AspMol são medicamentos.</strong> Leia a bula. Seu uso pode trazer riscos. Procure o médico e o farmacêutico. Se persistirem os sintomas, o médico deverá ser consultado.</p>
+      </div>
+      <div class="footer__row">
+        <div class="footer__brand">
+          <span class="footer__big">Asp<em>.</em></span>
+          <p>Dos mesmos criadores da Aspirina.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Rodapé">
+          <a href="#inicio" data-go="inicio">Início</a>
+          <a href="#lancamentos" data-go="lancamentos">Lançamentos</a>
+          <a href="#produtos" data-go="produtos">Produtos</a>
+          <a href="#historia" data-go="historia">História</a>
+          <a href="#duvidas" data-go="duvidas">Dúvidas</a>
+        </nav>
+      </div>
+      <div class="footer__legal">
+        <span>© <span id="year"></span> Bayer. Aspirina® é marca registrada.</span>
+        <span>Projeto conceitual de interface.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
