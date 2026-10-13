@@ -1,6 +1,6 @@
 /* Família Asp · interações */
 (() => {
-  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, byId } = window.ASP;
+  const { SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, byId } = window.ASP;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -17,7 +17,18 @@
 
   $('#year').textContent = new Date().getFullYear();
   // Rótulo do frasco 3D: desenhado depois que as fontes carregam
-  (document.fonts?.ready || Promise.resolve()).then(() => { try { makeBottleLabel(); } catch (e) {} });
+  // Frasco: redesenha só quando o ângulo muda
+  const paintBottle = (cv, yaw) => {
+    if (!cv) return;
+    const a = Math.round(yaw * 2) / 2;
+    if (cv._a === a) return;
+    cv._a = a;
+    cv.style.setProperty('--bb', (-a).toFixed(1) + 'deg');
+    drawBottle(cv, a);
+  };
+  const repaintBottles = () => $$('.bottle3d__c').forEach(cv => { cv._a = null; paintBottle(cv, cv._yaw || 0); });
+  try { makeBottleLabel(); } catch (e) {}
+  (document.fonts?.ready || Promise.resolve()).then(() => { try { makeBottleLabel(); repaintBottles(); } catch (e) {} });
 
   /* ---------- Toast ---------- */
   let toastT;
@@ -297,7 +308,9 @@
       const lift = i === hoverIdx ? 1.06 : 1;
       const sc = (.5 + .5 * depth) * G.k * (.7 + .3 * ie) * lift;
       el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${(sn * 28).toFixed(2)}deg) scale(${sc.toFixed(3)})`;
-      el.style.setProperty('--fog', ((1 - depth) * .55).toFixed(3));
+      el.style.setProperty('--fog', ((1 - depth) * .32).toFixed(3));
+      const cv = el._cv || (el._cv = el.querySelector('.bottle3d__c'));
+      if (cv) { cv._yaw = sn * 28 - 27; paintBottle(cv, cv._yaw); }
       el.style.zIndex = Math.round(depth * 100);
     });
     dialRot.setAttribute('transform', `rotate(${(-angle * 180 / Math.PI).toFixed(2)})`);
@@ -471,7 +484,11 @@
     }
     rvx = lerp(rvx, vx, .1); rvy = lerp(rvy, vy, .1);
     const pk = viewerObj.firstElementChild;
-    if (pk) { pk.style.setProperty('--vx', rvx.toFixed(2) + 'deg'); pk.style.setProperty('--vy', rvy.toFixed(2) + 'deg'); }
+    if (pk) {
+      pk.style.setProperty('--vx', rvx.toFixed(2) + 'deg'); pk.style.setProperty('--vy', rvy.toFixed(2) + 'deg');
+      const cv = pk.querySelector('.bottle3d__c');
+      if (cv) { cv._yaw = rvy; paintBottle(cv, rvy); }
+    }
     vRAF = requestAnimationFrame(viewerLoop);
   }
 

@@ -335,82 +335,139 @@ window.ASP = (() => {
     </svg>`;
   }
 
-  /* ---------- Frasco 3D: cilindros de faces finas ---------- */
-  const BOTTLE = { r: 42, n: 24, body: 150, shoulder: 12, capR: 23, cap: 46, tipR: 9, tip: 24 };
-  const faceW = (r, n) => 2 * r * Math.tan(Math.PI / n);
-
-  // Sombreamento fixo por face (luz vindo da frente-esquerda)
-  function shade(i, n) {
-    const a = (i / n) * Math.PI * 2;
-    const l = Math.cos(a + 0.5);           // 1 = iluminado, -1 = sombra
-    return l > 0 ? `rgba(255,255,255,${(l * 0.16).toFixed(3)})` : `rgba(0,30,25,${(-l * 0.32).toFixed(3)})`;
-  }
-
-  function cylinder(cls, r, n, h, bottom, bg, opts = {}) {
-    const w = faceW(r, n), C2 = w * n;
-    let faces = '';
-    for (let i = 0; i < n; i++) {
-      const ov = shade(i, n);
-      const pos = opts.tex ? `background-image:linear-gradient(${ov},${ov}),var(--asp-label, ${bg});background-size:auto,${C2}px ${h}px;background-position:0 0,${(-(i * w) + C2 / 2 - w / 2).toFixed(2)}px 0;` : `background:linear-gradient(${ov},${ov}),${bg};`;
-      faces += `<i class="cyl__f" style="--a:${(i * 360 / n).toFixed(3)}deg;${pos}"></i>`;
-    }
-    const top = opts.top ? `<i class="cyl__disk cyl__disk--top" style="background:${opts.top}"></i>` : '';
-    return `<div class="cyl ${cls}" style="--r:${r}px;--w:${(w + 0.6).toFixed(2)}px;height:${h}px;bottom:${bottom}px">${faces}${top}</div>`;
-  }
+  /* ---------- Frasco 3D renderizado em canvas ----------
+     Cilindro de verdade: cada coluna de pixels do corpo lê o rótulo no
+     ângulo certo (θ = asin(x/r)), com sombreamento de luz. Sem frestas. */
+  const BOTTLE = { W: 96, H: 236, r: 44, body: 146, shoulder: 14, capR: 24, cap: 48, tipR: 9, tip: 24 };
+  let LABEL = null;
 
   function bottle3D() {
     const B = BOTTLE;
-    let y = 0;
-    const body = cylinder('cyl--body', B.r, B.n, B.body, y, 'linear-gradient(#F6F7F7,#F6F7F7)', { tex: true }); y += B.body;
-    const sh = cylinder('cyl--shoulder', B.r * .72, 16, B.shoulder, y, 'linear-gradient(90deg,#E9ECEC,#fff)'); y += B.shoulder;
-    const cap = cylinder('cyl--cap', B.capR, 16, B.cap, y, 'repeating-linear-gradient(90deg,#FFFFFF 0 3px,#E8EBEB 3px 5px)', { top: 'radial-gradient(circle,#fff,#DADDDE)' }); y += B.cap;
-    const tip = cylinder('cyl--tip', B.tipR, 12, B.tip, y, 'linear-gradient(90deg,#EEF0F0,#fff)', { top: 'radial-gradient(circle,#fff,#D5D9DA)' }); y += B.tip;
-    return `<div class="bottle3d" style="height:${y}px;width:${B.r * 2}px">${body}${sh}${cap}${tip}</div>`;
+    return `<div class="bottle3d" style="width:${B.W}px;height:${B.H}px"><canvas class="bottle3d__c" width="${B.W * 2}" height="${B.H * 2}" aria-hidden="true"></canvas></div>`;
   }
 
-  // Rótulo do frasco desenhado em canvas (usa as fontes do site)
+  // Rótulo plano (volta inteira do frasco), desenhado com as fontes do site
   function makeBottleLabel() {
     const B = BOTTLE;
-    const w = faceW(B.r, B.n) * B.n, h = B.body;
+    const w = Math.round(2 * Math.PI * B.r), h = B.body;
     const s = 3;
     const cv = document.createElement('canvas');
-    cv.width = Math.round(w * s); cv.height = h * s;
+    cv.width = w * s; cv.height = h * s;
     const x = cv.getContext('2d');
     x.scale(s, s);
     const cx = w / 2;
-    x.fillStyle = '#F6F7F7'; x.fillRect(0, 0, w, h);
-    // faixas do rótulo, em volta de todo o frasco
-    x.fillStyle = '#fff'; x.fillRect(0, 18, w, 44);
+    x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, w, h);
     const lime = x.createLinearGradient(0, 0, w, 0); lime.addColorStop(0, C.lime1); lime.addColorStop(.5, C.lime2); lime.addColorStop(1, C.lime1);
-    x.fillStyle = lime; x.fillRect(0, 62, w, 18);
+    x.fillStyle = lime; x.fillRect(0, 60, w, 20);
     x.fillStyle = C.silver; x.fillRect(0, 80, w, 2);
-    const teal = x.createLinearGradient(0, 0, w, 0); teal.addColorStop(0, C.teal3); teal.addColorStop(.5, C.teal1); teal.addColorStop(1, C.teal3);
-    x.fillStyle = teal; x.fillRect(0, 82, w, 52);
+    x.fillStyle = C.teal2; x.fillRect(0, 82, w, h - 82);
     // frente
-    x.strokeStyle = C.ink; x.lineWidth = 1.1;
-    x.beginPath(); x.arc(cx - 34, 41, 9, 0, Math.PI * 2); x.stroke();
-    x.fillStyle = C.ink; x.font = '700 4px Jost, sans-serif'; x.textAlign = 'center';
-    x.fillText('BAYER', cx - 34, 42.5);
-    x.font = '600 19px Jost, Futura, sans-serif'; x.textAlign = 'left';
-    x.fillStyle = C.ink; x.fillText('ASP', cx - 22, 49);
+    x.strokeStyle = C.ink; x.lineWidth = 1;
+    x.beginPath(); x.arc(cx - 32, 38, 8, 0, Math.PI * 2); x.stroke();
+    x.fillStyle = C.ink; x.font = '700 3.6px Jost, sans-serif'; x.textAlign = 'center';
+    x.fillText('BAYER', cx - 32, 39.4);
+    x.textAlign = 'left'; x.font = '600 19px Jost, Futura, sans-serif';
+    x.fillText('ASP', cx - 21, 45);
     const aw = x.measureText('ASP').width;
-    x.fillStyle = C.dipWord; x.fillText('DIP', cx - 22 + aw - 1, 49);
+    x.fillStyle = C.dipWord; x.fillText('DIP', cx - 21 + aw - 1, 45);
     x.fillStyle = '#fff'; x.font = '500 12px "Barlow Condensed", "Arial Narrow", sans-serif';
-    x.fillText('dipirona 500mg/mL', cx - 34, 75);
-    x.font = 'italic 800 13px "Barlow Condensed", "Arial Narrow", sans-serif';
-    x.fillText('DOR & FEBRE', cx - 34, 100);
+    x.fillText('dipirona 500mg/mL', cx - 32, 75);
+    x.font = 'italic 800 14px "Barlow Condensed", "Arial Narrow", sans-serif';
+    x.fillText('DOR & FEBRE', cx - 32, 102);
     x.font = '500 8px "Barlow Condensed", "Arial Narrow", sans-serif';
-    x.fillText('Conteúdo: 20 mL', cx - 34, 114);
-    x.fillText('SOLUÇÃO ORAL', cx - 34, 124);
-    // gota dourada
-    const gd = x.createRadialGradient(cx + 44, 104, 1, cx + 46, 108, 9);
+    x.fillText('Conteúdo: 20 mL', cx - 32, 118);
+    x.fillText('SOLUÇÃO ORAL', cx - 32, 128);
+    const gx = cx + 36, gy = 124, gr = 6;
+    const gd = x.createRadialGradient(gx - 2, gy - 2, 1, gx, gy, gr + 1);
     gd.addColorStop(0, '#F6E7A0'); gd.addColorStop(.6, C.gold); gd.addColorStop(1, '#8E7A2A');
-    x.fillStyle = gd; x.beginPath(); x.moveTo(cx + 46, 94); x.bezierCurveTo(cx + 46, 94, cx + 38, 106, cx + 38, 110); x.arc(cx + 46, 110, 8, Math.PI, 0, true); x.bezierCurveTo(cx + 54, 106, cx + 46, 94, cx + 46, 94); x.fill();
-    // verso
-    x.fillStyle = 'rgba(255,255,255,.9)'; x.font = '500 8px "Barlow Condensed", "Arial Narrow", sans-serif';
-    x.fillText('Dos mesmos criadores da Aspirina.', 6, 100);
-    x.fillText('Leia a bula.', 6, 112);
-    document.documentElement.style.setProperty('--asp-label', `url(${cv.toDataURL('image/png')})`);
+    x.fillStyle = gd; x.beginPath(); x.moveTo(gx, gy - gr * 2); x.bezierCurveTo(gx, gy - gr * 2, gx - gr, gy - gr * .5, gx - gr, gy); x.arc(gx, gy, gr, Math.PI, 0, true); x.bezierCurveTo(gx + gr, gy - gr * .5, gx, gy - gr * 2, gx, gy - gr * 2); x.fill();
+    // verso (lado oposto do rótulo)
+    x.fillStyle = 'rgba(255,255,255,.92)'; x.font = '500 8px "Barlow Condensed", "Arial Narrow", sans-serif';
+    x.fillText('Dos mesmos criadores', 8, 100);
+    x.fillText('da Aspirina. Leia a bula.', 8, 110);
+    LABEL = cv;
+  }
+
+  // Desenha o frasco visto num ângulo (graus); 0 = rótulo de frente
+  function drawBottle(canvas, angleDeg = 0) {
+    const B = BOTTLE, k = 2;
+    const x = canvas.getContext('2d');
+    x.setTransform(k, 0, 0, k, 0, 0);
+    x.clearRect(0, 0, B.W, B.H);
+    const cx = B.W / 2;
+    const yBody = B.H - B.body;          // topo do corpo
+    const ell = .18;                      // achatamento das elipses (vista levemente de cima)
+    const lightGrad = (r, y0, y1) => {
+      const g = x.createLinearGradient(cx - r, 0, cx + r, 0);
+      g.addColorStop(0, 'rgba(0,30,25,.42)'); g.addColorStop(.18, 'rgba(0,30,25,.12)');
+      g.addColorStop(.34, 'rgba(255,255,255,.38)'); g.addColorStop(.46, 'rgba(255,255,255,.05)');
+      g.addColorStop(.8, 'rgba(0,30,25,.16)'); g.addColorStop(1, 'rgba(0,30,25,.5)');
+      return g;
+    };
+    const cyl = (r, top, bottom, fill) => {
+      x.save();
+      x.beginPath();
+      x.moveTo(cx - r, top); x.lineTo(cx - r, bottom);
+      x.ellipse(cx, bottom, r, r * ell, 0, Math.PI, 0, true);
+      x.lineTo(cx + r, top);
+      x.ellipse(cx, top, r, r * ell, 0, 0, Math.PI, false);
+      x.closePath(); x.clip();
+      fill();
+      x.fillStyle = lightGrad(r); x.fillRect(cx - r, top - r, r * 2, bottom - top + r * 2);
+      x.restore();
+    };
+    const lid = (r, y, c1, c2) => {
+      const g = x.createLinearGradient(cx - r, y, cx + r, y);
+      g.addColorStop(0, c2); g.addColorStop(.4, c1); g.addColorStop(1, c2);
+      x.fillStyle = g; x.beginPath(); x.ellipse(cx, y, r, r * ell, 0, 0, Math.PI * 2); x.fill();
+    };
+    // sombra de contato
+    x.save();
+    x.translate(cx, B.H - 5); x.scale(1, .16);
+    const sh = x.createRadialGradient(0, 0, 0, 0, 0, B.r);
+    sh.addColorStop(0, 'rgba(0,30,25,.4)'); sh.addColorStop(1, 'rgba(0,30,25,0)');
+    x.fillStyle = sh; x.beginPath(); x.arc(0, 0, B.r, 0, Math.PI * 2); x.fill();
+    x.restore();
+    // corpo com o rótulo enrolado
+    const bottom = B.H - B.r * ell - 2;
+    cyl(B.r, yBody, bottom, () => {
+      x.fillStyle = '#F4F6F6'; x.fillRect(cx - B.r, yBody - 10, B.r * 2, B.body + 20);
+      if (!LABEL) return;
+      const lw = LABEL.width, lh = LABEL.height;
+      const a = angleDeg * Math.PI / 180;
+      const lt = yBody + 6, lhD = B.body - 22;
+      for (let px = -B.r; px < B.r; px += .5) {
+        const th = Math.asin(Math.max(-1, Math.min(1, (px + .25) / B.r)));
+        let u = .5 + (th - a) / (2 * Math.PI);
+        u -= Math.floor(u);
+        // a borda do rótulo acompanha a curva da base
+        const sag = Math.sqrt(Math.max(0, 1 - (px / B.r) ** 2)) * B.r * ell;
+        x.drawImage(LABEL, Math.floor(u * lw), 0, 2, lh, cx + px, lt + sag, .6, lhD);
+      }
+    });
+    // ombro
+    const yS = yBody - B.shoulder;
+    cyl(B.r * .62, yS, yBody, () => { x.fillStyle = '#F2F4F4'; x.fillRect(0, 0, B.W, B.H); });
+    lid(B.r, yBody, '#FFFFFF', '#DDE1E2');
+    lid(B.r * .62, yS, '#FFFFFF', '#E3E6E7');
+    // tampa com estrias
+    const yC = yS - B.cap;
+    cyl(B.capR, yC, yS, () => {
+      x.fillStyle = '#FAFBFB'; x.fillRect(0, 0, B.W, B.H);
+      x.fillStyle = 'rgba(0,30,25,.10)';
+      const a = angleDeg * Math.PI / 180;
+      for (let i = 0; i < 28; i++) {
+        const t = (i / 28) * Math.PI * 2 + a;
+        if (Math.cos(t) < 0) continue;
+        const px = Math.sin(t) * B.capR;
+        x.fillRect(cx + px - .5, yC, 1, B.cap);
+      }
+    });
+    lid(B.capR, yC, '#FFFFFF', '#D9DDDE');
+    // bico
+    const yT = yC - B.tip;
+    cyl(B.tipR, yT, yC, () => { x.fillStyle = '#F7F8F8'; x.fillRect(0, 0, B.W, B.H); });
+    lid(B.tipR, yT, '#FFFFFF', '#DADEDF');
   }
 
   /* ---------- Faces laterais: as mesmas faixas da borda vizinha ----------
@@ -468,5 +525,5 @@ window.ASP = (() => {
     return `<div class="flat" style="aspect-ratio:${1000 / s.vb}">${frontSVG(s)}</div>`;
   }
 
-  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, byId: id => SKUS.find(s => s.id === id) };
+  return { C, SKUS, FAMILIES, LINE, FAQ, product3D, flat, ean13, makeBottleLabel, drawBottle, byId: id => SKUS.find(s => s.id === id) };
 })();
