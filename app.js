@@ -991,6 +991,38 @@
     $(`.view[data-view="${startTab}"]`).classList.add('is-active');
     tabBtns.forEach(b => { const on = b.dataset.go === startTab; b.classList.toggle('is-active', on); b.setAttribute('aria-selected', on); });
   }
+
+  /* ---------- Guia por sintoma ----------
+     Situações tiradas do item "Para que este medicamento é indicado?" de cada bula (bula.js). */
+  const GUIA = [
+    ['Dor de cabeça', ['aspmol', 'aspirina', 'aspirinac']],
+    ['Enxaqueca', ['cafi']],
+    ['Febre', ['aspdip', 'aspmol', 'aspirina', 'aspirinac']],
+    ['Gripe e resfriado', ['aspmol', 'aspirina', 'aspirinac']],
+    ['Dor de dente', ['aspmol', 'aspirina', 'aspirinac']],
+    ['Dor de garganta', ['aspmol', 'aspirina', 'aspirinac']],
+    ['Cólica menstrual', ['aspmol', 'aspirina']],
+    ['Dor muscular', ['aspmol', 'aspirina', 'aspirinac']],
+    ['Dor nas costas', ['aspirina', 'aspirinac']],
+    ['Dor nas articulações', ['aspirina', 'aspirinac']],
+    ['Outras dores', ['aspdip', 'cafi']]
+  ];
+  const GUIA_P = {
+    aspdip: ['AspDip', 'data-go="lancamentos" data-sku="aspdip-500"'],
+    aspmol: ['AspMol', 'data-go="lancamentos" data-sku="aspmol-500"'],
+    aspirina: ['Aspirina', 'data-go="produtos" data-cls="aspirina-500" data-scroll="classica"'],
+    aspirinac: ['Aspirina C', 'data-go="produtos" data-cls="aspirina-c" data-scroll="classica"'],
+    cafi: ['CafiAspirina', 'data-go="produtos" data-cls="cafiaspirina" data-scroll="classica"']
+  };
+  const guiaChips = $('#guiaChips'), guiaOut = $('#guiaOut');
+  const guiaTxt = k => window.ASP_BULA[k].indicacao.map(t => t.replace(/^## /, '')).join(' ');
+  guiaChips.innerHTML = GUIA.map(([s], i) => `<button class="chip" type="button" data-guia="${i}" aria-pressed="false">${s}</button>`).join('');
+  function showGuia(i) {
+    $$('[data-guia]', guiaChips).forEach(b => { const on = +b.dataset.guia === i; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on); });
+    guiaOut.innerHTML = GUIA[i][1].map((k, n) => `<button class="guia__item" type="button" ${GUIA_P[k][1]} style="--i:${n}"><b>${GUIA_P[k][0]}</b><span>${guiaTxt(k)}</span><i aria-hidden="true">→</i></button>`).join('');
+  }
+  guiaChips.addEventListener('click', e => { const b = e.target.closest('[data-guia]'); if (b) showGuia(+b.dataset.guia); });
+  showGuia(0);
   $('.view.is-active').classList.add('is-settled');
   movePill();
   observeReveals($('.view.is-active'));
